@@ -1,7 +1,7 @@
 schema: coverage/1
 package: growth-rates-lean
 kind: library
-summary: "Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from cut, confinement and composition inequalities. Every limit, infimum and error bound is derived, not assumed."
+summary: "Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from an assumed rate and cut, confinement and composition inequalities. Limits are derived; the finite-time results assume the rate."
 rows:
   - title: "Fekete's lemma in continuous time"
     claims:

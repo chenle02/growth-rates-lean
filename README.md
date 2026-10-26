@@ -15,8 +15,9 @@ If $`b\colon[0,\infty)\to\mathbb{R}`$ is nonnegative, subadditive and bounded ab
 ## What is proved
 
 All functions are real-valued functions of a real variable, and every limit is as $`t\to\infty`$.
-In each result the limit, and its value, is a conclusion; the remaining inputs are hypotheses of the
-Lean statement.
+Results 1–5 establish or transfer limits, and there the limit and its value are conclusions. The
+finite-time results 6 and 7 assume an established rate $`\lambda`$ and derive explicit bounds. Every
+other input is a hypothesis of the Lean statement.
 
 1. **Fekete's lemma in continuous time.** Let $`b`$ satisfy `RealTimeBounds b`: $`b(t)\ge0`$ and
    $`b(t+u)\le b(t)+b(u)`$ for $`t,u\ge0`$, and for every $`h>0`$ there is $`M`$ with $`b(r)\le M`$ on
@@ -175,7 +176,7 @@ recorded Lean builds, axiom audits and comparator checks. Mathlib retains its ow
 
 **How to read this page.** Lean has checked every step of the proofs listed here. Each result is exactly its Lean statement: read the statements below to see what is proved. The titles, the words and the notes are the authors' description, which Lean does not check.
 
-Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from cut, confinement and composition inequalities. Every limit, infimum and error bound is derived, not assumed.
+Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from an assumed rate and cut, confinement and composition inequalities. Limits are derived; the finite-time results assume the rate.
 
 - Main results: 7; verified: 7 of 7.
 

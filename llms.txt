@@ -8,7 +8,7 @@ No release yet; the version, tag and DOI are set at the first release.
 The Lean declaration decides every hypothesis. Prose is not checked by Lean.
 A receipt under .lean-receipts/ covers only the commit it names.
 
-Main declarations (all limits as t → ∞; the limit and its value are conclusions, the rest are hypotheses):
+Main declarations (all limits as t → ∞; the RealFekete, LogDefect and Envelope results conclude their limits and values; the FiniteError results assume the rate lam and conclude explicit finite-time bounds; everything else is a hypothesis):
 - GrowthRates.RealFekete.tendsto_div_rate: RealTimeBounds b (b ≥ 0 and b(t+u) ≤ b t + b u on [0, ∞), b bounded above on every [0, h]) gives b t / t → rate b = sInf {b h / h : h > 0}. Also rate_le_slope, rate_nonneg.
 - GrowthRates.RealFekete.tendsto_div_rate_of_comparison, lower_bound_of_comparison: m ≤ b ≤ m + A + B log(1+t) on t > 0 gives m t / t → rate b; the upper comparison gives t rate b - A - B log(1+t) ≤ m t for t > 0.
 - GrowthRates.RealFekete.log_rate_of_submul: SubmulInputs N C and 0 < F ≤ N, log N ≤ log F + A + B log(1+t) give log F t / t → rate (log ∘ N) and the finite-time lower bound.

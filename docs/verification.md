@@ -6,7 +6,7 @@
 
 **How to read this page.** Lean has checked every step of the proofs listed here. Each result is exactly its Lean statement: read the statements below to see what is proved. The titles, the words and the notes are the authors' description, which Lean does not check.
 
-Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from cut, confinement and composition inequalities. Every limit, infimum and error bound is derived, not assumed.
+Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from an assumed rate and cut, confinement and composition inequalities. Limits are derived; the finite-time results assume the rate.
 
 - Main results: 7; verified: 7 of 7.
 

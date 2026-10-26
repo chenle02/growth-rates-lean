@@ -7,9 +7,10 @@ function of a continuous time parameter. It proves Fekete's lemma in continuous 
 limit identified as the infimum of the slopes; transfers that rate to any function within a
 logarithmic error; proves a Fekete lemma for functions that are superadditive up to a logarithmic
 defect, with the limit identified as the supremum of explicitly corrected slopes; derives limits
-uniform in an order parameter, and joint limits, from fixed-order limits; and turns abstract cut,
-confinement and composition inequalities into an explicit error at every finite time. In every
-result the limit, the infimum or the error bound in the conclusion is derived, never assumed.
+uniform in an order parameter, and joint limits, from fixed-order limits; and, given the rate as a
+hypothesis, turns abstract cut, confinement and composition inequalities into an explicit error at
+every finite time. The Fekete-type and envelope results derive their limits and infima; the
+finite-time results take the rate $`\lambda`$ as a hypothesis and derive the error bounds.
 
 How to read this page: each card below is one row of [`coverage.yaml`](../coverage.yaml) and
 states one main result, sometimes with the lemmas that make it usable on its own. The typeset

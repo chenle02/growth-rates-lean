@@ -11,9 +11,9 @@ project:
   name: growth-rates-lean
   description: Lean 4 / Mathlib library on linear growth rates of real functions of a continuous time
     parameter -- Fekete's lemma in continuous time and rate transfer within a logarithmic error, a Fekete
-    lemma with a logarithmic defect whose limit is identified as the supremum of explicitly corrected slopes
-    (direct, delayed and multiplicative forms), uniform envelopes and joint limits over an order parameter,
-    and explicit finite-time errors from cut, confinement and composition inequalities.
+    lemma with a logarithmic defect whose limit is identified as the supremum of explicitly corrected
+    slopes (direct, delayed and multiplicative forms), uniform envelopes and joint limits over an order
+    parameter, and explicit finite-time errors from cut, confinement and composition inequalities.
   authors:
   - Le Chen
   license: Apache-2.0
@@ -32,20 +32,21 @@ related_formalizations:
   note: pinned in lake-manifest.json
 status:
   scope: 'Formalized: Fekete''s lemma in continuous time for nonnegative, subadditive, locally bounded
-    functions; rate transfer under a logarithmic comparison; a Fekete lemma with a logarithmic defect with
-    the limit identified exactly, and its delayed and multiplicative forms; uniform envelopes and joint limits
-    over an order parameter; finite-time errors from cut, confinement and composition inequalities. Excluded:
-    a measurability-only continuous Fekete lemma, the general de Bruijn-Erdos theorem, convergence rates,
-    and any derivation of the comparison, cut, confinement or composition inequalities for a concrete model.'
+    functions; rate transfer under a logarithmic comparison; a Fekete lemma with a logarithmic defect
+    with the limit identified exactly, and its delayed and multiplicative forms; uniform envelopes and
+    joint limits over an order parameter; finite-time errors from cut, confinement and composition inequalities.
+    Excluded: a measurability-only continuous Fekete lemma, the general de Bruijn-Erdos theorem, convergence
+    rates, and any derivation of the comparison, cut, confinement or composition inequalities for a concrete
+    model.'
   sorry_count: 0
   axioms:
   - Classical.choice
   - Quot.sound
   - propext
   evidence:
-    commit: 993d64ce05ed7414274134f8dddec6073ff5523f
-    gate_receipt: .lean-receipts/993d64ce05ed-systemd-user-growth-rates-lean-verify.service-0f763275b6c04564bf68dbf8f885b19f-h-2db2e0fa6029.json
-    comparator_receipt: .lean-receipts/993d64ce05ed-comparator.json
+    commit: 7be8306dfe039ce7831f440705545e53c77be2f6
+    gate_receipt: .lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json
+    comparator_receipt: .lean-receipts/7be8306dfe03-comparator.json
   main_results:
   - comparator_config: comparator.json
     declaration: GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate

@@ -1,6 +1,6 @@
 # What is proved
 
-<!-- Hand-written. Lean statements copied verbatim from GrowthRates/RealFekete.lean, GrowthRates/LogDefect.lean, GrowthRates/Envelope.lean and GrowthRates/FiniteError.lean at commit 7be8306dfe039ce7831f440705545e53c77be2f6 (the commit the build receipt binds). Re-copy them when the receipts move. -->
+<!-- Hand-written. Lean statements copied verbatim from GrowthRates/RealFekete.lean, GrowthRates/LogDefect.lean, GrowthRates/Envelope.lean and GrowthRates/FiniteError.lean at commit 158e8431c1dbe0c52cdf3b76b6e7231ef6981c67 (the commit the build receipt binds). Re-copy them when the receipts move. -->
 
 `growth-rates-lean` is a Lean 4 library of real analysis about the linear growth rate of a real
 function of a continuous time parameter. It proves Fekete's lemma in continuous time, with the
@@ -50,13 +50,13 @@ vocabulary.
 
 | # | Result | Reference | Lean | Status |
 |---|---|---|---|---|
-| 1 | [Fekete's lemma in continuous time](#1-feketes-lemma-in-continuous-time) | Fekete (1923); Hille and Phillips (1957) | `RealFekete.tendsto_div_rate` | proved (gate verified at `7be8306dfe03`) |
-| 2 | [Rate transfer under a logarithmic comparison](#2-rate-transfer-under-a-logarithmic-comparison) | consequence of 1 | `RealFekete.tendsto_div_rate_of_comparison` | proved (gate verified at `7be8306dfe03`) |
-| 3 | [Fekete's lemma with a logarithmic defect](#3-feketes-lemma-with-a-logarithmic-defect) | de Bruijn and Erdős (1952) (related, not formalized) | `LogDefect.tendsto_div_rate` | proved (gate verified at `7be8306dfe03`) |
-| 4 | [Delayed and multiplicative forms](#4-delayed-and-multiplicative-forms) | consequence of 3 | `LogDefect.tendsto_div_delayedRate` | proved (gate verified at `7be8306dfe03`) |
-| 5 | [Uniform envelopes and joint limits over the order](#5-uniform-envelopes-and-joint-limits-over-the-order) | none (elementary) | `Envelope.joint_limit` | proved (gate verified at `7be8306dfe03`) |
-| 6 | [Quantitative finite-time error](#6-quantitative-finite-time-error) | none (elementary) | `FiniteError.log_error` | proved (gate verified at `7be8306dfe03`) |
-| 7 | [Joint error from two orders](#7-joint-error-from-two-orders) | none (elementary) | `FiniteError.joint_error` | proved (gate verified at `7be8306dfe03`) |
+| 1 | [Fekete's lemma in continuous time](#1-feketes-lemma-in-continuous-time) | Fekete (1923); Hille and Phillips (1957) | `RealFekete.tendsto_div_rate` | proved (gate verified at `158e8431c1db`) |
+| 2 | [Rate transfer under a logarithmic comparison](#2-rate-transfer-under-a-logarithmic-comparison) | consequence of 1 | `RealFekete.tendsto_div_rate_of_comparison` | proved (gate verified at `158e8431c1db`) |
+| 3 | [Fekete's lemma with a logarithmic defect](#3-feketes-lemma-with-a-logarithmic-defect) | de Bruijn and Erdős (1952) (related, not formalized) | `LogDefect.tendsto_div_rate` | proved (gate verified at `158e8431c1db`) |
+| 4 | [Delayed and multiplicative forms](#4-delayed-and-multiplicative-forms) | consequence of 3 | `LogDefect.tendsto_div_delayedRate` | proved (gate verified at `158e8431c1db`) |
+| 5 | [Uniform envelopes and joint limits over the order](#5-uniform-envelopes-and-joint-limits-over-the-order) | none (elementary) | `Envelope.joint_limit` | proved (gate verified at `158e8431c1db`) |
+| 6 | [Quantitative finite-time error](#6-quantitative-finite-time-error) | none (elementary) | `FiniteError.log_error` | proved (gate verified at `158e8431c1db`) |
+| 7 | [Joint error from two orders](#7-joint-error-from-two-orders) | none (elementary) | `FiniteError.joint_error` | proved (gate verified at `158e8431c1db`) |
 
 ### 1. Fekete's lemma in continuous time
 
@@ -92,8 +92,8 @@ $`[0,h]`$ and adds nonnegativity on $`[0,\infty)`$, which makes the rate finite 
 Within these hypotheses the conclusion is the classical one: the limit exists and equals the
 infimum of the slopes.
 
-**Lean.** [`GrowthRates.RealFekete.tendsto_div_rate`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/RealFekete.lean#L124); also [`GrowthRates.RealFekete.rate_le_slope`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/RealFekete.lean#L69),
-[`GrowthRates.RealFekete.rate_nonneg`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/RealFekete.lean#L74).
+**Lean.** [`GrowthRates.RealFekete.tendsto_div_rate`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L124); also [`GrowthRates.RealFekete.rate_le_slope`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L69),
+[`GrowthRates.RealFekete.rate_nonneg`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L74).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -116,11 +116,11 @@ lemma rate_nonneg {b : ℝ → ℝ} (H : RealTimeBounds b) : 0 ≤ rate b
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate`, `….rate_le_slope`, `….rate_nonneg` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate`, `….rate_le_slope`, `….rate_nonneg` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | no rate of convergence; no measurable-only version; no version with a limit $`-\infty`$ (nonnegativity is a hypothesis) |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |
@@ -160,8 +160,8 @@ t\nu-A-B\log(1+t)\le\log F(t)\quad\text{for every } t>0.
 **Compared with the reference.** Not applicable. The comparison inequalities are hypotheses; the
 constants $`A,B`$ have no sign condition.
 
-**Lean.** [`GrowthRates.RealFekete.tendsto_div_rate_of_comparison`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/RealFekete.lean#L156); also
-[`GrowthRates.RealFekete.lower_bound_of_comparison`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/RealFekete.lean#L178), [`GrowthRates.RealFekete.log_rate_of_submul`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/RealFekete.lean#L219).
+**Lean.** [`GrowthRates.RealFekete.tendsto_div_rate_of_comparison`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L156); also
+[`GrowthRates.RealFekete.lower_bound_of_comparison`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L178), [`GrowthRates.RealFekete.log_rate_of_submul`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L219).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -199,11 +199,11 @@ theorem log_rate_of_submul {N F : ℝ → ℝ} {C A B : ℝ}
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison`, `….lower_bound_of_comparison`, `….log_rate_of_submul` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison`, `….lower_bound_of_comparison`, `….log_rate_of_submul` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | no rate of convergence for $`m(t)/t`$; the comparison inequalities are never derived for a concrete function |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |
@@ -248,8 +248,8 @@ direction, with the defect inequality assumed for **all** $`x,y\ge h`$ (not only
 the limit theorem adds monotonicity on $`[h,\infty)`$ and a linear upper bound, and identifies the
 limit exactly as the supremum of the corrected slopes.
 
-**Lean.** [`GrowthRates.LogDefect.tendsto_div_rate`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/LogDefect.lean#L197); also [`GrowthRates.LogDefect.balanced_merge`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/LogDefect.lean#L58),
-[`GrowthRates.LogDefect.corrected_nat_blocks`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/LogDefect.lean#L79), [`GrowthRates.LogDefect.nat_blocks`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/LogDefect.lean#L127).
+**Lean.** [`GrowthRates.LogDefect.tendsto_div_rate`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L197); also [`GrowthRates.LogDefect.balanced_merge`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L58),
+[`GrowthRates.LogDefect.corrected_nat_blocks`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L79), [`GrowthRates.LogDefect.nat_blocks`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L127).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -294,11 +294,11 @@ theorem nat_blocks (a : ℝ → ℝ) (M B h : ℝ)
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate`, `….balanced_merge`, `….corrected_nat_blocks`, `….nat_blocks` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate`, `….balanced_merge`, `….corrected_nat_blocks`, `….nat_blocks` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | no general summable-defect (de Bruijn–Erdős) theorem; no rate of convergence; the defect inequality is a hypothesis |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |
@@ -335,8 +335,8 @@ applied to $`x\mapsto b(x-1)`$ on $`[T_0+1,\infty)`$; for the related literature
 **Compared with the reference.** Not applicable. Nonnegativity of $`b`$ (or $`f\ge1`$) is an added
 hypothesis; it gives $`D\ge0`$.
 
-**Lean.** [`GrowthRates.LogDefect.tendsto_div_delayedRate`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/LogDefect.lean#L247); also
-[`GrowthRates.LogDefect.tendsto_log_div_delayedRate`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/LogDefect.lean#L329).
+**Lean.** [`GrowthRates.LogDefect.tendsto_div_delayedRate`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L247); also
+[`GrowthRates.LogDefect.tendsto_log_div_delayedRate`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L329).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -372,11 +372,11 @@ theorem tendsto_log_div_delayedRate (f : ℝ → ℝ) (M B T0 C : ℝ)
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate`, `….tendsto_log_div_delayedRate` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate`, `….tendsto_log_div_delayedRate` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | no rate of convergence; the composition inequality is a hypothesis, never derived for a concrete model |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |
@@ -427,10 +427,10 @@ arguments, stated for reuse.
 **Compared with the reference.** Not applicable. Antitonicity in the order and the uniform lower
 error (L) are hypotheses; no upper estimate uniform in the order is assumed or derived.
 
-**Lean.** [`GrowthRates.Envelope.joint_limit`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L132); also [`GrowthRates.Envelope.envelope_limit`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L61),
-[`GrowthRates.Envelope.real_order_lower`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L88), [`GrowthRates.Envelope.control_sandwich`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L99),
-[`GrowthRates.Envelope.control_limit`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L114), [`GrowthRates.Envelope.corrected_sInf`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L169),
-[`GrowthRates.Envelope.glb_div_time`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Envelope.lean#L176).
+**Lean.** [`GrowthRates.Envelope.joint_limit`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L132); also [`GrowthRates.Envelope.envelope_limit`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L61),
+[`GrowthRates.Envelope.real_order_lower`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L88), [`GrowthRates.Envelope.control_sandwich`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L99),
+[`GrowthRates.Envelope.control_limit`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L114), [`GrowthRates.Envelope.corrected_sInf`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L169),
+[`GrowthRates.Envelope.glb_div_time`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L176).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -493,11 +493,11 @@ theorem glb_div_time {v : ℕ → ℝ} {φ T : ℝ} (hT : 0 < T)
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.Envelope.envelope_limit`, `….real_order_lower`, `….control_sandwich`, `….control_limit`, `….joint_limit`, `….corrected_sInf`, `….glb_div_time` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.Envelope.envelope_limit`, `….real_order_lower`, `….control_sandwich`, `….control_limit`, `….joint_limit`, `….corrected_sInf`, `….glb_div_time` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | the joint limit is along sequences only; orders below 2 are not covered; antitonicity and (L) are never derived for a concrete family |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |
@@ -548,9 +548,9 @@ abstract hypotheses of this library.
 [card 4](#4-delayed-and-multiplicative-forms)); the error bound is a conclusion, obtained with
 $`\delta=T/(1+T\lambda/n)`$.
 
-**Lean.** [`GrowthRates.FiniteError.log_error`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L189); also [`GrowthRates.FiniteError.step_upper`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L54),
-[`GrowthRates.FiniteError.step_lower`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L76), [`GrowthRates.FiniteError.finite_bounds`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L93),
-[`GrowthRates.FiniteError.optimize`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L163).
+**Lean.** [`GrowthRates.FiniteError.log_error`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L189); also [`GrowthRates.FiniteError.step_upper`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L54),
+[`GrowthRates.FiniteError.step_lower`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L76), [`GrowthRates.FiniteError.finite_bounds`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L93),
+[`GrowthRates.FiniteError.optimize`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L163).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -605,11 +605,11 @@ theorem optimize (b : ℝ → ℝ) (n lam : ℝ) (hn : 0 < n) (hlam : 0 ≤ lam)
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.FiniteError.log_error`, `….step_upper`, `….step_lower`, `….finite_bounds`, `….optimize` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.FiniteError.log_error`, `….step_upper`, `….step_lower`, `….finite_bounds`, `….optimize` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | the cut, confinement and composition inequalities and the rate are hypotheses, never derived for a concrete model; no optimality of the error is claimed |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |
@@ -647,7 +647,7 @@ $`|x/(pz)-C|`$ holds.
 **Compared with the reference.** Not applicable. The scaling identities and the sandwich are
 hypotheses; neither finite-time error is.
 
-**Lean.** [`GrowthRates.FiniteError.joint_error`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L269); also [`GrowthRates.FiniteError.sandwich_error`](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/FiniteError.lean#L212).
+**Lean.** [`GrowthRates.FiniteError.joint_error`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L269); also [`GrowthRates.FiniteError.sandwich_error`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/FiniteError.lean#L212).
 
 <details markdown="1">
 <summary>Lean statement (copy with the button on the code block)</summary>
@@ -680,11 +680,11 @@ theorem sandwich_error (x xn xm p n m z C cn cm M : ℝ)
 | Field | Value |
 |---|---|
 | Status | proved (gate: verified, `lean-pkg` 0.20.0, 2026-10-26) |
-| Sorry count | 0 (build receipt `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json`) |
-| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `7be8306dfe03`) |
-| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.FiniteError.joint_error`, `….sandwich_error` in comparator.json; comparator receipt `.lean-receipts/7be8306dfe03-comparator.json`: result pass (26 of 26 slots) |
+| Sorry count | 0 (build receipt `.lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json`) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` (build receipt `claim_axioms`, read from the built environment, at commit `158e8431c1db`) |
+| Statement comparison | comparator slots `GrowthRatesAudit.GrowthRates.FiniteError.joint_error`, `….sandwich_error` in comparator.json; comparator receipt `.lean-receipts/158e8431c1db-comparator.json`: result pass (26 of 26 slots) |
 | Definitions judged by a person | none recorded |
-| Evidence commit | `7be8306dfe03` (receipts in `.lean-receipts/`) |
+| Evidence commit | `158e8431c1db` (receipts in `.lean-receipts/`) |
 | Human review | unchecked: no independent human review asserted |
 | Not covered | the scaling identities $`T\lambda=nc\,z`$ and the sandwich of $`x`$ are hypotheses |
 | Signed off | lean-pkg 0.20.0 `gate` + `comparator`, 2026-10-26 (mechanical checks only) |

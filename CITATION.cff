@@ -24,9 +24,11 @@ abstract: >-
   then b(t)/t converges to the infimum of b(h)/h over h > 0. It transfers this rate to functions within a
   logarithmic error of b, proves a Fekete lemma with a logarithmic defect a(x) + a(y) - M log(x + y) - B <=
   a(x + y) whose limit is an explicit supremum of corrected slopes, with delayed and multiplicative forms,
-  derives uniform and joint limits over an order parameter from fixed-order limits and one uniform lower
-  error, and turns cut, confinement and composition inequalities into an explicit finite-time error
-  |log f(T) - T lambda| <= n (1 + log(2 + T lambda / n)). All such inequalities are hypotheses.
+  derives limits of order infima and joint large-order/time limits from fixed-order limits and one
+  uniform lower error, and, given an established rate log f(t)/t -> lambda, turns cut, confinement and
+  composition inequalities into an explicit finite-time error
+  |log f(T) - T lambda| <= n (1 + log(2 + T lambda / n)). This abstract is a summary; the Lean statements
+  specify all hypotheses, including the stated inequalities and the established rate for finite-time errors.
 keywords:
 - Lean 4
 - Mathlib

@@ -7,7 +7,7 @@ function of a continuous time parameter. It proves Fekete's lemma in continuous 
 limit identified as the infimum of the slopes; transfers that rate to any function within a
 logarithmic error; proves a Fekete lemma for functions that are superadditive up to a logarithmic
 defect, with the limit identified as the supremum of explicitly corrected slopes; derives limits
-uniform in an order parameter, and joint limits, from fixed-order limits; and, given the rate as a
+of order infima and joint large-order/time limits from fixed-order limits; and, given the rate as a
 hypothesis, turns abstract cut, confinement and composition inequalities into an explicit error at
 every finite time. The Fekete-type and envelope results derive their limits and infima; the
 finite-time results take the rate $`\lambda`$ as a hypothesis and derive the error bounds.
@@ -385,8 +385,9 @@ theorem tendsto_log_div_delayedRate (f : ℝ → ℝ) (M B T0 C : ℝ)
 
 ### 5. Uniform envelopes and joint limits over the order
 
-Limits at each fixed order, plus one lower error uniform in the order, give limits that are uniform
-in the order and joint in (order, time).
+Fixed-order limits and one lower error uniform in the order give convergence of the order infimum.
+With antitonicity in the order, they also give a joint limit as both order and time tend to infinity.
+This is not uniform convergence to the same constant over all orders $`p\ge2`$.
 
 **Statement.** Let $`a:\mathbb N\to\mathbb R`$ and let $`C`$ be the greatest lower bound of
 $`\{a_k\}`$; $`p_k=2(k+1)`$.
@@ -425,7 +426,8 @@ q(P_j,T_j)\to C\qquad (j\to\infty).
 arguments, stated for reuse.
 
 **Compared with the reference.** Not applicable. Antitonicity in the order and the uniform lower
-error (L) are hypotheses; no upper estimate uniform in the order is assumed or derived.
+error (L) are hypotheses; no convergence rate for the fixed-order upper bounds that is uniform in
+the order is assumed.
 
 **Lean.** [`GrowthRates.Envelope.joint_limit`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L132); also [`GrowthRates.Envelope.envelope_limit`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L61),
 [`GrowthRates.Envelope.real_order_lower`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L88), [`GrowthRates.Envelope.control_sandwich`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/Envelope.lean#L99),
@@ -713,8 +715,9 @@ theorem sandwich_error (x xn xm p n m z C cn cm M : ℝ)
   `RealFekete.rate b`, `LogDefect.rate` or `LogDefect.delayedRate` for a function outside these
   hypotheses carries no meaning.
 - `Envelope.evenOrder k = 2 * ((k + 1 : ℕ) : ℝ)`, so the even orders start at `2`.
-- `Real.log 0 = 0` and `Real.log (-x) = Real.log x`. In every statement above, the hypotheses make
-  each argument of `log` positive.
+- `Real.log 0 = 0` and `Real.log (-x) = Real.log x`. The finite-time uses have positive log arguments
+  on their stated domains; the limit proofs use eventual positivity. No positivity at arbitrary
+  negative times is asserted.
 - Division by `0` is `0` in Lean; `b t / t` at `t = 0` plays no role in a limit as `t → ∞`.
 - `GrowthRates/RealFekete.lean` contains two `example`s, which are boundary checks and not claims:
   the zero function has rate `0`, and `t ↦ t * t` does not satisfy `RealTimeBounds`.

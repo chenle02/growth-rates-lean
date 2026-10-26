@@ -20,10 +20,10 @@ If $`b\colon[0,\infty)\to\mathbb{R}`$ is nonnegative, subadditive and bounded ab
 3. Fekete's lemma with a logarithmic defect $`a(x)+a(y)-M\log(x+y)-B\le a(x+y)`$, with the limit identified as a supremum of corrected slopes.
 4. Delayed and multiplicative forms of the logarithmic-defect lemma.
 5. Uniform envelopes and joint limits over an order parameter, from fixed-order limits and one uniform lower error.
-6. A quantitative finite-time error $`|\log f(T)-T\lambda|\le n(1+\log(2+T\lambda/n))`$ from cut, confinement and composition inequalities.
+6. Given an established rate $`\log f(t)/t\to\lambda`$, a quantitative finite-time error $`|\log f(T)-T\lambda|\le n(1+\log(2+T\lambda/n))`$ from cut, confinement and composition inequalities.
 7. A joint error for a quantity squeezed between two orders.
 
-Each result, with its hypotheses and its Lean statement, is on the [What is proved]({{ '/what-is-proved.html' | relative_url }}) page.
+This list is a navigation summary, not a complete statement of the hypotheses. Each result, with its hypotheses and its Lean statement, is on the [What is proved]({{ '/what-is-proved.html' | relative_url }}) page.
 
 <div class="boundary" markdown="1">
 **Not proved here.**

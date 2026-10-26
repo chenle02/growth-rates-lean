@@ -8,15 +8,15 @@ Release: v0.1.0 (tag v0.1.0; lakefile version 0.1.0). Cite with CITATION.cff: co
 The Lean declaration decides every hypothesis. Prose is not checked by Lean.
 A receipt under .lean-receipts/ covers only the commit it names.
 
-Main declarations (all limits as t → ∞; the RealFekete, LogDefect and Envelope results conclude their limits and values; the FiniteError results assume the rate lam and conclude explicit finite-time bounds; everything else is a hypothesis):
+Navigation summaries of the main declarations, not complete theorem statements. Read the linked statement guide and actual Lean declarations before applying a result. Fekete limits are conclusions; envelope results use fixed-order limits to derive limits of infima and joint limits. FiniteError assumes established rates and derives finite-time bounds. Time limits are at infinity; the abstract envelope squeeze also allows a general filter.
 - GrowthRates.RealFekete.tendsto_div_rate: RealTimeBounds b (b ≥ 0 and b(t+u) ≤ b t + b u on [0, ∞), b bounded above on every [0, h]) gives b t / t → rate b = sInf {b h / h : h > 0}. Also rate_le_slope, rate_nonneg.
 - GrowthRates.RealFekete.tendsto_div_rate_of_comparison, lower_bound_of_comparison: m ≤ b ≤ m + A + B log(1+t) on t > 0 gives m t / t → rate b; the upper comparison gives t rate b - A - B log(1+t) ≤ m t for t > 0.
 - GrowthRates.RealFekete.log_rate_of_submul: SubmulInputs N C and 0 < F ≤ N, log N ≤ log F + A + B log(1+t) give log F t / t → rate (log ∘ N) and the finite-time lower bound.
 - GrowthRates.LogDefect.tendsto_div_rate: M, B ≥ 0, h ≥ 1, a monotone and a x ≤ C x on [h, ∞), a x + a y - M log(x+y) - B ≤ a(x+y) for x, y ≥ h give a t / t → sup_{x ≥ h} (a x - M log x - B - M log(9/2)) / x. Also balanced_merge, corrected_nat_blocks, nat_blocks.
-- GrowthRates.LogDefect.tendsto_div_delayedRate, tendsto_log_div_delayedRate: delayed form b S + b T - M log(2+S+T) - B ≤ b(S+T+1) for S, T ≥ T0, and its multiplicative version for f ≥ 1; limit delayedRate ≥ 0.
+- GrowthRates.LogDefect.tendsto_div_delayedRate, tendsto_log_div_delayedRate: M,B,T0 ≥ 0; b ≥ 0 is nondecreasing on [0,∞), with b(t) ≤ C(t+1) for t ≥ T0 and b S + b T - M log(2+S+T) - B ≤ b(S+T+1) for S,T ≥ T0. Then b(t)/t → delayedRate ≥ 0. The multiplicative version assumes f ≥ 1, the same monotonicity, f(t) ≤ exp(C(t+1)), and the corresponding multiplicative composition inequality; its conclusion concerns log f.
 - GrowthRates.Envelope.envelope_limit, real_order_lower, control_sandwich, control_limit, joint_limit, corrected_sInf, glb_div_time: from fixed even-order limits q(2k+2, T) → a k and one lower error e T → 0 uniform in k, the infimum over orders tends to C = glb a k; with q antitone in the order p ≥ 2, q(p j, T j) → C whenever p j, T j → ∞.
 - GrowthRates.FiniteError.finite_bounds, optimize, log_error: f ≥ 1, log f t / t → lam (hypothesis), cut, confinement and composition inequalities, f 0 = 1, n > 0 give |log f T - T lam| ≤ n (1 + log(2 + T lam / n)) for T ≥ 0.
-- GrowthRates.FiniteError.sandwich_error, joint_error: two orders with CutInputs give |x / (p z) - C| ≤ cn - C + (1 + log(2 + M z)) / z for x sandwiched between them.
+- GrowthRates.FiniteError.joint_error: two functions with CutInputs (including established rates ln,lm), T ≥ 0, p,z > 0, 0 ≤ C ≤ cm ≤ cn ≤ M, T*ln=n*cn*z, T*lm=m*cm*z, and (p/m)*log(fm T) ≤ x ≤ (p/n)*log(fn T) give |x/(p*z)-C| ≤ cn-C+(1+log(2+M*z))/z. sandwich_error is the separate algebra lemma assuming the two finite-time bounds and this sandwich.
 
 Not proved:
 - Local boundedness and nonnegativity are hypotheses; no measurability-only continuous-time Fekete lemma.

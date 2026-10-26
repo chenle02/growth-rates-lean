@@ -16,10 +16,11 @@ If $`b\colon[0,\infty)\to\mathbb{R}`$ is nonnegative, subadditive and bounded ab
 
 ## What is proved
 
-All functions are real-valued functions of a real variable, and every limit is as $`t\to\infty`$.
-Results 1–5 establish or transfer limits, and there the limit and its value are conclusions. The
-finite-time results 6 and 7 assume an established rate $`\lambda`$ and derive explicit bounds. Every
-other input is a hypothesis of the Lean statement.
+The summaries below concern real-valued functions of continuous time, sometimes with an order
+parameter; the abstract envelope lemma also applies along a general filter. The Fekete results derive
+limits, and the envelope results use fixed-order limits to derive limits of infima and joint limits.
+The finite-time results 6 and 7 assume established rates and derive explicit bounds. These summaries
+are a guide to the full hypotheses in the linked Lean statements.
 
 1. **Fekete's lemma in continuous time.** Let $`b`$ satisfy `RealTimeBounds b`: $`b(t)\ge0`$ and
    $`b(t+u)\le b(t)+b(u)`$ for $`t,u\ge0`$, and for every $`h>0`$ there is $`M`$ with $`b(r)\le M`$ on

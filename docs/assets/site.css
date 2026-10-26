@@ -72,6 +72,8 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width:
 
 /* Narrow screens. Long inline code (declaration names, receipt files) wraps instead of widening the page. */
 :not(pre) > code { overflow-wrap: anywhere; }
+/* Inside a table the code keeps its words whole: the table scrolls horizontally instead. */
+td code, th code { overflow-wrap: normal; }
 /* MathJax 3 does not break formulas. math.js marks a formula wider than its column with .mjx-wide; only
    that formula scrolls inside its own box. The vertical padding keeps superscripts and fraction bars clear
    of the box edge, so nothing is clipped. Formulas that fit are left as MathJax renders them. */

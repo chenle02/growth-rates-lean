@@ -40,6 +40,8 @@
     root.querySelectorAll("pre").forEach(function (pre) {
       if (pre.dataset.copyDone) return;
       pre.dataset.copyDone = "1";
+      // ```math blocks become MathJax formulas (math.js); a Copy button would sit on the formula.
+      if (pre.querySelector("code.language-math") || pre.closest(".language-math")) return;
       if (pre.querySelector(".md-clipboard") || (pre.parentNode && pre.parentNode.querySelector && pre.parentNode.querySelector(":scope > .md-clipboard"))) return;
       var wrap = document.createElement("div");
       wrap.className = "code-wrap";

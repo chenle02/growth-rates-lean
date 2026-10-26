@@ -686,7 +686,7 @@ Expected: `#print axioms` on any declaration above reports a subset of {`Classic
 
 ## Citation
 
-Le Chen. *growth-rates-lean: Fekete-type growth rates, uniform envelopes and finite-time errors in Lean 4*. Version 0.1.0.
+Le Chen. *growth-rates-lean: Fekete-type growth rates, uniform envelopes and finite-time errors in Lean 4*. Version 0.1.0. [doi:10.5281/zenodo.23669797](https://doi.org/10.5281/zenodo.23669797).
 
 See [CITATION.cff](CITATION.cff).
 

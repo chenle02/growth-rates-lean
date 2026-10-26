@@ -75,5 +75,9 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width:
 /* MathJax 3 does not break formulas. math.js marks a formula wider than its column with .mjx-wide; only
    that formula scrolls inside its own box. The vertical padding keeps superscripts and fraction bars clear
    of the box edge, so nothing is clipped. Formulas that fit are left as MathJax renders them. */
-mjx-container.mjx-wide { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
+mjx-container.mjx-wide { position: relative; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
 mjx-container.mjx-wide:not([display="true"]) { display: inline-block; vertical-align: middle; }
+/* MathJax's hidden screen-reader copy is absolutely positioned and laid out unwrapped; capped, it
+   no longer widens the page past an inline formula near the end of a line. Screen readers read its
+   text whatever its box width. */
+mjx-assistive-mml { max-width: 100%; }

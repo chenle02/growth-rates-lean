@@ -7,7 +7,9 @@ authors:
   given-names: Le
   affiliation: Auburn University
 license: Apache-2.0
-# version, date-released and the Zenodo DOI are set at the first release.
+version: "0.1.0"
+date-released: "2026-10-26"
+# The Zenodo DOI is added after Zenodo archives the v0.1.0 release.
 repository-code: https://github.com/chenle02/growth-rates-lean
 abstract: >-
   Lean 4 library on growth rates of real functions of a real time variable. It proves Fekete's lemma in

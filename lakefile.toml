@@ -1,4 +1,10 @@
 name = "growth-rates-lean"
+version = "0.1.0"
+versionTags = ["v*"]
+description = "Fekete's lemma in continuous time and with a logarithmic defect, uniform envelopes over an order parameter, and explicit finite-time errors for growth rates"
+keywords = ["fekete-lemma", "subadditivity", "growth-rate", "real-analysis", "asymptotic-analysis", "mathlib"]
+homepage = "https://chenle02.github.io/growth-rates-lean/"
+license = "Apache-2.0"
 defaultTargets = ["GrowthRates"]
 
 [[require]]

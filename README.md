@@ -7,6 +7,7 @@ If $`b\colon[0,\infty)\to\mathbb{R}`$ is nonnegative, subadditive and bounded ab
 [![Lean](https://img.shields.io/badge/Lean-v4.35.0-153e63)](lean-toolchain)
 [![Mathlib](https://img.shields.io/badge/Mathlib-56a0058-153e63)](https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679)
 [![License](https://img.shields.io/badge/license-Apache--2.0-153e63)](LICENSE)
+[![Release](https://img.shields.io/badge/release-v0.1.0-153e63)](https://github.com/chenle02/growth-rates-lean/releases/tag/v0.1.0)
 
 [What is proved](#what-is-proved) · [Statement guide](docs/what-is-proved.md) · [Verification page](docs/verification.md) · [Build](#build-and-verify) · [Cite](CITATION.cff)
 
@@ -125,10 +126,11 @@ To use it from another Lake project with the same toolchain:
 [[require]]
 name = "growth-rates-lean"
 git = "https://github.com/chenle02/growth-rates-lean"
+rev = "v0.1.0"
 ```
 
 then `lake update growth-rates-lean`, `lake exe cache get`, and `import GrowthRates` (or one module, for
-example `import GrowthRates.RealFekete`). A release tag for `rev` will be added at the first release.
+example `import GrowthRates.RealFekete`).
 
 Checks in this repository:
 

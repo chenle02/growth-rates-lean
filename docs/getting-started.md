@@ -25,10 +25,10 @@ From another Lake project with the same toolchain, add to `lakefile.toml`:
 [[require]]
 name = "growth-rates-lean"
 git = "https://github.com/chenle02/growth-rates-lean"
+rev = "v0.1.0"
 ```
 
-then run `lake update growth-rates-lean` and `lake exe cache get`. A release tag for `rev` will be added at
-the first release. `import GrowthRates` imports every module; `import GrowthRates.RealFekete` (or another
+then run `lake update growth-rates-lean` and `lake exe cache get`. `import GrowthRates` imports every module; `import GrowthRates.RealFekete` (or another
 module from the [modules page]({{ '/modules.html' | relative_url }})) imports one.
 
 ## A first example

@@ -1,0 +1,48 @@
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 9031 file(s)
+lean-path-shadow: none (11 entries, roots GrowthRates)
+== lake comparator (toolchain) comparator.json
+Resolving dependencies
+Building GrowthRates.Challenge
+⚠ [9047/9047] Replayed GrowthRates.Challenge
+warning: GrowthRates/Challenge.lean:46:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:55:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:65:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:76:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:89:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:104:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:128:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:141:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:153:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:165:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:181:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:200:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:222:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:235:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:244:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:254:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:265:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:277:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:285:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:298:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:305:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:312:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:328:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:338:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:353:8: declaration uses `sorry`
+warning: GrowthRates/Challenge.lean:364:8: declaration uses `sorry`
+Build completed successfully (9047 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate, GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope, GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg, GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison, GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison, GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul, GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge, GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks, GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks, GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate, GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate, GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate, GrowthRatesAudit.GrowthRates.Envelope.envelope_limit, GrowthRatesAudit.GrowthRates.Envelope.real_order_lower, GrowthRatesAudit.GrowthRates.Envelope.control_sandwich, GrowthRatesAudit.GrowthRates.Envelope.control_limit, GrowthRatesAudit.GrowthRates.Envelope.joint_limit, GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf, GrowthRatesAudit.GrowthRates.Envelope.glb_div_time, GrowthRatesAudit.GrowthRates.FiniteError.step_upper, GrowthRatesAudit.GrowthRates.FiniteError.step_lower, GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds, GrowthRatesAudit.GrowthRates.FiniteError.optimize, GrowthRatesAudit.GrowthRates.FiniteError.log_error, GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error, GrowthRatesAudit.GrowthRates.FiniteError.joint_error, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from GrowthRates.Challenge
+Building GrowthRates.Solution
+Build completed successfully (9052 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate, GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope, GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg, GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison, GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison, GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul, GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge, GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks, GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks, GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate, GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate, GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate, GrowthRatesAudit.GrowthRates.Envelope.envelope_limit, GrowthRatesAudit.GrowthRates.Envelope.real_order_lower, GrowthRatesAudit.GrowthRates.Envelope.control_sandwich, GrowthRatesAudit.GrowthRates.Envelope.control_limit, GrowthRatesAudit.GrowthRates.Envelope.joint_limit, GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf, GrowthRatesAudit.GrowthRates.Envelope.glb_div_time, GrowthRatesAudit.GrowthRates.FiniteError.step_upper, GrowthRatesAudit.GrowthRates.FiniteError.step_lower, GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds, GrowthRatesAudit.GrowthRates.FiniteError.optimize, GrowthRatesAudit.GrowthRates.FiniteError.log_error, GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error, GrowthRatesAudit.GrowthRates.FiniteError.joint_error, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from GrowthRates.Solution
+Running con-ron kernel on solution
+con-ron: accepted 16325 declarations (--verified)
+con-ron kernel accepts the solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!

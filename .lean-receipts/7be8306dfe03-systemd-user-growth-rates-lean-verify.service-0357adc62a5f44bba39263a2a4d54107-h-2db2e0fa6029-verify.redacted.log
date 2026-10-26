@@ -1,0 +1,133 @@
+commit: 7be8306dfe039ce7831f440705545e53c77be2f6
+lean-toolchain: leanprover/lean4:v4.35.0
+checker: verify.sh (lake build GrowthRates.Solution GrowthRates.Axioms; #print axioms)
+lean-pkg-build: begin
+✔ [9047/9053] Built GrowthRates.Envelope (5.4s)
+✔ [9048/9053] Built GrowthRates.RealFekete (6.0s)
+✔ [9049/9053] Built GrowthRates.LogDefect (9.9s)
+✔ [9050/9053] Built GrowthRates.FiniteError (11s)
+✔ [9051/9053] Built GrowthRates (2.1s)
+✔ [9052/9053] Built GrowthRates.Solution (5.4s)
+ℹ [9053/9053] Built GrowthRates.Axioms (6.1s)
+info: GrowthRates/Axioms.lean:19:0: 'GrowthRates.RealFekete.slopes_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:20:0: 'GrowthRates.RealFekete.slopes_bdd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:21:0: 'GrowthRates.RealFekete.rate_le_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:22:0: 'GrowthRates.RealFekete.rate_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:23:0: 'GrowthRates.RealFekete.multiple_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:24:0: 'GrowthRates.RealFekete.block_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:25:0: 'GrowthRates.RealFekete.tendsto_div_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:26:0: 'GrowthRates.RealFekete.logarithmic_error_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:27:0: 'GrowthRates.RealFekete.tendsto_div_rate_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:28:0: 'GrowthRates.RealFekete.lower_bound_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:29:0: 'GrowthRates.RealFekete.log_realTimeBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:30:0: 'GrowthRates.RealFekete.log_rate_of_submul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:31:0: 'GrowthRates.RealFekete.lower_bound_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:32:0: 'GrowthRates.LogDefect.balanced_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:33:0: 'GrowthRates.LogDefect.balanced_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:34:0: 'GrowthRates.LogDefect.corrected_nat_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:35:0: 'GrowthRates.LogDefect.correction_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:36:0: 'GrowthRates.LogDefect.nat_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:37:0: 'GrowthRates.LogDefect.correction_sublinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:38:0: 'GrowthRates.LogDefect.fixed_block_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:39:0: 'GrowthRates.LogDefect.tendsto_div_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:40:0: 'GrowthRates.LogDefect.tendsto_div_delayedRate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:41:0: 'GrowthRates.LogDefect.tendsto_log_div_delayedRate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:42:0: 'GrowthRates.Envelope.evenOrder_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:43:0: 'GrowthRates.Envelope.exists_evenOrder_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:44:0: 'GrowthRates.Envelope.envelope_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:45:0: 'GrowthRates.Envelope.real_order_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:46:0: 'GrowthRates.Envelope.control_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:47:0: 'GrowthRates.Envelope.control_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:48:0: 'GrowthRates.Envelope.joint_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:49:0: 'GrowthRates.Envelope.corrected_infimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:50:0: 'GrowthRates.Envelope.corrected_sInf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:51:0: 'GrowthRates.Envelope.glb_div_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:52:0: 'GrowthRates.FiniteError.progression_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:53:0: 'GrowthRates.FiniteError.step_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:54:0: 'GrowthRates.FiniteError.step_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:55:0: 'GrowthRates.FiniteError.finite_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:56:0: 'GrowthRates.FiniteError.optimize' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:57:0: 'GrowthRates.FiniteError.log_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:58:0: 'GrowthRates.FiniteError.sandwich_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:59:0: 'GrowthRates.FiniteError.joint_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:63:0: 'GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:64:0: 'GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:65:0: 'GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:66:0: 'GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: GrowthRates/Axioms.lean:67:0: 'GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: GrowthRates/Axioms.lean:68:0: 'GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:69:0: 'GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:70:0: 'GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:71:0: 'GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:72:0: 'GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:73:0: 'GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: GrowthRates/Axioms.lean:74:0: 'GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: GrowthRates/Axioms.lean:75:0: 'GrowthRatesAudit.GrowthRates.Envelope.envelope_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:76:0: 'GrowthRatesAudit.GrowthRates.Envelope.real_order_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:77:0: 'GrowthRatesAudit.GrowthRates.Envelope.control_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:78:0: 'GrowthRatesAudit.GrowthRates.Envelope.control_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:79:0: 'GrowthRatesAudit.GrowthRates.Envelope.joint_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:80:0: 'GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:81:0: 'GrowthRatesAudit.GrowthRates.Envelope.glb_div_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:82:0: 'GrowthRatesAudit.GrowthRates.FiniteError.step_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:83:0: 'GrowthRatesAudit.GrowthRates.FiniteError.step_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:84:0: 'GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:85:0: 'GrowthRatesAudit.GrowthRates.FiniteError.optimize' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:86:0: 'GrowthRatesAudit.GrowthRates.FiniteError.log_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:87:0: 'GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GrowthRates/Axioms.lean:88:0: 'GrowthRatesAudit.GrowthRates.FiniteError.joint_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (9053 jobs).
+lean-pkg-build: end
+claim-axioms: GrowthRates.RealFekete.slopes_nonempty Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.slopes_bdd Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.rate_le_slope Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.rate_nonneg Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.multiple_remainder Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.block_bound Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.tendsto_div_rate Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.logarithmic_error_vanishes Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.tendsto_div_rate_of_comparison Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.lower_bound_of_comparison Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.log_realTimeBounds Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.log_rate_of_submul Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.RealFekete.lower_bound_at_zero Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.balanced_ratio Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.balanced_merge Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.corrected_nat_blocks Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.correction_nonneg Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.nat_blocks Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.correction_sublinear Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.fixed_block_lower Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.tendsto_div_rate Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.tendsto_div_delayedRate Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.LogDefect.tendsto_log_div_delayedRate Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.evenOrder_ge_two Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.exists_evenOrder_ge Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.envelope_limit Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.real_order_lower Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.control_sandwich Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.control_limit Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.joint_limit Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.corrected_infimum Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.corrected_sInf Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.Envelope.glb_div_time Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.progression_limit Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.step_upper Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.step_lower Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.finite_bounds Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.optimize Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.log_error Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.sandwich_error Classical.choice,Quot.sound,propext
+claim-axioms: GrowthRates.FiniteError.joint_error Classical.choice,Quot.sound,propext
+claim-axioms-done: 41
+sorry-count: 0
+axioms: Classical.choice,Quot.sound,propext
+generated-at: 2026-10-26T14:54:31Z

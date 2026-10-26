@@ -1,0 +1,33 @@
+{
+  "commit": "7be8306dfe039ce7831f440705545e53c77be2f6",
+  "lean_toolchain": "leanprover/lean4:v4.35.0",
+  "mathlib_rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "sorry_count": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "report_sha256": "0f8d144d2ff4afd118015fe79b45c9b519ea4678467f9a539072920335a3e22e",
+  "job_id": "systemd-user:growth-rates-lean-verify.service:0357adc62a5f44bba39263a2a4d54107@h-2db2e0fa6029",
+  "checker": "verify.sh (lake build GrowthRates.Solution GrowthRates.Axioms; #print axioms)",
+  "generated_at": "2026-10-26T14:54:31Z",
+  "job_stdout_sha256": "e6674dd75890e1ca2c4890607ca30c03dae1931a473156b2cf6de5d527ecd97e",
+  "manifest_sha256": "549a1878ff66633e9f39cf3c8bd30b8e2ec40c90d82d02d7fdd38ee82ce5b81a",
+  "log_commit_bound": true,
+  "claim_axioms": {
+    "checked": 41,
+    "nonstandard": [],
+    "missing": []
+  },
+  "producer": {
+    "lean_pkg": "0.20.0",
+    "install": "installed",
+    "commit": null,
+    "dirty": null,
+    "sources_sha256": "558e6675cac80492b5ba57c2b12541b7cc408e6abf01b6cc7dc6b727fab8ea84",
+    "source_files": 76,
+    "python": "3.12.3"
+  },
+  "unit_properties_sha256": "bbc04924dde969517cdcf849a87f41d2f8881200e60c64466eb50f881d4a98a4"
+}

@@ -1,0 +1,13 @@
+import GrowthRates
+
+/-! Negative control `NegLogDefectNoMonotone`: mutation of `GrowthRates.LogDefect.tendsto_div_rate` without monotonicity. Monotonicity on `[h, ∞)` is what
+passes from the block multiples `k x` to every large real time.
+Must not compile. -/
+
+theorem GrowthRatesTest.negLogDefectNoMonotone (a : ℝ → ℝ) (M B h C : ℝ)
+    (hM : 0 ≤ M) (hB : 0 ≤ B) (hh : 1 ≤ h)
+    (hupper : ∀ x : ℝ, h ≤ x → a x ≤ C*x)
+    (hnear : ∀ x y : ℝ, h ≤ x → h ≤ y →
+      a x + a y - M * Real.log (x+y) - B ≤ a (x+y)) :
+    Filter.Tendsto (fun t : ℝ => a t / t) Filter.atTop (nhds (GrowthRates.LogDefect.rate a M B h)) := by
+  exact GrowthRates.LogDefect.tendsto_div_rate a M B h C hM hB hh hupper hnear

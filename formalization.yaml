@@ -1,0 +1,483 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# Rendered by `lean-pkg formalization <name>` from the lean-pkg registry and the package
+# repository at HEAD (formalization.yaml v0.4, mathlib-initiative). Paths are
+# repository-relative. Derived keys are regenerated on every run: version, project.name,
+# project.license, automation.notes, status.sorry_count, status.axioms, status.evidence,
+# status.main_results, and alignment when claims.yaml is tracked. Every other key is kept
+# from this file. A value starting "[PLACEHOLDER]" is data the registry does not hold:
+# fill it in by hand (it is kept) or set the registry field it names.
+version: v0.4
+project:
+  name: growth-rates-lean
+  description: Lean 4 / Mathlib library on linear growth rates of real functions of a continuous time
+    parameter -- Fekete's lemma in continuous time and rate transfer within a logarithmic error, a Fekete
+    lemma with a logarithmic defect whose limit is identified as the supremum of explicitly corrected slopes
+    (direct, delayed and multiplicative forms), uniform envelopes and joint limits over an order parameter,
+    and explicit finite-time errors from cut, confinement and composition inequalities.
+  authors:
+  - Le Chen
+  license: Apache-2.0
+sources:
+- title: Über die Verteilung der Wurzeln bei gewissen algebraischen Gleichungen mit ganzzahligen Koeffizienten
+  authors:
+  - Michael Fekete
+  id: https://doi.org/10.1007/BF01504345
+  type: article
+  relationship: background
+  note: Fekete's lemma for subadditive sequences (Math. Z. 17 (1923)). This standalone library proves
+    continuous-time and logarithmic-defect variants; it does not formalize the paper.
+related_formalizations:
+- id: https://github.com/leanprover-community/mathlib4
+  relationship: builds-on
+  note: pinned in lake-manifest.json
+status:
+  scope: 'Formalized: Fekete''s lemma in continuous time for nonnegative, subadditive, locally bounded
+    functions; rate transfer under a logarithmic comparison; a Fekete lemma with a logarithmic defect with
+    the limit identified exactly, and its delayed and multiplicative forms; uniform envelopes and joint limits
+    over an order parameter; finite-time errors from cut, confinement and composition inequalities. Excluded:
+    a measurability-only continuous Fekete lemma, the general de Bruijn-Erdos theorem, convergence rates,
+    and any derivation of the comparison, cut, confinement or composition inequalities for a concrete model.'
+  sorry_count: 0
+  axioms:
+  - Classical.choice
+  - Quot.sound
+  - propext
+  evidence:
+    commit: 993d64ce05ed7414274134f8dddec6073ff5523f
+    gate_receipt: .lean-receipts/993d64ce05ed-systemd-user-growth-rates-lean-verify.service-0f763275b6c04564bf68dbf8f885b19f-h-2db2e0fa6029.json
+    comparator_receipt: .lean-receipts/993d64ce05ed-comparator.json
+  main_results:
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.envelope_limit
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.real_order_lower
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.control_sandwich
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.control_limit
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.joint_limit
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.Envelope.glb_div_time
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.step_upper
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.step_lower
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.optimize
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.log_error
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+  - comparator_config: comparator.json
+    declaration: GrowthRatesAudit.GrowthRates.FiniteError.joint_error
+    file: GrowthRates/Solution.lean
+    challenge_file: GrowthRates/Challenge.lean
+automation:
+  methods:
+  - method: other
+  notes: AI coding assistants were used for drafting the Lean proofs, extracting them into this library,
+    and writing documentation under Le Chen's direction; every status claim rests on the recorded Lean
+    builds, axiom audits and comparator checks.
+review:
+  status: unchecked
+  notes: 'seeded by lean-pkg formalization: no human review status is recorded in the registry; mechanical
+    evidence (gate and comparator receipts) is listed under status.evidence'
+alignment:
+  generated_from: claims.yaml
+  statements:
+  - source: null
+    lean: GrowthRates.RealFekete.slopes_nonempty
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-slopes-nonempty
+    status: experimental
+    note: The set of slopes `b h / h`, `h > 0`, is nonempty.
+  - source: null
+    lean: GrowthRates.RealFekete.slopes_bdd
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-slopes-bdd
+    status: experimental
+    note: Under `RealTimeBounds b` the slopes `b h / h`, `h > 0`, are bounded below by `0`.
+  - source: null
+    lean: GrowthRates.RealFekete.rate_le_slope
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-rate-le-slope
+    status: reusable
+    note: 'The rate is at most every slope: `rate b ≤ b t / t` for `t > 0`.'
+  - source: null
+    lean: GrowthRates.RealFekete.rate_nonneg
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-rate-nonneg
+    status: reusable
+    note: Under `RealTimeBounds b` the rate is nonnegative.
+  - source: null
+    lean: GrowthRates.RealFekete.multiple_remainder
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-multiple-remainder
+    status: experimental
+    note: 'Iterated subadditivity: `b (k h + r) ≤ k b h + b r` for `h, r ≥ 0` and `k : ℕ`.'
+  - source: null
+    lean: GrowthRates.RealFekete.block_bound
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-block-bound
+    status: experimental
+    note: A block estimate `b t / t ≤ b h / h + M / t`, derived from subadditivity and the local bound.
+  - source: null
+    lean: GrowthRates.RealFekete.tendsto_div_rate
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-tendsto-div-rate
+    status: reusable
+    note: Fekete's lemma in continuous time. Under `RealTimeBounds b`, `b t / t` converges to `rate b`
+      as `t → ∞`. Neither the limit nor its value is a hypothesis.
+  - source: null
+    lean: GrowthRates.RealFekete.logarithmic_error_vanishes
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-logarithmic-error-vanishes
+    status: experimental
+    note: '`(A + B log (1 + t)) / t → 0` as `t → ∞`.'
+  - source: null
+    lean: GrowthRates.RealFekete.tendsto_div_rate_of_comparison
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-tendsto-div-rate-of-comparison
+    status: reusable
+    note: Rate transfer. If `m t ≤ b t ≤ m t + A + B log (1 + t)` for `t > 0`, then `m t / t` converges
+      to the Fekete rate of `b`.
+  - source: null
+    lean: GrowthRates.RealFekete.lower_bound_of_comparison
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-lower-bound-of-comparison
+    status: reusable
+    note: Finite-time lower bound. Under the upper comparison, `t * rate b - A - B log (1 + t) ≤ m t`
+      for every `t > 0`. No large-time limit is assumed.
+  - source: null
+    lean: GrowthRates.RealFekete.log_realTimeBounds
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-log-real-time-bounds
+    status: experimental
+    note: The logarithm of a function with `SubmulInputs` satisfies the Fekete hypotheses.
+  - source: null
+    lean: GrowthRates.RealFekete.log_rate_of_submul
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-log-rate-of-submul
+    status: reusable
+    note: Logarithmic rate of a comparable function. If `N` has `SubmulInputs`, `0 < F t ≤ N t` and `log
+      N t ≤ log F t + A + B log (1 + t)` for `t > 0`, then `log F t / t` converges to the Fekete rate
+      of `log ∘ N`, and `t * rate (log ∘ N) - A - B log (1 + t) ≤ log F t` for every `t > 0`.
+  - source: null
+    lean: GrowthRates.RealFekete.lower_bound_at_zero
+    module: GrowthRates/RealFekete.lean
+    kind: theorem
+    claim: growth-rates-lean/real-fekete-lower-bound-at-zero
+    status: experimental
+    note: At `t = 0` the lower bound holds when the comparison is supplied there.
+  - source: null
+    lean: GrowthRates.LogDefect.balanced_ratio
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-balanced-ratio
+    status: experimental
+    note: The elementary balanced-merge ratio, with no logarithms yet.
+  - source: null
+    lean: GrowthRates.LogDefect.balanced_merge
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-balanced-merge
+    status: reusable
+    note: Logarithmic correction makes balanced merges genuinely superadditive.
+  - source: null
+    lean: GrowthRates.LogDefect.corrected_nat_blocks
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-corrected-nat-blocks
+    status: reusable
+    note: Balanced strong induction derives equal-block growth from the near-superadditivity hypothesis
+      itself; no block recurrence is assumed.
+  - source: null
+    lean: GrowthRates.LogDefect.correction_nonneg
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-correction-nonneg
+    status: experimental
+    note: The correction is nonnegative for `M, B ≥ 0` and `x ≥ 1`.
+  - source: null
+    lean: GrowthRates.LogDefect.nat_blocks
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-nat-blocks
+    status: reusable
+    note: 'Equal blocks with an uncorrected right side: `k * corrected a M B x ≤ a (k x)` for `k ≥ 1`,
+      `x ≥ h`.'
+  - source: null
+    lean: GrowthRates.LogDefect.correction_sublinear
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-correction-sublinear
+    status: experimental
+    note: The precise correction divided by time tends to zero.
+  - source: null
+    lean: GrowthRates.LogDefect.fixed_block_lower
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-fixed-block-lower
+    status: experimental
+    note: A fixed block bounds all sufficiently large real times by monotonicity.
+  - source: null
+    lean: GrowthRates.LogDefect.tendsto_div_rate
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-tendsto-div-rate
+    status: reusable
+    note: Fekete's lemma with a logarithmic defect. If `a` is monotone on `[h, ∞)`, `a x ≤ C x` there,
+      and `a x + a y - M log (x + y) - B ≤ a (x + y)` for `x, y ≥ h`, then `a t / t` converges to `rate
+      a M B h`. No limit and no block recurrence is assumed.
+  - source: null
+    lean: GrowthRates.LogDefect.tendsto_div_delayedRate
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-tendsto-div-delayed-rate
+    status: reusable
+    note: Delayed form. If `b ≥ 0` is monotone on `[0, ∞)`, `b t ≤ C (t + 1)` for `t ≥ T0`, and `b S +
+      b T - M log (2 + S + T) - B ≤ b (S + T + 1)` for `S, T ≥ T0`, then `delayedRate b M B T0 ≥ 0` and
+      `b t / t` converges to it. Neither a limit nor a block recurrence is assumed.
+  - source: null
+    lean: GrowthRates.LogDefect.tendsto_log_div_delayedRate
+    module: GrowthRates/LogDefect.lean
+    kind: theorem
+    claim: growth-rates-lean/log-defect-tendsto-log-div-delayed-rate
+    status: reusable
+    note: Multiplicative form. If `f ≥ 1` is monotone on `[0, ∞)`, `f t ≤ exp (C (t + 1))` for `t ≥ T0`,
+      and `f S f T / exp (M log (2 + S + T) + B) ≤ f (S + T + 1)` for `S, T ≥ T0`, then `log f t / t`
+      converges to `delayedRate (log ∘ f) M B T0 ≥ 0`.
+  - source: null
+    lean: GrowthRates.Envelope.evenOrder_ge_two
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-even-order-ge-two
+    status: experimental
+    note: Every even order is at least `2`.
+  - source: null
+    lean: GrowthRates.Envelope.exists_evenOrder_ge
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-exists-even-order-ge
+    status: experimental
+    note: Every real `p` is at most some even order.
+  - source: null
+    lean: GrowthRates.Envelope.envelope_limit
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-envelope-limit
+    status: reusable
+    note: Envelope squeeze. If `C - e x ≤ f x` with `e → 0`, and for each `k` eventually `f x ≤ v k x`
+      with `v k → a k`, where `C` is the greatest lower bound of the `a k`, then `f → C`. Neither the
+      limit of `f` nor an upper rate uniform in `k` is a hypothesis.
+  - source: null
+    lean: GrowthRates.Envelope.real_order_lower
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-real-order-lower
+    status: reusable
+    note: Every real order. If `q r T` is antitone in `r ≥ 2` and each even order satisfies `a k - e T
+      ≤ q (evenOrder k) T`, then `C - e T ≤ q p T` for every real `p ≥ 2`, where `C` is the greatest lower
+      bound of the `a k`.
+  - source: null
+    lean: GrowthRates.Envelope.control_sandwich
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-control-sandwich
+    status: reusable
+    note: Sandwich at a fixed time. If `φ T` is the greatest lower bound of the even-order values `q (evenOrder
+      k) T`, the uniform lower bounds pass to `φ T`. No long-time limit is assumed.
+  - source: null
+    lean: GrowthRates.Envelope.control_limit
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-control-limit
+    status: reusable
+    note: Limit of the infimum. `φ T → C` follows from the fixed-order limits and one lower error `e T
+      → 0` uniform in the order; no upper estimate uniform in the order is needed.
+  - source: null
+    lean: GrowthRates.Envelope.joint_limit
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-joint-limit
+    status: reusable
+    note: Joint limit along sequences. If `q r T` is antitone in the order `r ≥ 2`, then `q (p j) (T j)
+      → C` whenever `p j → ∞` and `T j → ∞`. Each fixed-order limit is used only at that fixed order before
+      the infimum is taken.
+  - source: null
+    lean: GrowthRates.Envelope.corrected_infimum
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-corrected-infimum
+    status: experimental
+    note: Corrected infimum. If `C - e T ≤ φ T`, `φ T → C` and `e T → 0`, then the greatest lower bound
+      of `φ T + e T` over `T > 0` is exactly `C`.
+  - source: null
+    lean: GrowthRates.Envelope.corrected_sInf
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-corrected-s-inf
+    status: reusable
+    note: Concrete sInf version, including the nonempty positive-time domain.
+  - source: null
+    lean: GrowthRates.Envelope.glb_div_time
+    module: GrowthRates/Envelope.lean
+    kind: theorem
+    claim: growth-rates-lean/envelope-glb-div-time
+    status: reusable
+    note: Division by a positive `T` preserves a greatest lower bound.
+  - source: null
+    lean: GrowthRates.FiniteError.progression_limit
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-progression-limit
+    status: experimental
+    note: Along an arithmetic progression `r + j h`, `b (r + j h) / j → lam h`.
+  - source: null
+    lean: GrowthRates.FiniteError.step_upper
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-step-upper
+    status: reusable
+    note: If `b (t + h) ≤ b t + A` for `t ≥ r` and `b t / t → lam`, then `lam h ≤ A`.
+  - source: null
+    lean: GrowthRates.FiniteError.step_lower
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-step-lower
+    status: reusable
+    note: If `b t + A ≤ b (t + h)` for `t ≥ r` and `b t / t → lam`, then `A ≤ lam h`.
+  - source: null
+    lean: GrowthRates.FiniteError.finite_bounds
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-finite-bounds
+    status: reusable
+    note: 'Finite-time bounds from a cut and a confinement: if `f ≥ 1`, `log f t / t → lam` and the cut,
+      confinement and composition inequalities hold, then `0 ≤ lam` and `log f T` lies within `lam δ`
+      plus logarithmic terms of `lam T` for all `T, δ > 0`.'
+  - source: null
+    lean: GrowthRates.FiniteError.optimize
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-optimize
+    status: reusable
+    note: Optimized error. Two-sided bounds of the form of `finite_bounds` for every `δ > 0` give `|b
+      T - T lam| ≤ n (1 + log (2 + T lam / n))`, including the boundary case `lam = 0`.
+  - source: null
+    lean: GrowthRates.FiniteError.log_error
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-log-error
+    status: reusable
+    note: 'Quantitative error for `log f`. Under the cut, confinement and composition inputs, with `f
+      0 = 1` and `n > 0`: `|log f T - T lam| ≤ n (1 + log (2 + T lam / n))` for every `T ≥ 0`.'
+  - source: null
+    lean: GrowthRates.FiniteError.sandwich_error
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-sandwich-error
+    status: reusable
+    note: Sandwich error. If `x` lies between `p/m · xm` and `p/n · xn`, and `xn`, `xm` are within the
+      optimized errors of `n cn z` and `m cm z`, with `0 ≤ C ≤ cm ≤ cn ≤ M`, then `|x / (p z) - C| ≤ cn
+      - C + (1 + log (2 + M z)) / z`. Pure real arithmetic.
+  - source: null
+    lean: GrowthRates.FiniteError.joint_error
+    module: GrowthRates/FiniteError.lean
+    kind: theorem
+    claim: growth-rates-lean/finite-error-joint-error
+    status: reusable
+    note: Joint error from two orders. For two functions with `CutInputs` at orders `n`, `m`, the scaling
+      identities `T ln = n cn z`, `T lm = m cm z` and the sandwich `p/m · log fm T ≤ x ≤ p/n · log fn
+      T` give `|x / (p z) - C| ≤ cn - C + (1 + log (2 + M z)) / z`. Neither finite-time error is a hypothesis.

@@ -1,0 +1,39 @@
+{
+  "challenge_module": "GrowthRates.Challenge",
+  "solution_module": "GrowthRates.Solution",
+  "theorem_names": [
+    "GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate",
+    "GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope",
+    "GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg",
+    "GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison",
+    "GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison",
+    "GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul",
+    "GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge",
+    "GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks",
+    "GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks",
+    "GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate",
+    "GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate",
+    "GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate",
+    "GrowthRatesAudit.GrowthRates.Envelope.envelope_limit",
+    "GrowthRatesAudit.GrowthRates.Envelope.real_order_lower",
+    "GrowthRatesAudit.GrowthRates.Envelope.control_sandwich",
+    "GrowthRatesAudit.GrowthRates.Envelope.control_limit",
+    "GrowthRatesAudit.GrowthRates.Envelope.joint_limit",
+    "GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf",
+    "GrowthRatesAudit.GrowthRates.Envelope.glb_div_time",
+    "GrowthRatesAudit.GrowthRates.FiniteError.step_upper",
+    "GrowthRatesAudit.GrowthRates.FiniteError.step_lower",
+    "GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds",
+    "GrowthRatesAudit.GrowthRates.FiniteError.optimize",
+    "GrowthRatesAudit.GrowthRates.FiniteError.log_error",
+    "GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error",
+    "GrowthRatesAudit.GrowthRates.FiniteError.joint_error"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

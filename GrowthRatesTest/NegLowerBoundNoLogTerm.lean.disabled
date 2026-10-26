@@ -1,0 +1,11 @@
+import GrowthRates
+
+/-! Negative control `NegLowerBoundNoLogTerm`: mutation of `GrowthRates.RealFekete.lower_bound_of_comparison` with the term `B log (1 + t)` dropped from the
+lower bound. With `B > 0` the comparison only controls `b` up to that term.
+Must not compile. -/
+
+theorem GrowthRatesTest.negLowerBoundNoLogTerm {b m : ℝ → ℝ}
+    (H : GrowthRates.RealFekete.RealTimeBounds b) (A B : ℝ)
+    (hhi : ∀ t, 0 < t → b t ≤ m t + A + B * Real.log (1 + t)) {t : ℝ} (ht : 0 < t) :
+    t * GrowthRates.RealFekete.rate b - A ≤ m t := by
+  exact GrowthRates.RealFekete.lower_bound_of_comparison H A B hhi ht

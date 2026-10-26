@@ -1,0 +1,11 @@
+import GrowthRates
+
+/-! Negative control `NegFeketeSupremum`: mutation of `GrowthRates.RealFekete.tendsto_div_rate` with the infimum of the slopes replaced by their
+supremum. For `b t = min t 1` (nonnegative, subadditive, bounded) the slopes `min t 1 / t` have
+supremum `1` and infimum `0`, and `b t / t → 0`.
+Must not compile. -/
+
+theorem GrowthRatesTest.negFeketeSupremum {b : ℝ → ℝ} (H : GrowthRates.RealFekete.RealTimeBounds b) :
+    Filter.Tendsto (fun t : ℝ => b t / t) Filter.atTop
+      (nhds (sSup ((fun h : ℝ => b h / h) '' Set.Ioi 0))) := by
+  exact GrowthRates.RealFekete.tendsto_div_rate H

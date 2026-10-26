@@ -1,0 +1,100 @@
+schema: coverage/1
+package: growth-rates-lean
+kind: library
+summary: "Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from cut, confinement and composition inequalities. Every limit, infimum and error bound is derived, not assumed."
+rows:
+  - title: "Fekete's lemma in continuous time"
+    claims:
+      - growth-rates-lean/real-fekete-tendsto-div-rate
+      - growth-rates-lean/real-fekete-rate-le-slope
+      - growth-rates-lean/real-fekete-rate-nonneg
+    statement: |-
+      Let $b:\mathbb R\to\mathbb R$ satisfy $b(t)\ge0$ for $t\ge0$, $b(t+u)\le b(t)+b(u)$ for $t,u\ge0$, and, for every $h>0$, some $M$ with $b(r)\le M$ for all $0\le r\le h$. Put
+      \[\operatorname{rate}(b)=\inf\{b(h)/h:\ h>0\}\]
+      (Mathlib's $\operatorname{sInf}$ of the image of $(0,\infty)$). Then
+      \[\lim_{t\to\infty}\frac{b(t)}{t}=\operatorname{rate}(b),\qquad \operatorname{rate}(b)\le\frac{b(t)}{t}\ \text{ for every } t>0,\qquad \operatorname{rate}(b)\ge0.\]
+  - title: "Rate transfer under a logarithmic comparison"
+    claims:
+      - growth-rates-lean/real-fekete-tendsto-div-rate-of-comparison
+      - growth-rates-lean/real-fekete-lower-bound-of-comparison
+      - growth-rates-lean/real-fekete-log-rate-of-submul
+    statement: |-
+      Let $b$ satisfy the hypotheses of the row "Fekete's lemma in continuous time", let $A,B\in\mathbb R$ and $m:\mathbb R\to\mathbb R$. If $b(t)\le m(t)+A+B\log(1+t)$ for every $t>0$, then
+      \[t\operatorname{rate}(b)-A-B\log(1+t)\le m(t)\quad\text{for every } t>0;\]
+      if in addition $m(t)\le b(t)$ for every $t>0$, then $m(t)/t\to\operatorname{rate}(b)$ as $t\to\infty$.
+      Multiplicative form: let $C\ge0$ and $N:\mathbb R\to\mathbb R$ with, for $t,u\ge0$, $N(t)\ge1$, $N(t+u)\le N(t)N(u)$ and $N(t)\le e^{Ct}$. Let $F:\mathbb R\to\mathbb R$ and $A,B\in\mathbb R$ with, for every $t>0$, $0<F(t)\le N(t)$ and $\log N(t)\le\log F(t)+A+B\log(1+t)$. Then, with $\nu=\operatorname{rate}(\log\circ N)$,
+      \[\lim_{t\to\infty}\frac{\log F(t)}{t}=\nu\qquad\text{and}\qquad t\nu-A-B\log(1+t)\le\log F(t)\ \text{ for every } t>0.\]
+  - title: "Fekete's lemma with a logarithmic defect"
+    claims:
+      - growth-rates-lean/log-defect-tendsto-div-rate
+      - growth-rates-lean/log-defect-balanced-merge
+      - growth-rates-lean/log-defect-corrected-nat-blocks
+      - growth-rates-lean/log-defect-nat-blocks
+    statement: |-
+      Let $a:\mathbb R\to\mathbb R$, $M\ge0$, $B\in\mathbb R$, $h\ge1$, and assume
+      \[a(x)+a(y)-M\log(x+y)-B\le a(x+y)\qquad\text{for all } x,y\ge h.\]
+      Put $c(x)=M\log x+B+M\log(9/2)$ and $\tilde a(x)=a(x)-c(x)$. Then $\tilde a(x)+\tilde a(y)\le\tilde a(x+y)$ for $x,y\ge h$ with $x/2\le y\le2x$, and $k\,\tilde a(x)\le\tilde a(kx)$ for $x\ge h$ and every integer $k\ge1$. If moreover $B\ge0$, then $k\,\tilde a(x)\le a(kx)$ for $x\ge h$ and every integer $k\ge1$. If moreover $B\ge0$, $a$ is nondecreasing on $[h,\infty)$ and $a(x)\le Cx$ for $x\ge h$ (some $C\in\mathbb R$), then
+      \[\lim_{t\to\infty}\frac{a(t)}{t}=\sup_{x\ge h}\frac{\tilde a(x)}{x}\]
+      (Mathlib's $\operatorname{sSup}$ of the range over $x\in[h,\infty)$).
+  - title: "Delayed and multiplicative forms"
+    claims:
+      - growth-rates-lean/log-defect-tendsto-div-delayed-rate
+      - growth-rates-lean/log-defect-tendsto-log-div-delayed-rate
+    statement: |-
+      Let $M,B\ge0$, $T_0\ge0$, $C\in\mathbb R$, and for $g:\mathbb R\to\mathbb R$ put
+      \[D(g)=\sup_{T\ge T_0}\frac{g(T)-M\log(1+T)-B-M\log(9/2)}{T+1}\]
+      (Mathlib's $\operatorname{sSup}$ of the range over $T\in[T_0,\infty)$). Let $b\ge0$ on $[0,\infty)$ be nondecreasing on $[0,\infty)$ with $b(t)\le C(t+1)$ for $t\ge T_0$ and
+      \[b(S)+b(T)-M\log(2+S+T)-B\le b(S+T+1)\qquad (S,T\ge T_0).\]
+      Then $D(b)\ge0$ and $b(t)/t\to D(b)$ as $t\to\infty$.
+      Multiplicative form: let $f\ge1$ on $[0,\infty)$ be nondecreasing on $[0,\infty)$ with $f(t)\le e^{C(t+1)}$ for $t\ge T_0$ and
+      \[\frac{f(S)f(T)}{\exp\big(M\log(2+S+T)+B\big)}\le f(S+T+1)\qquad (S,T\ge T_0).\]
+      Then $D(\log\circ f)\ge0$ and $\log f(t)/t\to D(\log\circ f)$ as $t\to\infty$.
+  - title: "Uniform envelopes and joint limits over the order"
+    claims:
+      - growth-rates-lean/envelope-envelope-limit
+      - growth-rates-lean/envelope-real-order-lower
+      - growth-rates-lean/envelope-control-sandwich
+      - growth-rates-lean/envelope-control-limit
+      - growth-rates-lean/envelope-joint-limit
+      - growth-rates-lean/envelope-corrected-s-inf
+      - growth-rates-lean/envelope-glb-div-time
+    statement: |-
+      Let $a:\mathbb N\to\mathbb R$ and let $C$ be the greatest lower bound of $\{a_k\}$; put $p_k=2(k+1)$.
+      (i) Along any filter $l$: if $e\to0$, eventually $C-e\le f$, and for each $k$ eventually $f\le v_k$ with $v_k\to a_k$, then $f\to C$.
+      Let $q:\mathbb R\times\mathbb R\to\mathbb R$ and $e:\mathbb R\to\mathbb R$ with (L) $a_k-e(T)\le q(p_k,T)$ for all $k$ and all $T>0$.
+      (ii) If (L) holds and $q(r,T)\le q(p,T)$ whenever $T>0$ and $2\le p\le r$, then $C-e(T)\le q(p,T)$ for all real $p\ge2$ and $T>0$.
+      (iii) If (L) holds and $\varphi(T)$ is the greatest lower bound of $\{q(p_k,T)\}_k$ for each $T>0$, then for $T>0$: $C-e(T)\le\varphi(T)$ and $\varphi(T)\le q(p_k,T)$ for every $k$.
+      (iv) Under (iii), if $e(T)\to0$ and $q(p_k,T)\to a_k$ for each $k$ as $T\to\infty$, then $\varphi(T)\to C$.
+      (v) Under the hypotheses of (ii), if $e(T)\to0$ and $q(p_k,T)\to a_k$ for each $k$ as $T\to\infty$, then for all sequences $P_j\to\infty$, $T_j\to\infty$,
+      \[q(P_j,T_j)\to C.\]
+      (vi) For any $C\in\mathbb R$ and $\varphi,e:\mathbb R\to\mathbb R$: if $C-e(T)\le\varphi(T)$ for $T>0$, $\varphi(T)\to C$ and $e(T)\to0$, then
+      \[\inf\{\varphi(T)+e(T):\ T>0\}=C\]
+      (Mathlib's $\operatorname{sInf}$).
+      (vii) If $T>0$ and $\phi$ is the greatest lower bound of $\{v_k\}$, then $\phi/T$ is the greatest lower bound of $\{v_k/T\}$.
+  - title: "Quantitative finite-time error"
+    claims:
+      - growth-rates-lean/finite-error-step-upper
+      - growth-rates-lean/finite-error-step-lower
+      - growth-rates-lean/finite-error-finite-bounds
+      - growth-rates-lean/finite-error-optimize
+      - growth-rates-lean/finite-error-log-error
+    statement: |-
+      Steps: if $h>0$, $b(t)/t\to\lambda$, and $b(t+h)\le b(t)+A$ for all $t\ge r$, then $\lambda h\le A$; if instead $b(t)+A\le b(t+h)$ for all $t\ge r$, then $A\le\lambda h$.
+      Let $n\in\mathbb N$, $f:\mathbb R\to\mathbb R$ with $f\ge1$ on $[0,\infty)$ and $\log f(t)/t\to\lambda$, and $B:\mathbb R^2\to\mathbb R$ with
+      \[f(T+S)\le(1+T/\delta)^nf(T)f(S+\delta)\ \ (T,S\ge0,\ \delta>0),\qquad \min(1,\delta/T)^nf(T)\le B(T,\delta)\ \ (T,\delta>0),\]
+      \[B(T,\delta)f(t)\le f(t+T+\delta)\ \ (T,\delta>0,\ t\ge0).\]
+      Then $\lambda\ge0$ and for all $T,\delta>0$,
+      \[\lambda(T-\delta)-n\log(1+T/\delta)\le\log f(T)\le\lambda(T+\delta)+n\log\max(1,T/\delta).\]
+      Optimization: if $n>0$ is real, $\lambda\ge0$ and $b(T)$ satisfies these two bounds for all $T,\delta>0$, then $|b(T)-T\lambda|\le n\big(1+\log(2+T\lambda/n)\big)$ for every $T>0$.
+      Conclusion: under the hypotheses above with $n\ge1$ and $f(0)=1$,
+      \[|\log f(T)-T\lambda|\le n\big(1+\log(2+T\lambda/n)\big)\qquad\text{for every } T\ge0.\]
+  - title: "Joint error from two orders"
+    claims:
+      - growth-rates-lean/finite-error-sandwich-error
+      - growth-rates-lean/finite-error-joint-error
+    statement: |-
+      Let $p,n,m,z>0$ and $0\le C\le c_m\le c_n\le M$ be real, and $x,x_n,x_m\in\mathbb R$ with
+      \[|x_n-nc_nz|\le n\big(1+\log(2+c_nz)\big),\qquad |x_m-mc_mz|\le m\big(1+\log(2+c_mz)\big),\qquad \tfrac pm x_m\le x\le\tfrac pn x_n.\]
+      Then
+      \[\Big|\frac{x}{pz}-C\Big|\le c_n-C+\frac{1+\log(2+Mz)}{z}.\]
+      Joint form: let $f_n,f_m$ satisfy the hypotheses of the final conclusion of the row "Quantitative finite-time error" ($f(0)=1$, $f\ge1$ on $[0,\infty)$, $\log f(t)/t\to\lambda$, and the cut, confinement and composition inequalities) at integer orders $n,m\ge1$, with functions $B_n,B_m$ and rates $\lambda_n,\lambda_m$. Let $T\ge0$, $p,z>0$, $0\le C\le c_m\le c_n\le M$, $T\lambda_n=nc_nz$, $T\lambda_m=mc_mz$ and $\frac pm\log f_m(T)\le x\le\frac pn\log f_n(T)$. Then the same bound on $|x/(pz)-C|$ holds.

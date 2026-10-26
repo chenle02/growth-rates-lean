@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/code.css' | relative_url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <script src="{{ '/assets/math.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/code.js' | relative_url }}"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <a class="brand" href="{{ '/' | relative_url }}"><span>Growth Rates in Lean</span></a>
+    <span class="tagline">Lean 4 / Mathlib library · Apache-2.0</span>
+  </header>
+  {% capture menu %}
+  {% assign groups = "Start::/|Home;/getting-started.html|Getting started##Results::/what-is-proved.html|What is proved;/verification.html|Verification;/coverage.html|Coverage;/modules.html|Modules" | split: "##" %}
+  {% for group in groups %}{% assign g = group | split: "::" %}
+    <p class="group">{{ g[0] }}</p>
+    <ul>{% assign items = g[1] | split: ";" %}{% for item in items %}{% assign it = item | split: "|" %}
+      <li><a href="{{ it[0] | relative_url }}"{% if page.url == it[0] %} aria-current="page"{% endif %}>{{ it[1] }}</a></li>{% endfor %}
+    </ul>
+  {% endfor %}
+    <p class="group">Elsewhere</p>
+    <ul>
+      <li><a href="https://github.com/chenle02/growth-rates-lean">Source on GitHub</a></li>
+    </ul>
+  {% endcapture %}
+  <div class="shell">
+    <nav class="side" aria-label="Site">{{ menu }}</nav>
+    <details class="side-mobile"><summary>Menu</summary><nav aria-label="Site (compact)">{{ menu }}</nav></details>
+    <main id="content">
+{{ content }}
+    </main>
+  </div>
+  <footer>
+    growth-rates-lean · Le Chen ·
+    developed with <a href="https://github.com/lean-pkg/lean-pkg">lean-pkg</a> ·
+    <a href="https://raw.githubusercontent.com/chenle02/growth-rates-lean/main/llms.txt">llms.txt</a> ·
+    <a href="https://github.com/chenle02/growth-rates-lean/blob/main/CITATION.cff">CITATION.cff</a> ·
+    <a href="https://github.com/chenle02/growth-rates-lean/blob/main/LICENSE">Apache-2.0</a>
+  </footer>
+</body>
+</html>

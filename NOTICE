@@ -1,0 +1,22 @@
+GrowthRates (growth-rates-lean)
+Copyright 2026 Le Chen
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+Third-party code. This repository contains no third-party code. Every file
+in it was written for this library.
+
+Dependencies. This library depends on Lean 4 (https://github.com/leanprover/lean4)
+and Mathlib (https://github.com/leanprover-community/mathlib4), and through
+Mathlib on its own dependencies. Lake fetches them at build time; they are not
+vendored here, are distributed separately under their own licenses, and no
+authorship of upstream material is claimed.
+
+Mathematics. The results are classical in spirit (Fekete's lemma and its
+continuous-time and near-subadditive variants). The README and
+docs/what-is-proved.md cite the works they build on.
+
+AI assistance. AI coding assistants were used for drafting the Lean proofs,
+extracting them into this library, and writing documentation under Le Chen's
+direction. Every proof is checked by the Lean kernel. The README names the
+additional checks and the statements they cover.

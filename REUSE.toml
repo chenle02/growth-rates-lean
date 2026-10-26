@@ -1,0 +1,10 @@
+# REUSE (https://reuse.software): every file of this package, including the receipts and logs added later,
+# is under Apache-2.0 with this copyright; `reuse lint` reads it (written by `lean-pkg new`).
+version = 1
+SPDX-PackageName = "growth-rates-lean"
+
+[[annotations]]
+path = ["**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Le Chen"
+SPDX-License-Identifier = "Apache-2.0"

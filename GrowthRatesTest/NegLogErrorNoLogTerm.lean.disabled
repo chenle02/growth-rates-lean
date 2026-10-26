@@ -1,0 +1,17 @@
+import GrowthRates
+
+/-! Negative control `NegLogErrorNoLogTerm`: mutation of `GrowthRates.FiniteError.log_error` with the error `n (1 + log (2 + T lam / n))` replaced by `n`.
+The optimized error grows logarithmically in `T lam`.
+Must not compile. -/
+
+theorem GrowthRatesTest.negLogErrorNoLogTerm (f : ℝ → ℝ) (B : ℝ → ℝ → ℝ) (n : ℕ) (lam : ℝ)
+    (hn : 0 < n) (hone : ∀ t, 0 ≤ t → 1 ≤ f t) (hzero : f 0 = 1)
+    (hrate : Filter.Tendsto (fun t => Real.log (f t)/t) Filter.atTop (nhds lam))
+    (hcut : ∀ T S δ : ℝ, 0 ≤ T → 0 ≤ S → 0 < δ →
+      f (T+S) ≤ (1+T/δ)^n*f T*f (S+δ))
+    (hconfine : ∀ T δ : ℝ, 0 < T → 0 < δ →
+      (min 1 (δ/T))^n*f T ≤ B T δ)
+    (hcompose : ∀ T δ t : ℝ, 0 < T → 0 < δ → 0 ≤ t →
+      B T δ*f t ≤ f (t+T+δ)) :
+    ∀ T : ℝ, 0 ≤ T → |Real.log (f T)-T*lam| ≤ (n:ℝ) := by
+  exact GrowthRates.FiniteError.log_error f B n lam hn hone hzero hrate hcut hconfine hcompose

@@ -1,0 +1,15 @@
+import GrowthRates
+
+/-! Negative control `NegLogDefectUncorrectedRate`: mutation of `GrowthRates.LogDefect.tendsto_div_rate` with the limit stated as the supremum of the
+uncorrected slopes `a x / x`. The logarithmic correction is what makes the supremum the limit.
+Must not compile. -/
+
+theorem GrowthRatesTest.negLogDefectUncorrectedRate (a : ℝ → ℝ) (M B h C : ℝ)
+    (hM : 0 ≤ M) (hB : 0 ≤ B) (hh : 1 ≤ h)
+    (hmono : MonotoneOn a (Set.Ici h))
+    (hupper : ∀ x : ℝ, h ≤ x → a x ≤ C*x)
+    (hnear : ∀ x y : ℝ, h ≤ x → h ≤ y →
+      a x + a y - M * Real.log (x+y) - B ≤ a (x+y)) :
+    Filter.Tendsto (fun t : ℝ => a t / t) Filter.atTop
+      (nhds (sSup (Set.range (fun x : Set.Ici h => a x / x)))) := by
+  exact GrowthRates.LogDefect.tendsto_div_rate a M B h C hM hB hh hmono hupper hnear

@@ -1,0 +1,15 @@
+import GrowthRates
+
+/-! Negative control `NegJointLimitNoAntitone`: mutation of `GrowthRates.Envelope.joint_limit` without antitonicity in the order. Without it a large order
+`p j` gives no comparison with the fixed even orders.
+Must not compile. -/
+
+theorem GrowthRatesTest.negJointLimitNoAntitone {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e : ℝ → ℝ}
+    {C : ℝ} (hC : IsGLB (Set.range a) C)
+    (hlower : ∀ k T, 0 < T → a k - e T ≤ q (GrowthRates.Envelope.evenOrder k) T)
+    (he : Filter.Tendsto e Filter.atTop (nhds 0))
+    (hq : ∀ k, Filter.Tendsto (q (GrowthRates.Envelope.evenOrder k)) Filter.atTop (nhds (a k)))
+    (p T : ℕ → ℝ) (hp : Filter.Tendsto p Filter.atTop Filter.atTop)
+    (hT : Filter.Tendsto T Filter.atTop Filter.atTop) :
+    Filter.Tendsto (fun j => q (p j) (T j)) Filter.atTop (nhds C) := by
+  exact GrowthRates.Envelope.joint_limit hC hlower he hq p T hp hT

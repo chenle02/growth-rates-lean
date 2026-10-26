@@ -1,0 +1,12 @@
+import GrowthRates
+
+/-! Negative control `NegRealOrderBelowTwo`: mutation of `GrowthRates.Envelope.real_order_lower` for an order `p ≥ 1` instead of `p ≥ 2`. The antitone
+comparison is assumed only from order `2` on, so orders in `[1, 2)` are not covered.
+Must not compile. -/
+
+theorem GrowthRatesTest.negRealOrderBelowTwo {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e : ℝ → ℝ}
+    {C : ℝ} (hC : IsGLB (Set.range a) C)
+    (hanti : ∀ T, 0 < T → ∀ p, 2 ≤ p → ∀ r, p ≤ r → q r T ≤ q p T)
+    (hlower : ∀ k T, 0 < T → a k - e T ≤ q (GrowthRates.Envelope.evenOrder k) T)
+    {p T : ℝ} (hp : 1 ≤ p) (hT : 0 < T) : C - e T ≤ q p T := by
+  exact GrowthRates.Envelope.real_order_lower hC hanti hlower hp hT

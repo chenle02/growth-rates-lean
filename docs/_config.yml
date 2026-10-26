@@ -1,0 +1,12 @@
+title: "Growth Rates in Lean"
+description: "Fekete-type growth rates, uniform envelopes and finite-time errors, formalized in Lean 4 with Mathlib."
+url: https://chenle02.github.io
+baseurl: /growth-rates-lean
+markdown: kramdown
+theme: null
+plugins: []
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

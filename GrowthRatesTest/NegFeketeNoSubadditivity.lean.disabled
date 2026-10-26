@@ -1,0 +1,11 @@
+import GrowthRates
+
+/-! Negative control `NegFeketeNoSubadditivity`: mutation of `GrowthRates.RealFekete.tendsto_div_rate` without subadditivity. `b t = t ^ 2` is nonnegative and
+locally bounded, and `b t / t = t → ∞`, so no finite limit exists.
+Must not compile. -/
+
+theorem GrowthRatesTest.negFeketeNoSubadditivity {b : ℝ → ℝ}
+    (hnonneg : ∀ t, 0 ≤ t → 0 ≤ b t)
+    (hlocal : ∀ h, 0 < h → ∃ M, ∀ r, 0 ≤ r → r ≤ h → b r ≤ M) :
+    Filter.Tendsto (fun t : ℝ => b t / t) Filter.atTop (nhds (GrowthRates.RealFekete.rate b)) := by
+  exact GrowthRates.RealFekete.tendsto_div_rate ⟨hnonneg, hlocal⟩

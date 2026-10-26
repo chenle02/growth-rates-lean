@@ -1,0 +1,11 @@
+/* Fold and copy code blocks (see code.js) */
+.code-wrap { position: relative; }
+.code-wrap > pre { padding-top: 2em; }
+.code-copy { position: absolute; top: 0.35em; right: 0.35em; font: 0.75em/1.4 system-ui, sans-serif; padding: 0.15em 0.6em; border: 1px solid #9aa8b6; border-radius: 4px; background: #f5f7fa; color: #153e63; cursor: pointer; opacity: 0.85; }
+.code-copy:hover, .code-copy:focus { opacity: 1; }
+details.lean-fold, details.signoff-lean { margin: 0.4em 0 1em; }
+details.lean-fold > summary, details.signoff-lean > summary { cursor: pointer; font-size: 0.9em; color: #153e63; }
+@media (prefers-color-scheme: dark) {
+  .code-copy { background: #1e2733; color: #cfe0f2; border-color: #4b5b6b; }
+  details.lean-fold > summary, details.signoff-lean > summary { color: #9fc3e6; }
+}

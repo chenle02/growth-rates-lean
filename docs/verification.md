@@ -8,13 +8,13 @@
 
 Continuous-time Fekete lemma and rate transfer within a logarithmic error; a Fekete lemma with a logarithmic defect (direct, delayed, multiplicative); uniform envelopes and joint limits over an order parameter; explicit finite-time errors from cut, confinement and composition inequalities. Every limit, infimum and error bound is derived, not assumed.
 
-- Main results: 7; verified: 0 of 7.
+- Main results: 7; verified: 7 of 7.
 
 ## Main results
 
 ### Fekete's lemma in continuous time
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -25,7 +25,7 @@ Let $b:\mathbb R\to\mathbb R$ satisfy $b(t)\ge0$ for $t\ge0$, $b(t+u)\le b(t)+b(
 \[\lim_{t\to\infty}\frac{b(t)}{t}=\operatorname{rate}(b),\qquad \operatorname{rate}(b)\le\frac{b(t)}{t}\ \text{ for every } t>0,\qquad \operatorname{rate}(b)\ge0.\]
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem tendsto_div_rate {b : ℝ → ℝ}
@@ -35,7 +35,7 @@ theorem tendsto_div_rate {b : ℝ → ℝ}
     Tendsto (fun t : ℝ => b t / t) atTop (𝓝 (sInf ((fun h : ℝ => b h / h) '' Ioi 0)))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem rate_le_slope {b : ℝ → ℝ}
@@ -46,7 +46,7 @@ theorem rate_le_slope {b : ℝ → ℝ}
     sInf ((fun h : ℝ => b h / h) '' Ioi 0) ≤ b t / t
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem rate_nonneg {b : ℝ → ℝ}
@@ -60,7 +60,7 @@ theorem rate_nonneg {b : ℝ → ℝ}
 
 ### Rate transfer under a logarithmic comparison
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -72,7 +72,7 @@ Multiplicative form: let $C\ge0$ and $N:\mathbb R\to\mathbb R$ with, for $t,u\ge
 \[\lim_{t\to\infty}\frac{\log F(t)}{t}=\nu\qquad\text{and}\qquad t\nu-A-B\log(1+t)\le\log F(t)\ \text{ for every } t>0.\]
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem tendsto_div_rate_of_comparison {b m : ℝ → ℝ}
@@ -85,7 +85,7 @@ theorem tendsto_div_rate_of_comparison {b m : ℝ → ℝ}
     Tendsto (fun t : ℝ => m t / t) atTop (𝓝 (sInf ((fun h : ℝ => b h / h) '' Ioi 0)))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem lower_bound_of_comparison {b m : ℝ → ℝ}
@@ -98,7 +98,7 @@ theorem lower_bound_of_comparison {b m : ℝ → ℝ}
     t * sInf ((fun h : ℝ => b h / h) '' Ioi 0) - A - B * Real.log (1 + t) ≤ m t
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem log_rate_of_submul {N F : ℝ → ℝ} {C A B : ℝ}
@@ -120,7 +120,7 @@ theorem log_rate_of_submul {N F : ℝ → ℝ} {C A B : ℝ}
 
 ### Fekete's lemma with a logarithmic defect
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -132,7 +132,7 @@ Put $c(x)=M\log x+B+M\log(9/2)$ and $\tilde a(x)=a(x)-c(x)$. Then $\tilde a(x)+\
 (Mathlib's $\operatorname{sSup}$ of the range over $x\in[h,\infty)$).
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem tendsto_div_rate (a : ℝ → ℝ) (M B h C : ℝ)
@@ -146,7 +146,7 @@ theorem tendsto_div_rate (a : ℝ → ℝ) (M B h C : ℝ)
         (a x - (M * Real.log x + B + M * Real.log (9 / 2 : ℝ))) / x))))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem balanced_merge (a : ℝ → ℝ) (M B h : ℝ)
@@ -160,7 +160,7 @@ theorem balanced_merge (a : ℝ → ℝ) (M B h : ℝ)
       a (x+y) - (M * Real.log (x+y) + B + M * Real.log (9 / 2 : ℝ))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem corrected_nat_blocks (a : ℝ → ℝ) (M B h : ℝ)
@@ -172,7 +172,7 @@ theorem corrected_nat_blocks (a : ℝ → ℝ) (M B h : ℝ)
       a ((k : ℝ)*x) - (M * Real.log ((k : ℝ)*x) + B + M * Real.log (9 / 2 : ℝ))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem nat_blocks (a : ℝ → ℝ) (M B h : ℝ)
@@ -187,7 +187,7 @@ theorem nat_blocks (a : ℝ → ℝ) (M B h : ℝ)
 
 ### Delayed and multiplicative forms
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -202,7 +202,7 @@ Multiplicative form: let $f\ge1$ on $[0,\infty)$ be nondecreasing on $[0,\infty)
 Then $D(\log\circ f)\ge0$ and $\log f(t)/t\to D(\log\circ f)$ as $t\to\infty$.
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem tendsto_div_delayedRate (b : ℝ → ℝ) (M B T0 C : ℝ)
@@ -219,7 +219,7 @@ theorem tendsto_div_delayedRate (b : ℝ → ℝ) (M B T0 C : ℝ)
         (b T - M * Real.log (1 + T) - B - M * Real.log (9/2:ℝ)) / (T+1)))))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem tendsto_log_div_delayedRate (f : ℝ → ℝ) (M B T0 C : ℝ)
@@ -240,7 +240,7 @@ theorem tendsto_log_div_delayedRate (f : ℝ → ℝ) (M B T0 C : ℝ)
 
 ### Uniform envelopes and joint limits over the order
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -259,7 +259,7 @@ Let $q:\mathbb R\times\mathbb R\to\mathbb R$ and $e:\mathbb R\to\mathbb R$ with 
 (vii) If $T>0$ and $\phi$ is the greatest lower bound of $\{v_k\}$, then $\phi/T$ is the greatest lower bound of $\{v_k/T\}$.
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.envelope_limit` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.envelope_limit` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem envelope_limit {β : Type*} {l : Filter β} {a : ℕ → ℝ}
@@ -272,7 +272,7 @@ theorem envelope_limit {β : Type*} {l : Filter β} {a : ℕ → ℝ}
     Tendsto f l (𝓝 C)
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.real_order_lower` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.real_order_lower` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem real_order_lower {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e : ℝ → ℝ}
@@ -282,7 +282,7 @@ theorem real_order_lower {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e : ℝ �
     {p T : ℝ} (hp : 2 ≤ p) (hT : 0 < T) : C - e T ≤ q p T
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.control_sandwich` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.control_sandwich` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem control_sandwich {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e φ : ℝ → ℝ}
@@ -293,7 +293,7 @@ theorem control_sandwich {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e φ : ℝ
     C - e T ≤ φ T ∧ ∀ k, φ T ≤ q (2 * ((k + 1 : ℕ) : ℝ)) T
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.control_limit` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.control_limit` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem control_limit {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e φ : ℝ → ℝ}
@@ -305,7 +305,7 @@ theorem control_limit {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e φ : ℝ �
     Tendsto φ atTop (𝓝 C)
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.joint_limit` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.joint_limit` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem joint_limit {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e : ℝ → ℝ}
@@ -318,7 +318,7 @@ theorem joint_limit {q : ℝ → ℝ → ℝ} {a : ℕ → ℝ} {e : ℝ → ℝ
     Tendsto (fun j => q (p j) (T j)) atTop (𝓝 C)
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem corrected_sInf {φ e : ℝ → ℝ} {C : ℝ}
@@ -327,7 +327,7 @@ theorem corrected_sInf {φ e : ℝ → ℝ} {C : ℝ}
     sInf ((fun T => φ T + e T) '' Ioi 0) = C
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.glb_div_time` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.Envelope.glb_div_time` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem glb_div_time {v : ℕ → ℝ} {φ T : ℝ} (hT : 0 < T)
@@ -339,7 +339,7 @@ theorem glb_div_time {v : ℕ → ℝ} {φ T : ℝ} (hT : 0 < T)
 
 ### Quantitative finite-time error
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -355,7 +355,7 @@ Conclusion: under the hypotheses above with $n\ge1$ and $f(0)=1$,
 \[|\log f(T)-T\lambda|\le n\big(1+\log(2+T\lambda/n)\big)\qquad\text{for every } T\ge0.\]
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.step_upper` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.step_upper` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem step_upper (b : ℝ → ℝ) (lam r h A : ℝ) (hh : 0 < h)
@@ -363,7 +363,7 @@ theorem step_upper (b : ℝ → ℝ) (lam r h A : ℝ) (hh : 0 < h)
     (hstep : ∀ t, r ≤ t → b (t+h) ≤ b t+A) : lam*h ≤ A
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.step_lower` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.step_lower` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem step_lower (b : ℝ → ℝ) (lam r h A : ℝ) (hh : 0 < h)
@@ -371,7 +371,7 @@ theorem step_lower (b : ℝ → ℝ) (lam r h A : ℝ) (hh : 0 < h)
     (hstep : ∀ t, r ≤ t → b t+A ≤ b (t+h)) : A ≤ lam*h
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem finite_bounds (f : ℝ → ℝ) (B : ℝ → ℝ → ℝ) (n : ℕ) (lam : ℝ)
@@ -388,7 +388,7 @@ theorem finite_bounds (f : ℝ → ℝ) (B : ℝ → ℝ → ℝ) (n : ℕ) (lam
       Real.log (f T) ≤ lam*(T+δ)+(n:ℝ)*Real.log (max 1 (T/δ))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.optimize` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.optimize` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem optimize (b : ℝ → ℝ) (n lam : ℝ) (hn : 0 < n) (hlam : 0 ≤ lam)
@@ -399,7 +399,7 @@ theorem optimize (b : ℝ → ℝ) (n lam : ℝ) (hn : 0 < n) (hlam : 0 ≤ lam)
     |b T-T*lam| ≤ n*(1+Real.log (2+T*lam/n))
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.log_error` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.log_error` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem log_error (f : ℝ → ℝ) (B : ℝ → ℝ → ℝ) (n : ℕ) (lam : ℝ)
@@ -419,7 +419,7 @@ theorem log_error (f : ℝ → ℝ) (B : ℝ → ℝ → ℝ) (n : ℕ) (lam : �
 
 ### Joint error from two orders
 
-**Not yet verified.** lean-pkg's record of the checks says: open. Until it says verified, read the Lean statement below as work in progress.
+**Verified.** Lean accepts the proof, and lean-pkg's record shows every check of this result passed (the build, and the statement comparison).
 
 **In words.**
 
@@ -431,7 +431,7 @@ Then
 Joint form: let $f_n,f_m$ satisfy the hypotheses of the final conclusion of the row "Quantitative finite-time error" ($f(0)=1$, $f\ge1$ on $[0,\infty)$, $\log f(t)/t\to\lambda$, and the cut, confinement and composition inequalities) at integer orders $n,m\ge1$, with functions $B_n,B_m$ and rates $\lambda_n,\lambda_m$. Let $T\ge0$, $p,z>0$, $0\le C\le c_m\le c_n\le M$, $T\lambda_n=nc_nz$, $T\lambda_m=mc_mz$ and $\frac pm\log f_m(T)\le x\le\frac pn\log f_n(T)$. Then the same bound on $|x/(pz)-C|$ holds.
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem sandwich_error (x xn xm p n m z C cn cm M : ℝ)
@@ -443,7 +443,7 @@ theorem sandwich_error (x xn xm p n m z C cn cm M : ℝ)
     |x/(p*z)-C| ≤ cn-C+(1+Real.log (2+M*z))/z
 ```
 
-**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.joint_error` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/993d64ce05ed7414274134f8dddec6073ff5523f/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
+**In Lean.** `GrowthRatesAudit.GrowthRates.FiniteError.joint_error` in [GrowthRates/Challenge.lean](https://github.com/chenle02/growth-rates-lean/blob/7be8306dfe039ce7831f440705545e53c77be2f6/GrowthRates/Challenge.lean): the statement the proof was checked against (the proof is in a separate file, and a second checker confirmed it proves exactly this).
 
 ```lean
 theorem joint_error (fn fm : ℝ → ℝ) (Bn Bm : ℝ → ℝ → ℝ)
@@ -482,17 +482,17 @@ The full account of what each check covers and what it takes on trust is lean-pk
 
 ## How this was checked
 
-- lean-pkg's claims ledger: **open**, not every required claim is closed by the recorded receipts; 0 of 26 required claim(s) verified (`sha256:b3d7471ff47f3a2f…`).
-- Build check (`lean-pkg gate`) at commit `993d64ce05ed`: `sorry` count 0; axioms used: `Classical.choice`, `Quot.sound`, `propext`.
+- lean-pkg's claims ledger: **ready**, every required claim is closed by the recorded receipts; 26 of 26 required claim(s) verified (`sha256:8178118d3616377f…`).
+- Build check (`lean-pkg gate`) at commit `7be8306dfe03`: `sorry` count 0; axioms used: `Classical.choice`, `Quot.sound`, `propext`.
 - Axioms of every claim: read from the built environment (Lean's `collectAxioms`) for all 41 claim(s) in `claims.yaml`, not only the theorems the build prints; none uses an axiom beyond `propext`, `Quot.sound` and `Classical.choice`.
-- Statement comparison (comparator) at commit `993d64ce05ed`: 1 configuration(s), 26 theorem(s) compared (each Challenge statement against its Solution proof); permitted axioms: `Classical.choice`, `Quot.sound`, `propext`; definitions compared by name only: none.
+- Statement comparison (comparator) at commit `7be8306dfe03`: 1 configuration(s), 26 theorem(s) compared (each Challenge statement against its Solution proof); permitted axioms: `Classical.choice`, `Quot.sound`, `propext`; definitions compared by name only: none.
 
 ### Receipts
 
 | Receipt | Check | Commit | Date | Job | SHA-256 |
 |---|---|---|---|---|---|
-| `.lean-receipts/993d64ce05ed-comparator.json` (used here) | statement comparison | `993d64ce05ed` | 2026-10-26 | — | `415c02276e695f71f138fac06afe8b4511aab165c96ce40b56531d76f13ff75a` |
-| `.lean-receipts/993d64ce05ed-systemd-user-growth-rates-lean-verify.service-0f763275b6c04564bf68dbf8f885b19f-h-2db2e0fa6029.json` (used here) | build | `993d64ce05ed` | 2026-10-26 | — | `d5c3a3ee5bd5e7ccfb8cffe0c7732ad0993926d881814afb3cbc52233b316cfb` |
+| `.lean-receipts/7be8306dfe03-comparator.json` (used here) | statement comparison | `7be8306dfe03` | 2026-10-26 | — | `24196154a333c6c4208e16a08542d9a2a05fff9e17d0ae1eba94ace0efd0ab33` |
+| `.lean-receipts/7be8306dfe03-systemd-user-growth-rates-lean-verify.service-0357adc62a5f44bba39263a2a4d54107-h-2db2e0fa6029.json` (used here) | build | `7be8306dfe03` | 2026-10-26 | — | `7f94192b319958198a5bd4e075bd1a9d6ce2b2156c2ffdd8e84feda9ca4e7603` |
 
 *(used here)*: the receipt the lean-pkg registry holds for this package, which the lines above read. SHA-256 is of the file as committed.
 
@@ -504,7 +504,7 @@ The full account of what each check covers and what it takes on trust is lean-pk
 ```bash
 git clone https://github.com/chenle02/growth-rates-lean
 cd growth-rates-lean
-git checkout 993d64ce05ed7414274134f8dddec6073ff5523f   # the commit the build check binds
+git checkout 7be8306dfe039ce7831f440705545e53c77be2f6   # the commit the build check binds
 lake exe cache get
 lake build
 ```

@@ -8,6 +8,7 @@ If $`b\colon[0,\infty)\to\mathbb{R}`$ is nonnegative, subadditive and bounded ab
 [![Mathlib](https://img.shields.io/badge/Mathlib-56a0058-153e63)](https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679)
 [![License](https://img.shields.io/badge/license-Apache--2.0-153e63)](LICENSE)
 [![Release](https://img.shields.io/badge/release-v0.1.0-153e63)](https://github.com/chenle02/growth-rates-lean/releases/tag/v0.1.0)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23669797.svg)](https://doi.org/10.5281/zenodo.23669797)
 
 [What is proved](#what-is-proved) · [Statement guide](docs/what-is-proved.md) · [Verification page](docs/verification.md) · [Build](#build-and-verify) · [Cite](CITATION.cff)
 

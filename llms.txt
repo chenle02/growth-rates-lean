@@ -3,7 +3,7 @@
 Fekete-type growth rates, uniform envelopes and finite-time errors, in Lean 4 with Mathlib.
 Lean v4.35.0, Mathlib v4.35.0 (commit 56a005855ea17e0b0958f73ec801ae140b0a1679). Namespace GrowthRates. Apache-2.0. Author Le Chen.
 Repository: https://github.com/chenle02/growth-rates-lean
-Release: v0.1.0 (tag v0.1.0; lakefile version 0.1.0). Cite with CITATION.cff.
+Release: v0.1.0 (tag v0.1.0; lakefile version 0.1.0). Cite with CITATION.cff: concept DOI 10.5281/zenodo.23669797 (v0.1.0: 10.5281/zenodo.23669798).
 
 The Lean declaration decides every hypothesis. Prose is not checked by Lean.
 A receipt under .lean-receipts/ covers only the commit it names.

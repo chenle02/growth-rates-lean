@@ -69,3 +69,11 @@ footer { border-top: 1px solid var(--rule); font-size: .9rem; color: var(--muted
 details.tex-source { margin: 0 0 1em; font-size: .85em; }
 details.tex-source > summary { opacity: .8; }
 mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+
+/* Narrow screens. Long inline code (declaration names, receipt files) wraps instead of widening the page. */
+:not(pre) > code { overflow-wrap: anywhere; }
+/* MathJax 3 does not break formulas. math.js marks a formula wider than its column with .mjx-wide; only
+   that formula scrolls inside its own box. The vertical padding keeps superscripts and fraction bars clear
+   of the box edge, so nothing is clipped. Formulas that fit are left as MathJax renders them. */
+mjx-container.mjx-wide { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
+mjx-container.mjx-wide:not([display="true"]) { display: inline-block; vertical-align: middle; }

@@ -44,9 +44,9 @@ status:
   - Quot.sound
   - propext
   evidence:
-    commit: 158e8431c1dbe0c52cdf3b76b6e7231ef6981c67
-    gate_receipt: .lean-receipts/158e8431c1db-systemd-user-growth-rates-lean-verify.service-fc90457501b94a56bb1ad9ec345c067c-h-2db2e0fa6029.json
-    comparator_receipt: .lean-receipts/158e8431c1db-comparator.json
+    commit: 689257126d3859efba8a38076353c9570d1fe1f1
+    gate_receipt: .lean-receipts/689257126d38-systemd-user-growth-rates-gold-native4-20261030.service-4943bb9ac67946bb91ae30cbbaaeeef4-h-2db2e0fa6029.json
+    comparator_receipt: .lean-receipts/689257126d38-comparator.json
   main_results:
   - comparator_config: comparator.json
     declaration: GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate

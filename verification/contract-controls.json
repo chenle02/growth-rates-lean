@@ -1,0 +1,51 @@
+{
+  "GrowthRatesTest/NegFeketeNoSubadditivity.lean.disabled": {
+    "sha256": "17db8d080fcc072d38dd94be98b7a6732745ac52960183af5d880d880d667c84",
+    "errors": [
+      "Insufficient number of fields for `\u27e8...\u27e9` constructor: Constructor `GrowthRates.RealFekete.RealTimeBounds.mk` has 3 explicit field, but only 2 were provided",
+      "Application type mismatch: The argument"
+    ]
+  },
+  "GrowthRatesTest/NegFeketeSupremum.lean.disabled": {
+    "sha256": "a3a81ed25c275e1831ca204d2f5ce2b6f8f74eac4019b05b9b8993668a8ef180",
+    "errors": [
+      "Type mismatch"
+    ]
+  },
+  "GrowthRatesTest/NegJointLimitNoAntitone.lean.disabled": {
+    "sha256": "7e00415fda925ebb73daf8a3d88983005be7c5939992ffae4d03af045f123ce5",
+    "errors": [
+      "Application type mismatch: The argument"
+    ]
+  },
+  "GrowthRatesTest/NegLogDefectNoMonotone.lean.disabled": {
+    "sha256": "542ec59713d924ead21cc29115969420f085209ed53ba8a86b653ce3932826e1",
+    "errors": [
+      "Application type mismatch: The argument"
+    ]
+  },
+  "GrowthRatesTest/NegLogDefectUncorrectedRate.lean.disabled": {
+    "sha256": "32b6d16b455316284f8cc543dcf3a559c9da0321e2780bd33b85a731b99990e9",
+    "errors": [
+      "Type mismatch"
+    ]
+  },
+  "GrowthRatesTest/NegLogErrorNoLogTerm.lean.disabled": {
+    "sha256": "85dfe439b53e83f7836b2bb41a307608f16351340cb2eb8d83f95ae6bab71d80",
+    "errors": [
+      "Type mismatch"
+    ]
+  },
+  "GrowthRatesTest/NegLowerBoundNoLogTerm.lean.disabled": {
+    "sha256": "bde51d3a54f5e7d2454ea06038286024ee506dfa9947e7cb72827236d8cea142",
+    "errors": [
+      "Type mismatch"
+    ]
+  },
+  "GrowthRatesTest/NegRealOrderBelowTwo.lean.disabled": {
+    "sha256": "a1c94e24ec1553a57f8c2bf4846204c1b835ec8c2c7f30990d73370497f61710",
+    "errors": [
+      "Application type mismatch: The argument"
+    ]
+  }
+}

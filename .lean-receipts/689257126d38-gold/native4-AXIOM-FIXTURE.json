@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "positive_compiled": true,
+  "forbidden_transitive_axiom_rejected": true,
+  "scope": "Actual compiled fixture identities; isolated positive/escaped theorem rows checked separately. Full original fixture transcript is retained."
+}

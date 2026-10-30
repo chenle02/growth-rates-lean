@@ -1,0 +1,25 @@
+{
+  "initial_review": {
+    "source": "0947efd36a800f7e03c65cc204b17ea8f5897187",
+    "verdict": "FAIL",
+    "confidence": "medium",
+    "positive_checks": [
+      "G1",
+      "G2",
+      "G3",
+      "G5"
+    ],
+    "required_repair": "G4: AGENTS must describe API rejection rather than mathematical counterexample certification"
+  },
+  "focused_review": {
+    "source": "d125edc5db829fc5532b7e6c7d356f85d9f004bb",
+    "verdict": "FAIL",
+    "confidence": "high",
+    "required_repair": "Synthetic baseline must retain non-empty recursor bodies and complete inside verify.sh"
+  },
+  "repair_binding": {
+    "policy": "d125edc independently reviewed in focused R1",
+    "reader": "6892571 changes only the synthetic recursor baseline line; both final complete verification executions passed all 18 mutations after checking their real full transcripts"
+  },
+  "scope": "Historical review verdicts/confidence unchanged. Initial statement/reference checks reused at unchanged scientific bytes; required mechanical repair discharged by actual source-bound execution. No claim of a later model PASS, human review, novelty or whole-paper certification."
+}

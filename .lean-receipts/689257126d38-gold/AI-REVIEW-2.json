@@ -1,0 +1,72 @@
+{
+  "schema": "subscription-review-report/1",
+  "verdict": "FAIL",
+  "confidence": "high",
+  "source_coverage": [
+    ".review/required-sources.json lines 1-59 (read plan; earns no read credit)",
+    "CONTRACT.md lines 1-9 (complete)",
+    "AGENTS.md lines 1-53 (complete)",
+    "scripts/audit-owned.py lines 1-97 (complete)",
+    "scripts/check-axiom-fixture.py lines 1-33 (complete)",
+    "scripts/check-negative-controls.py lines 1-26 (complete)",
+    "scripts/check-negative-controls.sh lines 1-7 (complete)",
+    "scripts/test-owned-reader.py lines 1-22 (complete)",
+    "verification/OwnedAudit.lean lines 1-62 (complete)",
+    "verification/scope.json lines 1-283 (complete)",
+    "verification/owned-declarations.json lines 1-538 (complete)",
+    "verification/contract-controls.json lines 1-51 (complete)",
+    "docs/getting-started.md lines 1-119 (complete)",
+    "docs/reference-audit.json lines 1-65 (complete)",
+    "AUDIT.md lines 1-19 (complete)",
+    "BOOST.md lines 1-7 (complete)",
+    "lake-manifest.json lines 1-117 (complete)",
+    "verify.sh lines 1-470 (complete)",
+    "PREVIOUS-REPORT.json lines 1-94 (complete)",
+    "REPAIR.diff lines 1-334 (complete)"
+  ],
+  "checks": [
+    {
+      "claim": "R1",
+      "verdict": "PASS",
+      "reason": "AGENTS.md lines 43-46 remove the mathematical-reason language. They call the eight files altered-contract API regression controls, require the exact recorded type/application or constructor-arity errors, exclude setup and missing-name errors, and state that rejection certifies neither a counterexample nor falsity of every altered statement. This matches the checker: the same eight names in check-negative-controls.py line 12, eight entries in contract-controls.json, seven controls with mismatch headers, one control with a constructor-arity header plus a mismatch header, and no allow-listed Invalid argument name. The wrapper .sh is now supplied and only calls the strict Python checker. docs/getting-started.md lines 68-69 and 80 say the same. The repair is satisfied as text; no control was executed."
+    },
+    {
+      "claim": "R2",
+      "verdict": "FAIL",
+      "reason": "Most of the hardening is present statically. Controls bind the fixture sha256 and the exact ordered error-header list. The compiled fixture has a two-hop chain escaped -> bridge -> forbidden. The inspector emits recursor rules and the parser requires a non-empty recursor body. All 15 roster definitions appear in scope.contracts, and the parser requires definition_body_repr to equal body_repr. Module registration and the source guard use rglob. Scope axiom policy, claims and comparator hashes, and comparator module names are checked. Tracked sources, HEAD and owned .olean files are hashed before and after the inspector. Discovery reports passed false, and the inspector records that it does not itself establish a fresh compile. The new recursor rule, however, breaks the supplied reader test. test-owned-reader.py line 8 sets body_repr to the empty string for every kind except theorem and definition. The roster holds three recursors: CutInputs.rec, RealTimeBounds.rec and SubmulInputs.rec. audit-owned.py line 45 now rejects an empty recursor body. Line 15 of the test calls m.parse(base,scope,roster) outside the reject wrapper, so the script raises RuntimeError('missing available body') on any transcript that matches the roster. verify.sh runs under set -e, so it stops at line 449. The fixture check, claim-axiom probe, hypothesis probe, sorry and axiom summary, and digest lines never run. The zero exit and three final digest lines described in docs/getting-started.md lines 104-105 are therefore unreachable at this revision. This was established by static tracing, not by execution."
+    },
+    {
+      "claim": "R3",
+      "verdict": "PASS",
+      "reason": "REPAIR.diff touches no GrowthRates/*.lean file, Challenge, Solution, claims.yaml, comparator.json, lean-toolchain or lakefile. Every package rev in lake-manifest.json is untouched, and the only manifest change is the root name, now \u00abgrowth-rates-lean\u00bb. The Mathlib pin in the manifest, docs/getting-started.md, AUDIT.md and reference-audit.json is 56a005855ea17e0b0958f73ec801ae140b0a1679. Scope.json still has 41 claims, split 26 reusable and 15 experimental (6+6+7+7 and 7+4+3+1 by module). The 15 experimental claims are not promoted. The Hille quote_words value of 4 is correct for the four-word quote. AUDIT.md says the refresh is in progress and claims no terminal result, novelty or human review. The novice section states the trust boundaries and separates the build/audit tier from Comparator and replay. This check covers the supplied diff surface only; byte identity to v0.1.0 was not recomputed, and the contract does not ask for that."
+    }
+  ],
+  "findings": {
+    "fatal": [],
+    "major": [
+      "scripts/test-owned-reader.py line 8 is inconsistent with the hardened parser at scripts/audit-owned.py line 45. The synthetic baseline gives the three roster recursors an empty body_repr, and the unguarded parse at test-owned-reader.py line 15 then raises RuntimeError. Under set -e, verify.sh aborts at line 449 before the forbidden-axiom fixture and all later steps, so the documented completion condition cannot be met. This failure is closed and admits no false acceptance, but the repaired checker chain cannot complete."
+    ],
+    "minor": [
+      "The reader test has no mutation for an empty recursor body or for definition_body_repr differing from body_repr, so these two new parser rules have no dedicated negative control. Each rule can be exercised only indirectly until such controls are added.",
+      "audit-owned.py line 90 rewrites the tracked roster in discovery mode, and line 93 then raises if that changed its hash, because the roster is in the tracked snapshot. Discovery of a changed roster therefore ends with an exception and no RESULT.json, after modifying the file. This fails closed and is not certification, but the mode only completes when the roster is unchanged.",
+      "Error binding covers first-line headers only, not position or message body, so a generic Type mismatch elsewhere in the same hash-bound fixture would still match. AGENTS.md says exact recorded errors, which is accurate only at header level.",
+      "The check-negative-controls.py docstring lists only type/application mismatches, while one control legitimately records a constructor-arity error. AGENTS.md describes this correctly.",
+      "check-negative-controls.py loads contract-controls.json with plain json.loads, so duplicate keys would not be rejected, unlike the strict read_json used elsewhere. It also relies on assert statements, which python -O would remove.",
+      "audit-owned.py runs lean --version without cwd=ROOT, whereas the inspector runs from ROOT. It also does not compare the recorded version with lean-toolchain. verify.sh runs from the repository root, so this affects only direct invocation from another directory.",
+      "claims.yaml is bound to scope.json by hash only, with no semantic cross-check of scope.claims against it. This is a valid mechanical binding, but drift is only detected when a hash is regenerated without review.",
+      "docs/getting-started.md line 108 calls the Comparator step independent, and line 110 refers to what the published checkpoint records. The surrounding text states the same-host and compiler trust limits, but this successor has no accepted checkpoint yet, per AUDIT.md."
+    ]
+  },
+  "required_repairs": [
+    "Change scripts/test-owned-reader.py so the synthetic baseline satisfies the hardened parser, including a non-empty body_repr for recursor rows, so that line 15 accepts the baseline and the rejection controls can run. The script must then complete inside verify.sh."
+  ],
+  "limitations": [
+    "This was a one-pass static AI review, not human verification or a novelty audit. No tool for execution was available, so nothing was compiled or run. The major finding is a direct trace through the supplied code, not an observed traceback.",
+    "Because of the abort at verify.sh line 449, later steps were reviewed only as text. Further defects could appear once that step passes.",
+    "Receipts for the native, replay and Comparator runs are outside this review and not certified. A separately running verify.sh should show the failure above if it uses these same bytes, but that was not observed.",
+    "The negative-control fixtures, Lean library sources, claims.yaml, comparator.json, lakefile.toml, lean-toolchain, baseline tree and scans are absent. Fixture and config hashes, recorded error strings, the roster against a live environment, and unchanged-source claims could not be recomputed.",
+    "Whether GrowthRates.Solution or GrowthRates.Axioms transitively builds the root module GrowthRates, which the inspector imports after verify.sh deletes .lake/build, is not observable in this packet. The inspection timeout and memory use on the roughly 2 GB stream are also unobserved.",
+    "Under the contract, previous G1 and G2 results are reused within their scopes and the Lean deductions were not re-proved. REPAIR.diff is producer-supplied; its added lines match the supplied files, but it is not an independently derived comparison.",
+    "Gold-standard self-check: NOT gold standard - the reader test breaks verify.sh at line 449. To close: repair test-owned-reader.py, then bind fresh native, replay and full-Comparator receipts to the repaired source. The repair is autonomously doable; gate execution is outside this review."
+  ]
+}

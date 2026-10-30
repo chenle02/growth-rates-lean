@@ -1,0 +1,83 @@
+[
+  {
+    "source": "GrowthRatesTest/NegFeketeNoSubadditivity.lean.disabled",
+    "source_sha256": "17db8d080fcc072d38dd94be98b7a6732745ac52960183af5d880d880d667c84",
+    "exit": 1,
+    "errors": [
+      "Insufficient number of fields for `\u27e8...\u27e9` constructor: Constructor `GrowthRates.RealFekete.RealTimeBounds.mk` has 3 explicit field, but only 2 were provided",
+      "Application type mismatch: The argument"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegFeketeSupremum.lean.disabled",
+    "source_sha256": "a3a81ed25c275e1831ca204d2f5ce2b6f8f74eac4019b05b9b8993668a8ef180",
+    "exit": 1,
+    "errors": [
+      "Type mismatch"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegJointLimitNoAntitone.lean.disabled",
+    "source_sha256": "7e00415fda925ebb73daf8a3d88983005be7c5939992ffae4d03af045f123ce5",
+    "exit": 1,
+    "errors": [
+      "Application type mismatch: The argument"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegLogDefectNoMonotone.lean.disabled",
+    "source_sha256": "542ec59713d924ead21cc29115969420f085209ed53ba8a86b653ce3932826e1",
+    "exit": 1,
+    "errors": [
+      "Application type mismatch: The argument"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegLogDefectUncorrectedRate.lean.disabled",
+    "source_sha256": "32b6d16b455316284f8cc543dcf3a559c9da0321e2780bd33b85a731b99990e9",
+    "exit": 1,
+    "errors": [
+      "Type mismatch"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegLogErrorNoLogTerm.lean.disabled",
+    "source_sha256": "85dfe439b53e83f7836b2bb41a307608f16351340cb2eb8d83f95ae6bab71d80",
+    "exit": 1,
+    "errors": [
+      "Type mismatch"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegLowerBoundNoLogTerm.lean.disabled",
+    "source_sha256": "bde51d3a54f5e7d2454ea06038286024ee506dfa9947e7cb72827236d8cea142",
+    "exit": 1,
+    "errors": [
+      "Type mismatch"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  },
+  {
+    "source": "GrowthRatesTest/NegRealOrderBelowTwo.lean.disabled",
+    "source_sha256": "a1c94e24ec1553a57f8c2bf4846204c1b835ec8c2c7f30990d73370497f61710",
+    "exit": 1,
+    "errors": [
+      "Application type mismatch: The argument"
+    ],
+    "passed": true,
+    "scope": "Altered API rejection, not a proof that the altered theorem is false."
+  }
+]

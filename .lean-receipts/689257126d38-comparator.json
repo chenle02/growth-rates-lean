@@ -1,0 +1,132 @@
+{
+  "build_provenance": {
+    "cache_reused": 1,
+    "compiled": false,
+    "modules_built": 0,
+    "prebuilt": true,
+    "source": null
+  },
+  "commit": "689257126d3859efba8a38076353c9570d1fe1f1",
+  "configs": [
+    {
+      "challenge_module": "GrowthRates.Challenge",
+      "definition_names": [],
+      "log": ".lean-receipts/689257126d38-comparator-comparator.log",
+      "log_sha256": "4de7ef724c3c8cf33a13f1e1dd57ccd37bf51ecebc4f4c47c7b8646fb91bfa22",
+      "path": "comparator.json",
+      "permitted_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ],
+      "result": "pass",
+      "sha256": "8101fd3a23a4a67e1441f13c8b4fef1aef3b6f647d058300186009da1f6a5d46",
+      "solution_module": "GrowthRates.Solution",
+      "theorem_names": [
+        "GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate",
+        "GrowthRatesAudit.GrowthRates.RealFekete.rate_le_slope",
+        "GrowthRatesAudit.GrowthRates.RealFekete.rate_nonneg",
+        "GrowthRatesAudit.GrowthRates.RealFekete.tendsto_div_rate_of_comparison",
+        "GrowthRatesAudit.GrowthRates.RealFekete.lower_bound_of_comparison",
+        "GrowthRatesAudit.GrowthRates.RealFekete.log_rate_of_submul",
+        "GrowthRatesAudit.GrowthRates.LogDefect.balanced_merge",
+        "GrowthRatesAudit.GrowthRates.LogDefect.corrected_nat_blocks",
+        "GrowthRatesAudit.GrowthRates.LogDefect.nat_blocks",
+        "GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_rate",
+        "GrowthRatesAudit.GrowthRates.LogDefect.tendsto_div_delayedRate",
+        "GrowthRatesAudit.GrowthRates.LogDefect.tendsto_log_div_delayedRate",
+        "GrowthRatesAudit.GrowthRates.Envelope.envelope_limit",
+        "GrowthRatesAudit.GrowthRates.Envelope.real_order_lower",
+        "GrowthRatesAudit.GrowthRates.Envelope.control_sandwich",
+        "GrowthRatesAudit.GrowthRates.Envelope.control_limit",
+        "GrowthRatesAudit.GrowthRates.Envelope.joint_limit",
+        "GrowthRatesAudit.GrowthRates.Envelope.corrected_sInf",
+        "GrowthRatesAudit.GrowthRates.Envelope.glb_div_time",
+        "GrowthRatesAudit.GrowthRates.FiniteError.step_upper",
+        "GrowthRatesAudit.GrowthRates.FiniteError.step_lower",
+        "GrowthRatesAudit.GrowthRates.FiniteError.finite_bounds",
+        "GrowthRatesAudit.GrowthRates.FiniteError.optimize",
+        "GrowthRatesAudit.GrowthRates.FiniteError.log_error",
+        "GrowthRatesAudit.GrowthRates.FiniteError.sandwich_error",
+        "GrowthRatesAudit.GrowthRates.FiniteError.joint_error"
+      ]
+    }
+  ],
+  "generated_at": "2026-10-30T19:30:23+00:00",
+  "host": "h-2db2e0fa6029",
+  "host_label": "h-2db2e0fa6029",
+  "host_policy": "host h-2db2e0fa6029: the machine running the command (workstation default: no Slurm here, COMPARATOR_RECEIPT_ALLOWED_HOSTS unset)",
+  "job_id": "local-h-2db2e0fa6029-4060857-20261030T193023Z",
+  "judges": 1,
+  "lean_threads": null,
+  "lean_toolchain": "leanprover/lean4:v4.35.0",
+  "mechanism": "toolchain",
+  "olean_manifest": {
+    "captured": "build",
+    "files": 21,
+    "lake_manifest_sha256": "751f106a9764b711e0d6176565ebc22d1d04b6d1ae31fb342e1f8c3b7ce68204",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "schema": "olean-manifest/1",
+    "sha256": "66a92dc8e1ca0c71e5beaac1ed1571cce7619b73521c3bc027a07ac8b866df52"
+  },
+  "producer": {
+    "bytecode_files": 81,
+    "bytecode_sha256": "f221eca4ab680259710e958b82da91e4ceed918c78dd8ba117720a6de04478fe",
+    "bytecode_tag": "cpython-312",
+    "commit": null,
+    "dirty": null,
+    "install": "installed",
+    "lean_pkg": "0.23.0",
+    "other_bytecode_files": 0,
+    "python": "3.12.3",
+    "source_files": 96,
+    "sources_sha256": "bbba2ec35085773aadd4a0b1d51b31fb04c180dbf6c3d1b11b45cc559e10882b"
+  },
+  "result": "pass",
+  "schema": "comparator-receipt/2",
+  "stack_limit": {
+    "hard_kb": "unlimited",
+    "soft_kb": 8192,
+    "source": "inherited"
+  },
+  "stages": [
+    {
+      "exit": 0,
+      "stage": "checkout",
+      "status": "ok",
+      "wall_s": 8.757
+    },
+    {
+      "exit": 0,
+      "stage": "cache-get",
+      "status": "ok",
+      "wall_s": 3.805
+    },
+    {
+      "exit": 0,
+      "stage": "build",
+      "status": "ok",
+      "wall_s": 4.05
+    },
+    {
+      "exit": 0,
+      "stage": "comparator",
+      "status": "ok",
+      "wall_s": 49.144
+    }
+  ],
+  "toolchain_resolution": {
+    "lake": "<elan>/bin/lake",
+    "source": "elan",
+    "version": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)"
+  },
+  "tools": {
+    "con-ron_sha256": "60f4ca9fb9436c323789fa49aae33af6dcd1b9b54b43a66b461779ce79fd8eec",
+    "lake_sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "leanchecker_sha256": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+    "leanexport_sha256": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+    "nanoda_bin_sha256": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+  },
+  "unit_size": null
+}

@@ -1,0 +1,6 @@
+{
+  "generated_from_component_source": "d125edc5db829fc5532b7e6c7d356f85d9f004bb",
+  "accepted_source": "689257126d3859efba8a38076353c9570d1fe1f1",
+  "payload_sha256": "a6288af70aabdd6475d033e35062e8ad6a60cb62380bb8f983fc5f1e27d8e08f",
+  "binding": "Archive generated from completed d125edc owned-audit component before its later synthetic-test failure. The sole successor change supplies non-empty synthetic recursor bodies. Complete final native/replay raw streams independently match this immutable payload exactly. Earlier failed whole-gate attempts remain failed."
+}

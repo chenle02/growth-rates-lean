@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "synthetic_mutations": 18,
+  "real_transcript_sha256": "a6288af70aabdd6475d033e35062e8ad6a60cb62380bb8f983fc5f1e27d8e08f",
+  "controls": [
+    {
+      "control": "duplicate row",
+      "rejected": true
+    },
+    {
+      "control": "missing row",
+      "rejected": true
+    },
+    {
+      "control": "wrong count",
+      "rejected": true
+    },
+    {
+      "control": "missing end",
+      "rejected": true
+    },
+    {
+      "control": "extra output",
+      "rejected": true
+    },
+    {
+      "control": "duplicate JSON key",
+      "rejected": true
+    },
+    {
+      "control": "axioms=['sorryAx']",
+      "rejected": true
+    },
+    {
+      "control": "axioms=['External.forbidden']",
+      "rejected": true
+    },
+    {
+      "control": "axioms=['propext', 'propext']",
+      "rejected": true
+    },
+    {
+      "control": "unsafe=True",
+      "rejected": true
+    },
+    {
+      "control": "unsafe=0",
+      "rejected": true
+    },
+    {
+      "control": "kind=axiom",
+      "rejected": true
+    },
+    {
+      "control": "module=Mathlib",
+      "rejected": true
+    },
+    {
+      "control": "returns_prop=1",
+      "rejected": true
+    },
+    {
+      "control": "type_repr=",
+      "rejected": true
+    },
+    {
+      "control": "body_repr=",
+      "rejected": true
+    },
+    {
+      "control": "type_repr={}",
+      "rejected": true
+    },
+    {
+      "control": "level_params=bad",
+      "rejected": true
+    }
+  ],
+  "scope": "Parser/schema tests; genuine compiled forbidden-axiom fixture is separate."
+}

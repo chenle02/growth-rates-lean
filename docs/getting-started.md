@@ -66,7 +66,7 @@ $`\operatorname{rate}b\ge0`$.
   build output, the `sorry` count, the `#print axioms` results and the axioms of every declaration in
   `claims.yaml` to `LOG`.
 - `bash scripts/check-negative-controls.sh`, after `lake build GrowthRates`, compiles each deliberately
-  falsified statement in `GrowthRatesTest/` and requires every one to fail for a mathematical reason.
+  altered contract in `GrowthRatesTest/` and requires each attempted API application to fail with its exact recorded elaboration errors, never setup errors.
 - The trusted comparator statements are in
   [`GrowthRates/Challenge.lean`](https://github.com/chenle02/growth-rates-lean/blob/main/GrowthRates/Challenge.lean)
   (configuration [`comparator.json`](https://github.com/chenle02/growth-rates-lean/blob/main/comparator.json));
@@ -77,6 +77,55 @@ $`\operatorname{rate}b\ge0`$.
 The library modules contain no `sorry`. Every declaration in `claims.yaml` and every comparator Solution
 theorem must depend only on `propext`, `Classical.choice` and `Quot.sound`
 ([`GrowthRates/Axioms.lean`](https://github.com/chenle02/growth-rates-lean/blob/main/GrowthRates/Axioms.lean)).
-Eight negative controls check that falsified variants are rejected. Receipts are recorded under
+Eight API regression controls reject altered applications; this does not prove every altered theorem false. Receipts are recorded under
 `.lean-receipts/` once the gate runs, and the [verification page]({{ '/verification.html' | relative_url }})
 shows them. No tool checks that the prose on this site describes the Lean statements.
+
+## Reproduce the full local maintenance check
+
+Install Git, Python 3 and Lean's `elan` manager first. Git retrieves source; elan selects
+the compiler named in `lean-toolchain`; Lake builds it; Mathlib supplies the imported
+mathematics. `lake exe cache get` downloads dependency artifacts rather than proving
+them again. Keep the committed manifest; do not update dependencies during this check.
+
+From a clean checkout after the dependency cache download:
+
+```sh
+verification_dir=$(mktemp -d)
+export LAKE_CACHE_DIR="$verification_dir/lake-cache"
+export LAKE_ARTIFACT_CACHE=false
+export LEAN_NUM_THREADS=3
+bash verify.sh "$verification_dir/verify.log"
+```
+
+This rebuilds all owned library and comparison implementation modules, runs the eight
+API controls, reads every module-owned declaration and its complete available identities,
+checks reader mutations and a separately compiled forbidden-axiom fixture, then audits
+all 41 registered claims. A zero process exit and the three final manifest/log digest
+lines indicate completion. Keep the log and adjacent control/audit directories together.
+The raw owned record stream is about 2 GB; allow disk and memory headroom.
+
+This command is the build/audit tier. The independent 26-slot statement comparison
+requires lean-pkg's `receipt comparator` command on a supported host, and the published
+checkpoint additionally records a separate source-only owned rebuild and exact stream
+comparison. Running the command twice does not establish an independent compiler or
+rebuild imported Mathlib from source. The compiler, imported dependency artifacts,
+initial statement transcription and prose remain explicit trust boundaries.
+
+If `lake` is missing, check the elan installation and PATH. Cache-download failures are
+network/setup failures, not theorem refutations. If a dependency is dirty or at the
+wrong revision, restore a fresh checkout at the committed pin rather than running
+`lake update`. On memory exhaustion, reduce concurrent processes and preserve the
+failed log before a fresh attempt.
+
+To validate the committed evidence without a lab registry, install lean-pkg and run
+from the maintenance documentation checkout:
+
+```sh
+lean-pkg receipt check --repo . --commit 689257126d3859efba8a38076353c9570d1fe1f1 --docs-descendants --name growth-rates-lean
+```
+
+The `--docs-descendants` flag explicitly accepts documentation-only descendants of
+the bound scientific/checker commit; it does not accept changed proof or checker
+inputs. The command checks committed receipt bytes and source binding. It does not
+rerun Lean or authenticate an external machine by itself.

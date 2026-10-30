@@ -1,0 +1,65 @@
+{
+  "schema": "growth-rates-primary-reference-audit/1",
+  "recorded_at": "2026-10-30T19:07:50.876892+00:00",
+  "records": [
+    {
+      "id": "fekete1923",
+      "status": "primary pinpoint verified; historical context, not literal general theorem",
+      "url": "https://gdz.sub.uni-goettingen.de/download/PPN266833020_0017/PPN266833020_0017___LOG_0019.pdf",
+      "doi": "10.1007/BF01504345",
+      "file": "fekete-1923-corrected.pdf",
+      "pinpoint": "§2, Theorem II, printed p233; PDF page7 (1-based, includes repository cover)",
+      "read_method": "Rendered local PDF page7 at110dpi and inspected image; OCR used only for location",
+      "scope": "Convergence of minimal enclosing-lemniscate radii associated with Chebyshev polynomials on bounded closed infinite planar sets; not literal all-sequence or continuous-time lemma",
+      "quote": null,
+      "bytes": 1467670,
+      "sha256": "068fa6099778ae23e2de7daba1e702caa77e6111e45ae7725304f0372737bbd7"
+    },
+    {
+      "id": "hille1948",
+      "status": "primary alternative theorem and standing hypothesis verified",
+      "url": "https://archive.org/download/functionalanalys017173mbp/functionalanalys017173mbp.pdf",
+      "file": "hille-1948.pdf",
+      "pinpoint": "Theorem6.6.1, printed p135, PDF page149; standing measurability §6.2, printed p131, PDF page145; title/date PDF page3",
+      "read_method": "Rendered PDF pages145 and149 at180dpi and visually inspected both; title page text confirms1948 and single author",
+      "scope": "Positive-half-line variant of the theorem gives a limit equal to the infimum of slopes, possibly negative infinity, for finite measurable subadditive functions. Lean drops measurability, supplies local upper bounds directly, and adds nonnegativity. Related variant, not literal formalization.",
+      "quote": "supposed to be measurable",
+      "quote_words": 4,
+      "bytes": 12137928,
+      "sha256": "bc4568e99f621ac3ddf9d96c091d05d271dfd5bc7c32d3d0da05992607168690"
+    },
+    {
+      "id": "hille-phillips1957",
+      "status": "background-only chapter metadata verified; theorem correspondence unresolved and not asserted",
+      "url": "https://doi.org/10.1090/coll/031",
+      "pinpoint": "Publisher table of contents: Chapter7, Subadditive functions, pp237–255",
+      "read_method": "AMS publisher indexed table of contents; fulltext endpoints returned403. Archive metadata lists1957 scans access-restricted; did not attempt restricted content.",
+      "secondary_lead_not_accepted": "Theorem7.6.1 p244 appears in secondary literature, but no primary scan was read; must not promote it.",
+      "quote": null
+    },
+    {
+      "id": "debruijn-erdos1952",
+      "status": "primary theorem pinpoint verified; related, not formalized",
+      "url": "https://users.renyi.hu/~p_erdos/1952-10.pdf",
+      "doi": "10.1016/S1385-7258(52)50021-0",
+      "file": "debruijn-erdos-1952.pdf",
+      "pinpoint": "§7, Theorem23, equation(7.7), printed p162, PDF page11",
+      "read_method": "Rendered local PDF page11 at160dpi and visually inspected. Primary scan corrects OCR loss of fractions and extended limit endpoint.",
+      "scope": "Positive increasing error function with finite integral of phi(t)/t^2 over[1,infinity); near-subadditive sequence inequality only for balanced pairs1/2 n<=m<=2n; limit may be negative infinity. Library proves a continuous-time superadditive-direction logarithmic-defect relative with extra monotonicity and linear bound, exact corrected-slope supremum.",
+      "quote": null,
+      "bytes": 837650,
+      "sha256": "262484cf40f1bd82c1cca4ff94c89e88ea09ba2820cce6b7b73b77e1af889e91"
+    },
+    {
+      "id": "mathlib-sequence",
+      "status": "exact pinned Lean source verified",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Subadditive.lean#L155",
+      "file": "Mathlib-Subadditive-pinned.lean",
+      "pinpoint": "Subadditive.tendsto_lim, lines155–156",
+      "scope": "Natural-index sequence theorem assumes BddBelow of all slopes; real-time package theorem is not this declaration.",
+      "bytes": 7912,
+      "sha256": "bee15978fc8b325e4ea9a0184b221595126b2918e1d27ed2577687e581c68c27"
+    }
+  ],
+  "scope": "Primary locations and differences checked; related literature is not silently classified as literal formalization. Full third-party scans are not redistributed."
+}

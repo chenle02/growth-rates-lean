@@ -1,0 +1,78 @@
+{
+  "scope": "Representative local Markdown preview with deployed frame; no Jekyll build or deployment claimed",
+  "results": [
+    {
+      "name": "what-is-proved",
+      "width": 390,
+      "math": 228,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "verification",
+      "width": 390,
+      "math": 189,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "getting-started",
+      "width": 390,
+      "math": 10,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "what-is-proved",
+      "width": 768,
+      "math": 228,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "verification",
+      "width": 768,
+      "math": 189,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "getting-started",
+      "width": 768,
+      "math": 10,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "what-is-proved",
+      "width": 1280,
+      "math": 228,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "verification",
+      "width": 1280,
+      "math": 189,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    },
+    {
+      "name": "getting-started",
+      "width": 1280,
+      "math": 10,
+      "errors": 0,
+      "zeroWidth": 0,
+      "overflow": false
+    }
+  ],
+  "passed": true
+}

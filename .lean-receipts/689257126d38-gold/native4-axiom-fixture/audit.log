@@ -1,0 +1,6 @@
+OWNED-DECL {"axioms":["GrowthRatesFixture.forbidden"],"body_repr":"Lean.Expr.const `GrowthRatesFixture.forbidden []","definition_body_repr":"","kind":"theorem","level_params":[],"module":"GrowthRatesFixture","name":"GrowthRatesFixture.bridge","returns_prop":false,"type_repr":"Lean.Expr.const `False []","unsafe":false}
+OWNED-DECL {"axioms":["GrowthRatesFixture.forbidden"],"body_repr":"Lean.Expr.const `GrowthRatesFixture.bridge []","definition_body_repr":"","kind":"theorem","level_params":[],"module":"GrowthRatesFixture","name":"GrowthRatesFixture.escaped","returns_prop":false,"type_repr":"Lean.Expr.const `False []","unsafe":false}
+OWNED-DECL {"axioms":["GrowthRatesFixture.forbidden"],"body_repr":"","definition_body_repr":"","kind":"axiom","level_params":[],"module":"GrowthRatesFixture","name":"GrowthRatesFixture.forbidden","returns_prop":false,"type_repr":"Lean.Expr.const `False []","unsafe":false}
+OWNED-DECL {"axioms":[],"body_repr":"Lean.Expr.const `True.intro []","definition_body_repr":"","kind":"theorem","level_params":[],"module":"GrowthRatesFixture","name":"GrowthRatesFixture.positive","returns_prop":false,"type_repr":"Lean.Expr.const `True []","unsafe":false}
+OWNED-IMPORTS ["GrowthRatesFixture"]
+OWNED-DONE 4

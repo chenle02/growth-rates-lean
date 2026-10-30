@@ -42,8 +42,9 @@ def parse(raw,scope,roster=None):
    need(type(d['axioms']) is list and all(type(x) is str for x in d['axioms']) and len(d['axioms'])==len(set(d['axioms'])) and set(d['axioms'])<=ALLOWED,'forbidden or malformed axioms')
    need(d['kind'] in ['theorem','definition','inductive','constructor','recursor'],'forbidden kind')
    need(type(d['type_repr']) is str and bool(d['type_repr']),'missing type')
-   need(type(d['body_repr']) is str and (d['kind'] not in ['theorem','definition'] or bool(d['body_repr'])),'missing available body')
+   need(type(d['body_repr']) is str and (d['kind'] not in ['theorem','definition','recursor'] or bool(d['body_repr'])),'missing available body')
    need(type(d['definition_body_repr']) is str,'invalid definition body')
+   if d['kind']=='definition':need(d['definition_body_repr']==d['body_repr'],'missing definition body')
   elif line.startswith('OWNED-IMPORTS '):imports.append(read_json(line[14:]))
   elif line.startswith('OWNED-DONE '):done.append(int(line[11:]))
   else:need(not line.strip(),'unexpected output')
@@ -57,13 +58,23 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('out');p.add_argument('--discover',action='store_true');args=p.parse_args()
  out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=False)
  scope=read_json((ROOT/'verification/scope.json').read_text());before=dependencies()
- actualmods={str(f.relative_to(ROOT)).removesuffix('.lean').replace('/','.') for f in (ROOT/'GrowthRates').glob('*.lean')}
+ need(set(scope['permitted_axioms'])==ALLOWED,'scope axiom policy drift')
+ need(hashlib.sha256((ROOT/'claims.yaml').read_bytes()).hexdigest()==scope['claims_sha256'],'claims source drift')
+ need(hashlib.sha256((ROOT/'comparator.json').read_bytes()).hexdigest()==scope['comparator_sha256'],'comparator source drift')
+ tracked=git('ls-files','-z').split('\0');snapshot={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in tracked if n and not n.startswith('.lean-receipts/')}
+ head=git('rev-parse','HEAD')
+ need(not git('diff','--name-only','HEAD','--','.',':!.lean-receipts'),'tracked tree is dirty')
+ objroot=ROOT/'.lake/build/lib/lean'
+ objects={str(f.relative_to(objroot)):hashlib.sha256(f.read_bytes()).hexdigest() for f in objroot.rglob('*') if f.is_file() and (f.name.endswith('.olean') or '.olean.' in f.name) and (f.relative_to(objroot).parts[0]=='GrowthRates' or f.name.startswith('GrowthRates.'))}
+ need(all((m.replace('.','/')+'.olean') in objects for m in scope['owned_modules']),'missing owned objects')
+ actualmods={str(f.relative_to(ROOT)).removesuffix('.lean').replace('/','.') for f in (ROOT/'GrowthRates').rglob('*.lean')}
  need(actualmods==set(scope['owned_modules'])|{'GrowthRates.Challenge','GrowthRates.Solution','GrowthRates.Axioms'},'unregistered source module')
  cfg=read_json((ROOT/'comparator.json').read_text())
  need({n.replace('GrowthRatesAudit.','',1) for n in cfg['theorem_names']}=={n for n,c in scope['claims'].items() if c['status']=='reusable'},'comparator/reusable scope drift')
+ need(cfg['challenge_module']=='GrowthRates.Challenge' and cfg['solution_module']=='GrowthRates.Solution','comparator module drift')
  need(cfg['definition_names']==[] and cfg['enable_nanoda'] is True and set(cfg['permitted_axioms'])==ALLOWED,'comparator policy drift')
  # A deliberate finite source surface, independently matched against the live environment.
- paths=[ROOT/'GrowthRates.lean',*sorted((ROOT/'GrowthRates').glob('*.lean'))]
+ paths=[ROOT/'GrowthRates.lean',*sorted((ROOT/'GrowthRates').rglob('*.lean'))]
  for f in paths:
   if f.name=='Challenge.lean':continue
   text=re.sub(r'/\-.*?\-/|--[^\n]*','',f.read_text(),flags=re.S)
@@ -79,6 +90,8 @@ def main():
  if args.discover:rosterpath.write_text(json.dumps(actual,indent=2,sort_keys=True)+'\n')
  need(before==dependencies(),'dependency changed during audit')
  need(all(hashlib.sha256((ROOT/k).read_bytes()).hexdigest()==v for k,v in sources.items()),'source changed during audit')
- result={'passed':True,'owned_declarations':len(rows),'raw_bytes':(out/'stdout.log').stat().st_size,'raw_sha256':hashlib.sha256((out/'stdout.log').read_bytes()).hexdigest(),'sources':sources,'dependencies':before,'trust':scope['trust']}
+ need(head==git('rev-parse','HEAD') and all(hashlib.sha256((ROOT/n).read_bytes()).hexdigest()==h for n,h in snapshot.items()),'tracked source/checker changed during audit')
+ need(all(hashlib.sha256((objroot/n).read_bytes()).hexdigest()==h for n,h in objects.items()),'owned objects changed during audit')
+ result={'compiled_snapshot':objects,'fresh_build_provenance':'Requires the enclosing source-bound fresh build receipt; this inspector alone does not establish a fresh compile.','passed':not args.discover,'mode':'discovery' if args.discover else 'strict-owned-audit','git_head':head,'source_snapshot':snapshot,'lean_version':subprocess.check_output(['lean','--version'],text=True).strip(),'owned_declarations':len(rows),'raw_bytes':(out/'stdout.log').stat().st_size,'raw_sha256':hashlib.sha256((out/'stdout.log').read_bytes()).hexdigest(),'sources':sources,'dependencies':before,'trust':scope['trust']}
  (out/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 if __name__=='__main__':main()

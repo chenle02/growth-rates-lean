@@ -11,7 +11,7 @@ Audit date: 2026-10-30. Source baseline: `89f1ef67440aed605b91964d655fdbcf41e20d
 | Original evidence | Source `158e8431c1db`, lean-pkg 0.20.0; retained unchanged |
 | Current evidence | Refresh in progress; terminal results will be linked here only after acceptance |
 | Documentation | Seven result cards, hypotheses and exclusions; primary reference locations and differences in `docs/reference-audit.json` |
-| Hosting | Pages deployment enabled; repository instructions prohibit Lean Actions workflows |
+| Hosting | Pages deployment enabled; repository instructions prohibit repository-defined GitHub Actions workflows |
 | Attribution | Apache-2.0, NOTICE, CITATION.cff, lean-pkg credit and AI disclosure present |
 | Release | Existing v0.1.0 and its DOI preserved; no new tag or DOI from this maintenance update |
 | Significance | No novelty, paper certification or human review claimed |

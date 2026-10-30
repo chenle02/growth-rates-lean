@@ -24,7 +24,7 @@
       "read_method": "Rendered PDF pages145 and149 at180dpi and visually inspected both; title page text confirms1948 and single author",
       "scope": "Positive-half-line variant of the theorem gives a limit equal to the infimum of slopes, possibly negative infinity, for finite measurable subadditive functions. Lean drops measurability, supplies local upper bounds directly, and adds nonnegativity. Related variant, not literal formalization.",
       "quote": "supposed to be measurable",
-      "quote_words": 5,
+      "quote_words": 4,
       "bytes": 12137928,
       "sha256": "bc4568e99f621ac3ddf9d96c091d05d271dfd5bc7c32d3d0da05992607168690"
     },

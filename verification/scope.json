@@ -47,7 +47,22 @@
     "GrowthRates.FiniteError.optimize",
     "GrowthRates.FiniteError.log_error",
     "GrowthRates.FiniteError.sandwich_error",
-    "GrowthRates.FiniteError.joint_error"
+    "GrowthRates.FiniteError.joint_error",
+    "GrowthRates.Envelope.evenOrder",
+    "GrowthRates.FiniteError.CutInputs.casesOn",
+    "GrowthRates.FiniteError.CutInputs.mk._flat_ctor",
+    "GrowthRates.FiniteError.CutInputs.recOn",
+    "GrowthRates.LogDefect.corrected",
+    "GrowthRates.LogDefect.correction",
+    "GrowthRates.LogDefect.delayedRate",
+    "GrowthRates.LogDefect.rate",
+    "GrowthRates.RealFekete.RealTimeBounds.casesOn",
+    "GrowthRates.RealFekete.RealTimeBounds.mk._flat_ctor",
+    "GrowthRates.RealFekete.RealTimeBounds.recOn",
+    "GrowthRates.RealFekete.SubmulInputs.casesOn",
+    "GrowthRates.RealFekete.SubmulInputs.mk._flat_ctor",
+    "GrowthRates.RealFekete.SubmulInputs.recOn",
+    "GrowthRates.RealFekete.rate"
   ],
   "permitted_axioms": [
     "propext",
@@ -262,5 +277,7 @@
       "kind": "theorem",
       "status": "reusable"
     }
-  }
+  },
+  "claims_sha256": "0ea30ef8e8ff6a58ed6f23443540d871884abf52ce522e55316760a8833ecc55",
+  "comparator_sha256": "8101fd3a23a4a67e1441f13c8b4fef1aef3b6f647d058300186009da1f6a5d46"
 }

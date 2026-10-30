@@ -9,7 +9,8 @@ public section
 namespace GrowthRatesFixture
 axiom forbidden : False
 theorem positive : True := True.intro
-theorem escaped : False := forbidden
+theorem bridge : False := forbidden
+theorem escaped : False := bridge
 end GrowthRatesFixture
 '''
 (out/'GrowthRatesFixture.lean').write_text(source)

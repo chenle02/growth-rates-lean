@@ -26,4 +26,8 @@ Two cold AI reviews found required defects in earlier snapshots. Their original 
 
 The compiler and pinned imported compiled dependencies remain trusted; separate same-host execution is not an independent compiler or a full Mathlib source rebuild. The 15 experimental/supporting registered claims are axiom-checked, not Comparator-promoted. The inspector alone does not prove fresh compilation; the enclosing receipts do. Discovery mode is diagnostic rather than a certificate and can refuse after writing a changed candidate roster; use the frozen strict mode for acceptance. API error expectations pin complete fixture bytes and error headers, not full diagnostic formatting.
 
-This is a verified maintenance candidate for review. The public default branch and deployed Pages are updated only after the owner merges its pull request; their earlier evidence remains authoritative until then.
+PR #5 was merged on 2026-10-30 at `4e9be303b43f929134a2f9a06cc434262ff78042`. Its tree matches the verified candidate exactly; post-merge receipt binding passed and the registry adopted the current receipts. The existing Pages deployment completed successfully. This adoption did not launch another proof execution.
+
+## GitHub README rendering follow-up
+
+A live GitHub check found five rejected named-operator macros and three nested display fences shown as source. The README uses supported roman-text notation and math containers for these formulas. Its unchanged generated ledger is folded outside the generation markers, with direct links to the typeset Pages guides. The official GitHub Markdown API preview was checked using GitHub's actual math renderer at 390, 768 and 1280 pixels: all 100 formulas rendered, no math errors or page overflow. This is a presentation change; the proof sources, receipt payloads, generated ledger and documentation-site files remain unchanged.

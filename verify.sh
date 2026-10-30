@@ -437,7 +437,7 @@ rm -rf .lake/build
 {
   echo "commit: $(git rev-parse HEAD)"
   echo "lean-toolchain: $(cat lean-toolchain)"
-  echo "mathlib-rev: none"
+  python3 -c 'import json; print("mathlib-rev: " + next(p["rev"] for p in json.load(open("lake-manifest.json"))["packages"] if p["name"] == "mathlib"))'
   echo "checker: verify.sh (lake build $MODULES; #print axioms)"
   echo "lean-pkg-build: begin"
 } >"$LOG"

@@ -5,7 +5,7 @@ root=pathlib.Path(__file__).resolve().parents[1];spec=importlib.util.spec_from_f
 scope=m.read_json((root/'verification/scope.json').read_text());roster=m.read_json((root/'verification/owned-declarations.json').read_text());raw=pathlib.Path(sys.argv[1]).read_text();actual,_=m.parse(raw,scope,roster)
 rows=list(actual.values());imports=scope['owned_modules'];controls=[]
 for d in rows:
- d['type_repr']='synthetic type';d['body_repr']='synthetic body' if d['kind'] in ['theorem','definition'] else '';d['definition_body_repr']=d['body_repr'] if d['kind']=='definition' else ''
+ d['type_repr']='synthetic type';d['body_repr']='synthetic body' if d['kind'] in ['theorem','definition','recursor'] else '';d['definition_body_repr']=d['body_repr'] if d['kind']=='definition' else ''
 def render(rs,done=None,extra=''):
  return '\n'.join(['OWNED-DECL '+json.dumps(r) for r in rs]+['OWNED-IMPORTS '+json.dumps(imports),'OWNED-DONE '+str(len(rs) if done is None else done)])+'\n'+extra
 def reject(label,text):

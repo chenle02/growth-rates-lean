@@ -1,0 +1,94 @@
+{
+  "schema": "subscription-review-report/1",
+  "verdict": "FAIL",
+  "confidence": "medium",
+  "source_coverage": [
+    ".review/required-sources.json lines 1-77 (read plan; earns no read credit)",
+    "CONTRACT.md lines 1-12 (complete)",
+    "AGENTS.md lines 1-51 (complete)",
+    "GrowthRates/Challenge.lean lines 1-386 (complete)",
+    "GrowthRates/Solution.lean lines 1-390 (complete)",
+    "GrowthRates/RealFekete.lean lines 1-259 (complete)",
+    "GrowthRates/LogDefect.lean lines 1-359 (complete)",
+    "GrowthRates/Envelope.lean lines 1-188 (complete)",
+    "GrowthRates/FiniteError.lean lines 1-294 (complete)",
+    "docs/what-is-proved.md lines 1-735 (complete)",
+    "docs/reference-audit.json lines 1-65 (complete)",
+    "scripts/audit-owned.py lines 1-84 (complete)",
+    "scripts/check-axiom-fixture.py lines 1-32 (complete)",
+    "scripts/check-negative-controls.py lines 1-24 (complete)",
+    "scripts/test-owned-reader.py lines 1-22 (complete)",
+    "verification/OwnedAudit.lean lines 1-62 (complete)",
+    "verification/scope.json lines 1-266 (complete)",
+    "verification/owned-declarations.json lines 1-538 (complete)",
+    "claims.yaml lines 1-293 (complete)",
+    "comparator.json lines 1-39 (complete)",
+    "lakefile.toml lines 1-17 (complete)",
+    "lake-manifest.json lines 1-117 (complete)",
+    "lean-toolchain line 1 (complete)",
+    "AUDIT.md lines 1-19 (complete)",
+    "BOOST.md lines 1-7 (complete)",
+    "README-HAND.md lines 1-177 (complete)"
+  ],
+  "checks": [
+    {
+      "claim": "G1",
+      "verdict": "PASS",
+      "reason": "All seven cards match the Lean interfaces and the 26 Challenge statements, and the slot counts are 3+3+4+2+7+5+2=26 by card and 6+6+7+7=26 by module. Card 1 keeps all three RealTimeBounds fields and the infimum. Card 2 separates the upper-comparison lower bound from the two-sided limit, and A,B have no sign condition, as in Lean. Card 3 has B real for balanced_merge and corrected_nat_blocks, adds B>=0 for nat_blocks, adds B>=0, monotonicity on [h,infinity) and a linear bound for the limit, and identifies the limit as the supremum of corrected slopes. Card 4 keeps M,B,T0>=0, b>=0 or f>=1, monotonicity on [0,infinity), upper bounds for t>=T0 and the merge for S,T>=T0. Card 5 keeps IsGLB, (L) for T>0, antitonicity only for joint_limit and real_order_lower, and sequences only for the joint limit. Cards 6 and 7 state the rate as a premise, keep all cut, confinement and composition quantifiers, allow n=0 for finite_bounds, and require n>0 and f(0)=1 for log_error. The folded Lean texts and line anchors match the supplied sources. README summaries are faithful but abbreviated, as noted under minor findings."
+    },
+    {
+      "claim": "G2",
+      "verdict": "PASS",
+      "reason": "Every new reference description agrees with docs/reference-audit.json. Fekete 1923 sec.2 Thm II p.233 is historical polynomial context only. Hille 1948 Thm 6.6.1 p.135 with the sec.6.2 p.131 measurability convention is described as related, not a literal formalization. Hille-Phillips 1957 has chapter metadata only and no theorem correspondence, and the secondary lead Thm 7.6.1 is not promoted. De Bruijn-Erdos 1952 Thm 23 eq.(7.7) p.162 is described as a sequence result with balanced pairs, a positive increasing error, a finite integral and a possible limit of negative infinity, unlike the continuous superadditive logarithmic-defect theorem. The Mathlib pin matches the manifest. Printed-to-PDF page offsets are internally consistent. No book number or novelty claim is added. This is agreement with the audit record only, because the scans are absent and were not re-inspected."
+    },
+    {
+      "claim": "G3",
+      "verdict": "PASS",
+      "reason": "The static surface covers the named items. The inspector records every environment constant whose module is under the root, with raw type, theorem, definition and opaque values, recursor rules, universe parameters, safety and collectAxioms results. The reader rejects unknown owners, unsafe declarations, forbidden kinds and axioms, duplicate rows and JSON keys, count or end-marker errors, extra output, and any roster difference. The roster has 134 entries by line count and contains all 41 scope claims, matching claims.yaml, with 26 reusable and 15 experimental. The reusable set is checked for equality against comparator.json, whose definition_names is empty, which fits the Mathlib-only Challenge statements that unfold library definitions. I found no defect that lets a forbidden axiom, unsafe declaration or undeclared owned constant through a run of the current sources. This check is static and does not establish that the scripts execute. Its acceptance gaps are listed as minor because their closure depends on replay and raw-equality gates outside this packet."
+    },
+    {
+      "claim": "G4",
+      "verdict": "FAIL",
+      "reason": "The public descriptions preserve scope: README-HAND.md, docs/what-is-proved.md and scripts/check-negative-controls.py say the eight controls are API regression rejections and not counterexample certificates. Synthetic reader mutations are kept separate from the compiled fixture, and same-host replay is stated to trust imported dependencies. AGENTS.md line 43 does not preserve that scope: it says a negative control must keep failing for a mathematical reason. The checker verifies only an error-message class, allow-lists non-mathematical API-shape failures, and states that the mutations deliberately misuse the interface. Treating this as blocking is my judgment, and the reason is that it is a control description contradicted by the checker in a required source, on the exact subject of G4."
+    },
+    {
+      "claim": "G5",
+      "verdict": "PASS",
+      "reason": "I found no new theorem, claim, pin or workflow in the packet. Toolchain, Mathlib revision, lakefile and manifest agree, and scope and comparator counts match the claim registry. AGENTS.md keeps the prohibition on GitHub Actions workflows. AUDIT.md reports current evidence as in progress, and original 158e8431c1db evidence is described as retained unchanged. BOOST.md creates no release, tag, submission or posting. No Gold verdict, human review or novelty claim is made. The final gates remain unexecuted and are not certified here."
+    }
+  ],
+  "findings": {
+    "fatal": [],
+    "major": [
+      "AGENTS.md line 43 requires a negative control to keep failing for a mathematical reason, which contradicts the actual control scope. check-negative-controls.py accepts any listed error class, including Invalid argument name and Insufficient number of fields for, and says its mutations deliberately misuse the API. It does not establish a mathematical cause, and the public docs correctly disclaim more than API rejection."
+    ],
+    "minor": [
+      "Control strictness: the checker docstring says never setup or missing names, yet Invalid argument name is allow-listed, so a renamed binder could satisfy a control. A broad Type mismatch header is also not tied to the intended alteration, and source_sha256 values are recorded but not compared with a pinned expectation.",
+      "AGENTS.md and README-HAND.md name scripts/check-negative-controls.sh, while the packet supplies only the .py checker. Whether the shell script wraps the strict checker could not be determined.",
+      "The fixture theorem escaped uses the axiom directly in its body, so the dependency is one hop. It does show that collectAxioms sees a private theorem body behind a non-axiomatic type, but it does not exercise a chain through an intermediate declaration. The label forbidden_transitive_axiom_rejected and the matching doc phrase are stronger than that.",
+      "The reader checks only that type and body strings are non-empty, and test-owned-reader.py itself accepts synthetic type and synthetic body. No baseline transcript hash is stored and the roster holds only module and kind. Raw fields therefore gain force only through replay equality and Comparator, and the 15 experimental claims have no Comparator statement.",
+      "audit-owned.py neither builds nor ties compiled owned modules to the sources it hashes, so a stale local build could pass in isolation with current source hashes. RESULT.json also omits repository HEAD, execution mode, toolchain and hashes of the checker, scope, roster, comparator config and manifest. The --discover mode rewrites the roster and still reports passed true. The eventual source-bound gate has to exclude these cases.",
+      "Smaller checker points: the non-recursive GrowthRates glob misses source-guard coverage and module registration for nested files, although imported nested modules with declarations are rejected as unknown owners. Recursor rows may have an empty body. definition_body_repr is always empty because all contracts are theorems. scope.permitted_axioms is unused, claims.yaml is not cross-checked against scope.claims, and challenge_module and solution_module are not checked.",
+      "docs/reference-audit.json records quote_words as 5 for a quote of 4 words: supposed to be measurable. The audit also records inspection methods but no reader identity or independence, so the independent-reader premise in CONTRACT.md is not observable in the file. The deliverable docs do not claim independence.",
+      "The Hille comparison could state explicitly that the Lean local bound covers [0,h], including a neighbourhood of 0 and t=0, whereas the audit describes a positive-half-line variant.",
+      "The wording summary-able error in docs/what-is-proved.md (general summable-error form and summable-defect) differs from the reference description, which uses a finite integral of phi(t)/t^2. For increasing phi these conditions are equivalent, so this is terminology rather than an error.",
+      "README-HAND.md abbreviates some quantifiers: S,T>=T0 for the multiplicative form in result 4, and the cut, confinement, composition and n ranges in result 6. Its Not proved list says the logarithmic-defect results assume monotonicity and a linear bound, which applies to the limit theorems and not to balanced_merge or the block lemmas. The full statements are in the cards.",
+      "AUDIT.md and BOOST.md describe a Lean Actions prohibition, while AGENTS.md prohibits GitHub Actions workflows generally. No permissive rule or workflow appears in the packet and AGENTS.md is unchanged in that wording, but the paraphrase is narrower.",
+      "lake-manifest.json has root name scalar-pitchfork-lean while lakefile.toml names growth-rates-lean. The dependency pins are unaffected, but this is stale metadata.",
+      "GrowthRates/FiniteError.lean line 26 says only the rate lam is an input, although the cut, confinement and composition inequalities are also hypotheses. The source is stated to be frozen, and the cards state the hypotheses correctly.",
+      "docs/what-is-proved.md describes the maintenance gate and byte comparison in the present tense under How this was checked, while AUDIT.md says the refresh is in progress. It does not claim a passing result, but it needs the terminal evidence binding before it is read as executed."
+    ]
+  },
+  "required_repairs": [
+    "Change AGENTS.md line 43 so the negative-control rule matches actual scope: these are altered-contract API regression checks that must fail with the checker-accepted elaboration or arity errors and not setup errors, and rejection does not certify a mathematical cause or the falsity of the altered statement."
+  ],
+  "limitations": [
+    "This was a one-pass static AI review, not human verification or a novelty audit. I did not compile or run anything, and I did not re-prove kernel-certified deductions. Lean core behaviour was judged from the source surface and from general knowledge, not from observed execution.",
+    "Primary scans, the pinned Mathlib file and all receipts are absent. Reference locations, hashes and comparator or build results are known only from the packet's records. No independent executor or human reader was observed.",
+    "Files named by the sources but absent from the packet were not reviewed: GrowthRates.lean, GrowthRates/Axioms.lean, GrowthRatesTest/Neg*.lean.disabled, scripts/check-negative-controls.sh, any replay driver, verify.sh, coverage.yaml, docs/verification.md, docs/coverage.md, the generated README.md, NOTICE, CITATION.cff and .lean-receipts. The control texts and the byte-for-byte replay procedure therefore could not be inspected.",
+    "The claim that the four mathematical sources and Challenge and Solution are byte-identical to v0.1.0 was not checkable because no baseline is supplied. Absence of workflow files is also not established by this selective packet.",
+    "Whether the roster matches the live environment and whether the native, replay and full-Comparator gates pass are unexecuted and uncertified.",
+    "The major finding's blocking status is a reviewer judgment. Its text and the contradiction are directly observable in AGENTS.md line 43 and scripts/check-negative-controls.py.",
+    "Gold-standard self-check: NOT gold standard - a required repair remains in AGENTS.md and the terminal gates are unexecuted. To close: repair that line, then bind native, replay and full-Comparator evidence to the source. The repair is autonomously doable under the contract; gate execution is outside this review."
+  ]
+}

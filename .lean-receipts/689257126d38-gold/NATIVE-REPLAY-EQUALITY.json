@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "source": "689257126d3859efba8a38076353c9570d1fe1f1",
+  "owned_declarations": 134,
+  "decoded_bytes_per_phase": 2014823225,
+  "sha256": "a6288af70aabdd6475d033e35062e8ad6a60cb62380bb8f983fc5f1e27d8e08f",
+  "scope": "Distinct same-host native and fresh owned-source replay executions. Full raw identities include types, available bodies, recursor rules, universes, safety, owners and transitive axioms. Imported compiler/dependency artifacts remain trusted."
+}

@@ -38,3 +38,5 @@ Required context:
 Build: lake exe cache get && lake build. Keep lean-toolchain and lake-manifest.json unchanged; never run lake update in a verification run.
 Receipt build check: bash verify.sh LOG (run by lean-pkg from a clean checkout). Negative controls: bash scripts/check-negative-controls.sh (after lake build GrowthRates).
 Permitted axioms: propext, Classical.choice, Quot.sound. GrowthRates/Challenge.lean has sorry by design.
+
+Maintenance candidate: scientific/checker commit 689257126d3859efba8a38076353c9570d1fe1f1, lean-pkg 0.23.0. Native plus separate same-host fresh owned-source replay and all26Comparator slots passed. All134owned complete raw identity records matched byte-for-byte; count includes generated/private helpers. Eight API regression controls are not counterexample certificates;18schema mutations and actual2-hop forbiddenaxiom fixtures passed. See AUDIT.md and .lean-receipts/689257126d38-gold/README.md. Historical AI FAIL reports and confidence remain unchanged; required repairs are discharged by source-bound execution, not a new claimed AI PASS. No new release or DOI.

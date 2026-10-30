@@ -1,0 +1,67 @@
+{
+  "schema": "growth-rates-complete-owned-archive/1",
+  "source": "d125edc5db829fc5532b7e6c7d356f85d9f004bb",
+  "owned_declarations": 134,
+  "decoded_bytes": 2014823225,
+  "decoded_sha256": "a6288af70aabdd6475d033e35062e8ad6a60cb62380bb8f983fc5f1e27d8e08f",
+  "parts": [
+    {
+      "path": "OWNED-STREAM.part-01.gz",
+      "stored_bytes": 5247928,
+      "stored_sha256": "f41c08542482c3cb665d7e66d336ccdeefd1b9b6ea08a7eefa3e9ba3c1de39ee",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "bdf5c342a0d991a232d1a2061b0214b8cfbaba9e0dd8d76240356c6fe25aec49"
+    },
+    {
+      "path": "OWNED-STREAM.part-02.gz",
+      "stored_bytes": 5080054,
+      "stored_sha256": "94ae0b02b1459840c9254e6cb6538e692b091e66b4d6a2b9ab8bc9d8870bb86c",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "27f9e0d40ec28edac1c46453d99f7df534ae696b69d696d5c44d9372eda121a3"
+    },
+    {
+      "path": "OWNED-STREAM.part-03.gz",
+      "stored_bytes": 5189785,
+      "stored_sha256": "ccb17b1569204aacef731ab5400a38d3f44871a744912d509ab0a4f9905265c5",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "f2b0bf9533413a7477c5f1389765504c52b7c92c84261c56e0721c2f60400129"
+    },
+    {
+      "path": "OWNED-STREAM.part-04.gz",
+      "stored_bytes": 5206211,
+      "stored_sha256": "9d49bd7557033e80765b65ca4157b5984c05ffccea854fb341c92591cda7f3e6",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "aa96777f4c76ca55588d93d4ff429f59e593205137a6248668509dbc5c8d7fd0"
+    },
+    {
+      "path": "OWNED-STREAM.part-05.gz",
+      "stored_bytes": 5258985,
+      "stored_sha256": "058190374eb289406d25b437fa9d9db034dfe867f60e36e5e6379a7c05fc9af0",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "703f0549e9c773a359437aca1be3cfe584de31d2d7c31c4113c7b07be43a106d"
+    },
+    {
+      "path": "OWNED-STREAM.part-06.gz",
+      "stored_bytes": 5108545,
+      "stored_sha256": "cbf42ab9481da398c28c1511d2451ef63a101cdecf3e164ae0419d48fa5381be",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "8d90a4f9ed9ff0d131f8f8983dd6ece945aa0c5513a23c1bd9b3761e3c1833ab"
+    },
+    {
+      "path": "OWNED-STREAM.part-07.gz",
+      "stored_bytes": 5475351,
+      "stored_sha256": "9fc3614dd28869c8a5a267c1d8d86e7532da04584b3476d1ecfc6f730bdfd37c",
+      "decoded_bytes": 268435456,
+      "decoded_sha256": "f6dc9e7e1c948db6392316f59fb2516c678d2b33ee6751de7158523df1bb7ba6"
+    },
+    {
+      "path": "OWNED-STREAM.part-08.gz",
+      "stored_bytes": 2973667,
+      "stored_sha256": "8f4b4620fffb527d1f605d4e3cefd1568bd0d00e5acdafe0db5f17783a71bf6e",
+      "decoded_bytes": 135775033,
+      "decoded_sha256": "0eb0b6e79b19731fcee8ba073ae54ad16b75bac2ac475f69445deb6c69bdc1e0"
+    }
+  ],
+  "per_part_decompression_checked": true,
+  "scope": "Complete raw identities, available bodies and recursor rules; reconstruct by decompressing parts in filename order. No type truncation. Shared payload is bound to distinct native/replay execution records."
+}

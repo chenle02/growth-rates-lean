@@ -163,8 +163,13 @@ describes the Lean statements.
 ## Built with lean-pkg
 
 Developed and verified with [lean-pkg](https://github.com/lean-pkg/lean-pkg) ([doi:10.5281/zenodo.23272098](https://doi.org/10.5281/zenodo.23272098)).
-The receipts will bind the checks to a source commit, and the section below is rendered by `lean-pkg page`
+The recorded receipts bind the checks to a source commit, and the section below is rendered by `lean-pkg page`
 from [`coverage.yaml`](coverage.yaml), [`claims.yaml`](claims.yaml) and those receipts.
+
+The [2026-10-30 maintenance audit](AUDIT.md) records current lean-pkg verification,
+a separate same-host source-only owned replay, all 26 statement comparisons, the complete
+134-owned declaration corpus and reference corrections. [Full evidence](.lean-receipts/689257126d38-gold/README.md)
+preserves the original review findings and their mechanically verified repairs.
 
 ## Authors and AI disclosure
 

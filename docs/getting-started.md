@@ -117,3 +117,15 @@ network/setup failures, not theorem refutations. If a dependency is dirty or at 
 wrong revision, restore a fresh checkout at the committed pin rather than running
 `lake update`. On memory exhaustion, reduce concurrent processes and preserve the
 failed log before a fresh attempt.
+
+To validate the committed evidence without a lab registry, install lean-pkg and run
+from the maintenance documentation checkout:
+
+```sh
+lean-pkg receipt check --repo . --commit 689257126d3859efba8a38076353c9570d1fe1f1 --docs-descendants --name growth-rates-lean
+```
+
+The `--docs-descendants` flag explicitly accepts documentation-only descendants of
+the bound scientific/checker commit; it does not accept changed proof or checker
+inputs. The command checks committed receipt bytes and source binding. It does not
+rerun Lean or authenticate an external machine by itself.

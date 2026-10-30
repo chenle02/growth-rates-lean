@@ -1,0 +1,266 @@
+{
+  "schema": "growth-rates-owned-scope/1",
+  "owned_modules": [
+    "GrowthRates.RealFekete",
+    "GrowthRates.LogDefect",
+    "GrowthRates.Envelope",
+    "GrowthRates.FiniteError"
+  ],
+  "contracts": [
+    "GrowthRates.RealFekete.slopes_nonempty",
+    "GrowthRates.RealFekete.slopes_bdd",
+    "GrowthRates.RealFekete.rate_le_slope",
+    "GrowthRates.RealFekete.rate_nonneg",
+    "GrowthRates.RealFekete.multiple_remainder",
+    "GrowthRates.RealFekete.block_bound",
+    "GrowthRates.RealFekete.tendsto_div_rate",
+    "GrowthRates.RealFekete.logarithmic_error_vanishes",
+    "GrowthRates.RealFekete.tendsto_div_rate_of_comparison",
+    "GrowthRates.RealFekete.lower_bound_of_comparison",
+    "GrowthRates.RealFekete.log_realTimeBounds",
+    "GrowthRates.RealFekete.log_rate_of_submul",
+    "GrowthRates.RealFekete.lower_bound_at_zero",
+    "GrowthRates.LogDefect.balanced_ratio",
+    "GrowthRates.LogDefect.balanced_merge",
+    "GrowthRates.LogDefect.corrected_nat_blocks",
+    "GrowthRates.LogDefect.correction_nonneg",
+    "GrowthRates.LogDefect.nat_blocks",
+    "GrowthRates.LogDefect.correction_sublinear",
+    "GrowthRates.LogDefect.fixed_block_lower",
+    "GrowthRates.LogDefect.tendsto_div_rate",
+    "GrowthRates.LogDefect.tendsto_div_delayedRate",
+    "GrowthRates.LogDefect.tendsto_log_div_delayedRate",
+    "GrowthRates.Envelope.evenOrder_ge_two",
+    "GrowthRates.Envelope.exists_evenOrder_ge",
+    "GrowthRates.Envelope.envelope_limit",
+    "GrowthRates.Envelope.real_order_lower",
+    "GrowthRates.Envelope.control_sandwich",
+    "GrowthRates.Envelope.control_limit",
+    "GrowthRates.Envelope.joint_limit",
+    "GrowthRates.Envelope.corrected_infimum",
+    "GrowthRates.Envelope.corrected_sInf",
+    "GrowthRates.Envelope.glb_div_time",
+    "GrowthRates.FiniteError.progression_limit",
+    "GrowthRates.FiniteError.step_upper",
+    "GrowthRates.FiniteError.step_lower",
+    "GrowthRates.FiniteError.finite_bounds",
+    "GrowthRates.FiniteError.optimize",
+    "GrowthRates.FiniteError.log_error",
+    "GrowthRates.FiniteError.sandwich_error",
+    "GrowthRates.FiniteError.joint_error"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "trust": "Pinned compiler and imported dependency artifacts; separate same-host owned-source replay, not independent imported-source authentication.",
+  "root_module": "GrowthRates",
+  "claims": {
+    "GrowthRates.RealFekete.slopes_nonempty": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.RealFekete.slopes_bdd": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.RealFekete.rate_le_slope": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.RealFekete.rate_nonneg": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.RealFekete.multiple_remainder": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.RealFekete.block_bound": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.RealFekete.tendsto_div_rate": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.RealFekete.logarithmic_error_vanishes": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.RealFekete.tendsto_div_rate_of_comparison": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.RealFekete.lower_bound_of_comparison": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.RealFekete.log_realTimeBounds": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.RealFekete.log_rate_of_submul": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.RealFekete.lower_bound_at_zero": {
+      "module": "GrowthRates.RealFekete",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.LogDefect.balanced_ratio": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.LogDefect.balanced_merge": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.LogDefect.corrected_nat_blocks": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.LogDefect.correction_nonneg": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.LogDefect.nat_blocks": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.LogDefect.correction_sublinear": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.LogDefect.fixed_block_lower": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.LogDefect.tendsto_div_rate": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.LogDefect.tendsto_div_delayedRate": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.LogDefect.tendsto_log_div_delayedRate": {
+      "module": "GrowthRates.LogDefect",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.evenOrder_ge_two": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.Envelope.exists_evenOrder_ge": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.Envelope.envelope_limit": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.real_order_lower": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.control_sandwich": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.control_limit": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.joint_limit": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.corrected_infimum": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.Envelope.corrected_sInf": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.Envelope.glb_div_time": {
+      "module": "GrowthRates.Envelope",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.progression_limit": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "experimental"
+    },
+    "GrowthRates.FiniteError.step_upper": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.step_lower": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.finite_bounds": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.optimize": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.log_error": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.sandwich_error": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    },
+    "GrowthRates.FiniteError.joint_error": {
+      "module": "GrowthRates.FiniteError",
+      "kind": "theorem",
+      "status": "reusable"
+    }
+  }
+}

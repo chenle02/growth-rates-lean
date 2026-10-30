@@ -50,9 +50,9 @@ vocabulary.
 
 | # | Result | Reference | Lean | Status |
 |---|---|---|---|---|
-| 1 | [Fekete's lemma in continuous time](#1-feketes-lemma-in-continuous-time) | Fekete (1923); Hille and Phillips (1957) | `RealFekete.tendsto_div_rate` | proved (gate verified at `158e8431c1db`) |
+| 1 | [Fekete's lemma in continuous time](#1-feketes-lemma-in-continuous-time) | Fekete (1923), historical context; Hille (1948), Theorem 6.6.1 | `RealFekete.tendsto_div_rate` | proved (gate verified at `158e8431c1db`) |
 | 2 | [Rate transfer under a logarithmic comparison](#2-rate-transfer-under-a-logarithmic-comparison) | consequence of 1 | `RealFekete.tendsto_div_rate_of_comparison` | proved (gate verified at `158e8431c1db`) |
-| 3 | [Fekete's lemma with a logarithmic defect](#3-feketes-lemma-with-a-logarithmic-defect) | de Bruijn and Erdős (1952) (related, not formalized) | `LogDefect.tendsto_div_rate` | proved (gate verified at `158e8431c1db`) |
+| 3 | [Fekete's lemma with a logarithmic defect](#3-feketes-lemma-with-a-logarithmic-defect) | de Bruijn–Erdős (1952), Theorem 23 (related, not formalized) | `LogDefect.tendsto_div_rate` | proved (gate verified at `158e8431c1db`) |
 | 4 | [Delayed and multiplicative forms](#4-delayed-and-multiplicative-forms) | consequence of 3 | `LogDefect.tendsto_div_delayedRate` | proved (gate verified at `158e8431c1db`) |
 | 5 | [Uniform envelopes and joint limits over the order](#5-uniform-envelopes-and-joint-limits-over-the-order) | none (elementary) | `Envelope.joint_limit` | proved (gate verified at `158e8431c1db`) |
 | 6 | [Quantitative finite-time error](#6-quantitative-finite-time-error) | none (elementary) | `FiniteError.log_error` | proved (gate verified at `158e8431c1db`) |
@@ -73,24 +73,11 @@ for all $`0\le r\le h`$. Then, with $`\operatorname{rate}(b)=\inf\{b(h)/h : h>0\
 \operatorname{rate}(b)\ge0.
 ```
 
-**Reference.** M. Fekete, *Über die Verteilung der Wurzeln bei gewissen algebraischen Gleichungen
-mit ganzzahligen Koeffizienten*, Math. Z. **17** (1923), 228–249.
-[doi:10.1007/BF01504345](https://doi.org/10.1007/BF01504345). Not in refdb (no citekey); page
-of the lemma not verified. The continuous-parameter version: E. Hille and R. S. Phillips,
-*Functional Analysis and Semi-Groups*, rev. ed., American Mathematical Society Colloquium
-Publications **31**, AMS, Providence, RI, 1957, chapter on subadditive functions.
-[doi:10.1090/coll/031](https://doi.org/10.1090/coll/031). Not in refdb (no citekey); theorem
-number not verified. The sequence version in Mathlib is `Subadditive.tendsto_lim` in
-[`Mathlib/Analysis/Subadditive.lean`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Subadditive.lean#L155).
+**Reference.** Historical setting: M. Fekete, *Über die Verteilung der Wurzeln bei gewissen algebraischen Gleichungen mit ganzzahligen Koeffizienten*, Math. Z. **17** (1923), 228–249, §2, Theorem II, p.233 ([DOI](https://doi.org/10.1007/BF01504345), [primary scan](https://gdz.sub.uni-goettingen.de/download/PPN266833020_0017/PPN266833020_0017___LOG_0019.pdf)). The cited result concerns Chebyshev-polynomial minimal radii; it is not a literal general sequence or real-time theorem.
 
-**Compared with the reference.** Fekete's lemma and Mathlib's `Subadditive.tendsto_lim` concern
-sequences $`u:\mathbb N\to\mathbb R`$; Mathlib assumes the slopes $`u_n/n`$ bounded below. Here the
-time is continuous. The continuous-parameter theorem is usually quoted for measurable subadditive
-functions on $`(0,\infty)`$, with a limit in $`[-\infty,\infty)`$; we have not checked the book's
-exact wording. The Lean statement replaces measurability by an upper bound on every interval
-$`[0,h]`$ and adds nonnegativity on $`[0,\infty)`$, which makes the rate finite and nonnegative.
-Within these hypotheses the conclusion is the classical one: the limit exists and equals the
-infimum of the slopes.
+A directly checked continuous-time reference is E. Hille, *Functional Analysis and Semi-Groups*, first edition, AMS Colloquium Publications **31**, 1948, Theorem 6.6.1, p.135, together with the standing measurability convention in §6.2, p.131 ([primary scan](https://archive.org/download/functionalanalys017173mbp/functionalanalys017173mbp.pdf)). For the later Hille–Phillips revised edition (1957), the publisher lists Chapter 7, pp.237–255 ([DOI](https://doi.org/10.1090/coll/031)); that edition is background only here, with no theorem correspondence asserted. The sequence theorem in pinned Mathlib is [`Subadditive.tendsto_lim`, lines155–156](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Subadditive.lean#L155).
+
+**Compared with the reference.** Hille's positive-half-line variant gives convergence to the infimum of slopes, possibly negative infinity, for finite measurable subadditive functions. The Lean theorem instead supplies local upper bounds directly and adds nonnegativity; it does not assume measurability, and its limit is finite and nonnegative. Thus this is a related formulation with its own stated hypotheses, not a literal formalization of Hille's theorem. Mathlib's cited result has a natural-number index and a lower-bound assumption on the slopes. Fekete's cited polynomial result supplies historical context only. The primary locations above were checked in rendered scans on 2026-10-30; the pinned Mathlib statement was read from source.
 
 **Lean.** [`GrowthRates.RealFekete.tendsto_div_rate`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L124); also [`GrowthRates.RealFekete.rate_le_slope`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L69),
 [`GrowthRates.RealFekete.rate_nonneg`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/RealFekete.lean#L74).
@@ -234,19 +221,9 @@ With $`c(x)=M\log x+B+M\log(9/2)`$ and $`\tilde a=a-c`$:
 \lim_{t\to\infty}\frac{a(t)}{t}=\sup_{x\ge h}\frac{\tilde a(x)}{x}.
 ```
 
-**Reference.** N. G. de Bruijn and P. Erdős, *Some linear and some quadratic recursion formulas.
-II*, Nederl. Akad. Wetensch. Proc. Ser. A **55** = Indag. Math. **14** (1952), 152–163.
-[doi:10.1016/S1385-7258(52)50021-0](https://doi.org/10.1016/S1385-7258(52)50021-0). Not in refdb
-(no citekey); theorem number not verified.
+**Reference.** N. G. de Bruijn and P. Erdős, *Some linear and some quadratic recursion formulas. II*, Nederl. Akad. Wetensch. Proc. Ser. A **55** = Indag. Math. **14** (1952), 152–163, §7, Theorem 23, equation (7.7), p.162 ([DOI](https://doi.org/10.1016/S1385-7258(52)50021-0), [primary scan](https://users.renyi.hu/~p_erdos/1952-10.pdf)). The printed theorem and its hypotheses were checked in the rendered primary scan on 2026-10-30.
 
-**Compared with the reference.** The de Bruijn–Erdős theorem, as usually quoted, concerns
-sequences that are subadditive up to an error $`\varphi(n+m)`$ required only for balanced pairs
-$`n/2\le m\le2n`$, with $`\varphi`$ nondecreasing and $`\sum_n\varphi(n)/n^2<\infty`$, and gives
-convergence of $`a_n/n`$. This library does **not** formalize that theorem. It proves a
-continuous-parameter relative for the one defect $`M\log(x+y)+B`$, written in the superadditive
-direction, with the defect inequality assumed for **all** $`x,y\ge h`$ (not only balanced pairs);
-the limit theorem adds monotonicity on $`[h,\infty)`$ and a linear upper bound, and identifies the
-limit exactly as the supremum of the corrected slopes.
+**Compared with the reference.** Their theorem concerns sequences with a positive increasing error function satisfying a finite integral of φ(t)/t² on [1,∞). The near-subadditive inequality is required for balanced integer pairs n/2 ≤ m ≤ 2n; the resulting limit may be negative infinity. This library does not formalize that theorem. It proves a continuous-time relative in the superadditive direction for the logarithmic defect M log(x+y)+B, assuming the defect inequality for all x,y ≥ h. Its limit theorem additionally assumes monotonicity and a linear upper bound and identifies the limit as the exact supremum of corrected slopes.
 
 **Lean.** [`GrowthRates.LogDefect.tendsto_div_rate`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L197); also [`GrowthRates.LogDefect.balanced_merge`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L58),
 [`GrowthRates.LogDefect.corrected_nat_blocks`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L79), [`GrowthRates.LogDefect.nat_blocks`](https://github.com/chenle02/growth-rates-lean/blob/158e8431c1dbe0c52cdf3b76b6e7231ef6981c67/GrowthRates/LogDefect.lean#L127).
@@ -733,10 +710,14 @@ The [verification page](verification.md) and the [coverage page](coverage.md) ar
 lean-pkg from the build and comparator receipts in `.lean-receipts/`. The comparator checks each
 statement of `GrowthRates/Solution.lean` against the trusted, Mathlib-only statement of the same
 name in `GrowthRates/Challenge.lean` (the slots listed in `comparator.json`), and
-`GrowthRates/Axioms.lean` prints the axioms of every claim. Eight negative controls in
-`GrowthRatesTest/*.lean.disabled` each remove one hypothesis or falsify one conclusion of a library
-statement; `scripts/check-negative-controls.sh` requires every one of them to fail to compile for a
-mathematical reason.
+`GrowthRates/Axioms.lean` prints the axioms of every claim. Eight altered-contract regression
+controls attempt to apply these original APIs after removing hypotheses or changing conclusions.
+The strict checker requires elaborated type/application or constructor-arity mismatches and rejects setup failures.
+An unsuccessful attempted proof is not a certificate that every altered statement is false.
+The maintenance gate additionally audits every module-owned declaration, its complete raw type,
+available value or recursor rules, universe parameters, safety and transitive axioms; a separately
+compiled fixture exercises rejection of a forbidden transitive axiom. A separate same-host
+source-only owned rebuild is compared byte for byte. Imported dependencies remain trusted.
 
 ## References
 
@@ -746,8 +727,9 @@ mathematical reason.
 2. E. Hille and R. S. Phillips, *Functional Analysis and Semi-Groups*, rev. ed., American
    Mathematical Society Colloquium Publications **31**, AMS, Providence, RI, 1957.
    [doi:10.1090/coll/031](https://doi.org/10.1090/coll/031).
-3. N. G. de Bruijn and P. Erdős, *Some linear and some quadratic recursion formulas. II*, Nederl.
+3. E. Hille, *Functional Analysis and Semi-Groups*, first edition, AMS Colloquium Publications **31**, 1948, Theorem 6.6.1, p.135; standing measurability convention §6.2, p.131. [Primary scan](https://archive.org/download/functionalanalys017173mbp/functionalanalys017173mbp.pdf).
+4. N. G. de Bruijn and P. Erdős, *Some linear and some quadratic recursion formulas. II*, Nederl.
    Akad. Wetensch. Proc. Ser. A **55** = Indag. Math. **14** (1952), 152–163.
    [doi:10.1016/S1385-7258(52)50021-0](https://doi.org/10.1016/S1385-7258(52)50021-0).
-4. The Mathlib Community, `Mathlib/Analysis/Subadditive.lean` (`Subadditive.tendsto_lim`),
+5. The Mathlib Community, `Mathlib/Analysis/Subadditive.lean` (`Subadditive.tendsto_lim`),
    [mathlib4 at 56a0058](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Subadditive.lean).

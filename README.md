@@ -103,12 +103,14 @@ Each Lean statement is the authority; read its hypotheses before you use it. The
 
 Standalone library; there is no accompanying paper.
 
-Mathlib's `Subadditive.tendsto_lim` is Fekete's lemma for sequences; this library proves the
-continuous-time version and the variants above. The results belong to a classical line of work: Fekete's
-lemma for subadditive sequences (M. Fekete, 1923), the limit theorem for subadditive functions on the half-line
-in Hille and Phillips's *Functional Analysis and Semi-Groups*, and de Bruijn and Erdős's theorem on
-near-subadditive sequences. Full bibliographic data are in the
-[statement guide](docs/what-is-proved.md).
+Mathlib's `Subadditive.tendsto_lim` concerns sequences. A checked continuous-time comparison is
+Hille's first edition (1948), Theorem 6.6.1, p.135, with its standing measurability convention
+in §6.2, p.131. This library supplies local upper bounds directly and adds nonnegativity; it is
+a related formulation, not a literal formalization of that theorem. Fekete (1923), §2,
+Theorem II, p.233 supplies historical polynomial context. De Bruijn–Erdős (1952), Theorem 23,
+p.162 concerns near-subadditive sequences and is related background for the logarithmic-defect
+results. The [statement guide](docs/what-is-proved.md) gives primary links, exact differences
+and the [reference audit](docs/reference-audit.json).
 
 ## Build and verify
 
@@ -142,8 +144,8 @@ Checks in this repository:
   [`claims.yaml`](claims.yaml) to `LOG`, and prints SHA-256 digests of `lake-manifest.json` (before and after)
   and of the log.
 - [`scripts/check-negative-controls.sh`](scripts/check-negative-controls.sh) (after `lake build GrowthRates`)
-  compiles each deliberately falsified statement in [`GrowthRatesTest/`](GrowthRatesTest/) and requires
-  every one to fail for a mathematical reason, not a setup error.
+  compiles each deliberately altered contract in [`GrowthRatesTest/`](GrowthRatesTest/) and requires
+  every one to fail with an elaborated type/application or constructor-arity mismatch, never a setup error. These are API regression controls, not certificates that every modified theorem is false.
 - The trusted comparator statements are in [`GrowthRates/Challenge.lean`](GrowthRates/Challenge.lean)
   (Mathlib vocabulary only, configuration [`comparator.json`](comparator.json)); its `sorry` is intentional.
   [`GrowthRates/Solution.lean`](GrowthRates/Solution.lean) proves each statement from the library.
@@ -154,7 +156,7 @@ The library modules contain no `sorry`. [`GrowthRates/Axioms.lean`](GrowthRates/
 axioms of every declaration in `claims.yaml` and of every comparator Solution theorem; each must depend only on
 `propext`, `Classical.choice` and `Quot.sound`. The comparator Challenge `GrowthRates/Challenge.lean` has
 `sorry` bodies by design: it holds the trusted statements, which the comparator matches against the
-Solution. Eight negative controls check that falsified variants of the statements are rejected. Receipts
+Solution. Eight altered-contract regression controls check rejection of attempted uses of the original APIs with changed hypotheses or conclusions. Such rejection is not a counterexample proof for every altered statement. Receipts
 are recorded under `.lean-receipts/` once the gate runs; no tool checks that the prose in this README
 describes the Lean statements.
 

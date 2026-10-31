@@ -10,7 +10,7 @@ If $`b\colon[0,\infty)\to\mathbb{R}`$ is nonnegative, subadditive and bounded ab
 [![Release](https://img.shields.io/badge/release-v0.1.0-153e63)](https://github.com/chenle02/growth-rates-lean/releases/tag/v0.1.0)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23669797.svg)](https://doi.org/10.5281/zenodo.23669797)
 
-[What is proved](#what-is-proved) · [Statement guide](docs/what-is-proved.md) · [Verification page](docs/verification.md) · [Build](#build-and-verify) · [Cite](CITATION.cff)
+[What is proved](#what-is-proved) · [Statement guide](https://chenle02.github.io/growth-rates-lean/what-is-proved.html) · [Verification page](https://chenle02.github.io/growth-rates-lean/verification.html) · [Build](#build-and-verify) · [Cite](CITATION.cff)
 
 </div>
 
@@ -24,13 +24,13 @@ are a guide to the full hypotheses in the linked Lean statements.
 
 1. **Fekete's lemma in continuous time.** Let $`b`$ satisfy `RealTimeBounds b`: $`b(t)\ge0`$ and
    $`b(t+u)\le b(t)+b(u)`$ for $`t,u\ge0`$, and for every $`h>0`$ there is $`M`$ with $`b(r)\le M`$ on
-   $`[0,h]`$. Then $`b(t)/t\to\operatorname{rate}b=\inf_{h>0}b(h)/h`$ (Mathlib's `sInf` of the slopes),
-   $`\operatorname{rate}b\le b(t)/t`$ for every $`t>0`$, and $`\operatorname{rate}b\ge0`$.
+   $`[0,h]`$. Then $`b(t)/t\to\mathrm{rate}(b)=\inf_{h>0}b(h)/h`$ (Mathlib's `sInf` of the slopes),
+   $`\mathrm{rate}(b)\le b(t)/t`$ for every $`t>0`$, and $`\mathrm{rate}(b)\ge0`$.
    `GrowthRates.RealFekete.tendsto_div_rate`, `rate_le_slope`, `rate_nonneg`
    ([details](docs/what-is-proved.md#1-feketes-lemma-in-continuous-time))
 2. **Rate transfer under a logarithmic comparison.** Under `RealTimeBounds b`, if
-   $`m(t)\le b(t)\le m(t)+A+B\log(1+t)`$ for $`t>0`$, then $`m(t)/t\to\operatorname{rate}b`$; the upper
-   comparison alone gives $`t\operatorname{rate}b-A-B\log(1+t)\le m(t)`$ for every $`t>0`$. For
+   $`m(t)\le b(t)\le m(t)+A+B\log(1+t)`$ for $`t>0`$, then $`m(t)/t\to\mathrm{rate}(b)`$; the upper
+   comparison alone gives $`t\mathrm{rate}(b)-A-B\log(1+t)\le m(t)`$ for every $`t>0`$. For
    `SubmulInputs N C` ($`C\ge0`$, $`N\ge1`$, $`N(t+u)\le N(t)N(u)`$, $`N(t)\le e^{Ct}`$ on $`[0,\infty)`$) and
    $`0<F\le N`$ with $`\log N(t)\le\log F(t)+A+B\log(1+t)`$ for $`t>0`$, the same two conclusions hold for
    $`\log F`$ with the rate of $`\log N`$.
@@ -38,9 +38,7 @@ are a guide to the full hypotheses in the linked Lean statements.
    ([details](docs/what-is-proved.md#2-rate-transfer-under-a-logarithmic-comparison))
 3. **Fekete's lemma with a logarithmic defect.** Let $`M,B\ge0`$, $`h\ge1`$, and let $`a`$ be monotone with
    $`a(x)\le Cx`$ on $`[h,\infty)`$ and
-   ```math
-   a(x)+a(y)-M\log(x+y)-B\le a(x+y)\qquad(x,y\ge h).
-   ```
+   $`a(x)+a(y)-M\log(x+y)-B\le a(x+y)\qquad(x,y\ge h).`$
    Then $`a(t)/t`$ converges to $`\sup_{x\ge h}\bigl(a(x)-M\log x-B-M\log\tfrac92\bigr)/x`$. On the way,
    balanced merges ($`x/2\le y\le2x`$) of the corrected function are superadditive and equal blocks satisfy
    $`k\,\tilde a(x)\le\tilde a(kx)`$ and $`k\,\tilde a(x)\le a(kx)`$ for $`k\ge1`$, where $`\tilde a`$ is the
@@ -70,26 +68,22 @@ are a guide to the full hypotheses in the linked Lean statements.
    $`\min(1,\delta/T)^nf(T)\le B(T,\delta)`$ and a composition $`B(T,\delta)f(t)\le f(t+T+\delta)`$. Then
    $`\lambda\ge0`$, two-sided bounds on $`\log f(T)`$ hold for every $`T,\delta>0`$, and, if $`f(0)=1`$ and
    $`n>0`$,
-   ```math
-   \bigl|\log f(T)-T\lambda\bigr|\le n\bigl(1+\log(2+T\lambda/n)\bigr)\qquad(T\ge0).
-   ```
+   $`\bigl|\log f(T)-T\lambda\bigr|\le n\bigl(1+\log(2+T\lambda/n)\bigr)\qquad(T\ge0).`$
    `GrowthRates.FiniteError.finite_bounds`, `optimize`, `log_error`
    ([details](docs/what-is-proved.md#6-quantitative-finite-time-error))
 7. **Joint error from two orders.** For $`f_n,f_m`$ with `CutInputs` at orders $`n,m`$ and rates
    $`\lambda_n,\lambda_m`$, the scalings $`T\lambda_n=nc_nz`$, $`T\lambda_m=mc_mz`$ with
    $`0\le C\le c_m\le c_n\le M`$, and a quantity $`x`$ with
    $`\tfrac pm\log f_m(T)\le x\le\tfrac pn\log f_n(T)`$ ($`p,z>0`$, $`T\ge0`$):
-   ```math
-   \Bigl|\frac{x}{pz}-C\Bigr|\le c_n-C+\frac{1+\log(2+Mz)}{z}.
-   ```
+   $`\Bigl|\frac{x}{pz}-C\Bigr|\le c_n-C+\frac{1+\log(2+Mz)}{z}.`$
    `sandwich_error` is the same estimate in pure real arithmetic.
    `GrowthRates.FiniteError.joint_error`, `sandwich_error`
    ([details](docs/what-is-proved.md#7-joint-error-from-two-orders))
 
 Each Lean statement is the authority; read its hypotheses before you use it. The
-[statement guide](docs/what-is-proved.md) gives each result in mathematics beside its Lean statement, and the
-[verification page](docs/verification.md) records the checks. The module map is on the
-[modules page](docs/modules.md).
+[statement guide](https://chenle02.github.io/growth-rates-lean/what-is-proved.html) gives each result in mathematics beside its Lean statement, and the
+[verification page](https://chenle02.github.io/growth-rates-lean/verification.html) records the checks. The module map is on the
+[modules page](https://chenle02.github.io/growth-rates-lean/modules.html).
 
 > [!IMPORTANT]
 > **Not proved here.**
@@ -109,7 +103,7 @@ in §6.2, p.131. This library supplies local upper bounds directly and adds nonn
 a related formulation, not a literal formalization of that theorem. Fekete (1923), §2,
 Theorem II, p.233 supplies historical polynomial context. De Bruijn–Erdős (1952), Theorem 23,
 p.162 concerns near-subadditive sequences and is related background for the logarithmic-defect
-results. The [statement guide](docs/what-is-proved.md) gives primary links, exact differences
+results. The [statement guide](https://chenle02.github.io/growth-rates-lean/what-is-proved.html) gives primary links, exact differences
 and the [reference audit](docs/reference-audit.json).
 
 ## Build and verify
@@ -179,6 +173,12 @@ AI coding assistants were used for drafting the Lean proofs, extracting them int
 documentation under Le Chen's direction. AI assistance is not human review; every status claim rests on the
 recorded Lean builds, axiom audits and comparator checks. Mathlib retains its own notices (see
 [NOTICE](NOTICE)).
+
+For typeset statements, see the [verification page](https://chenle02.github.io/growth-rates-lean/verification.html).
+The full ledger is available below with its exact Lean statements and evidence links.
+
+<details>
+<summary>Full verification ledger — statements, axioms and receipts</summary>
 
 <!-- lean-pkg:page:begin -->
 <!-- Generated by `lean-pkg page growth-rates-lean` from coverage.yaml, claims.yaml, the claims ledger and the receipts committed under .lean-receipts/. Do not edit between the markers: change the data and run `lean-pkg page growth-rates-lean --write`. -->
@@ -711,3 +711,5 @@ Released under `Apache-2.0`; see [LICENSE](LICENSE).
 Developed and verified with [lean-pkg](https://github.com/lean-pkg/lean-pkg) ([doi:10.5281/zenodo.23272098](https://doi.org/10.5281/zenodo.23272098)).
 
 <!-- lean-pkg:page:end -->
+
+</details>
